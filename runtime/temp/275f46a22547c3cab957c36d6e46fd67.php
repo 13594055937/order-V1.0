@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\login\index.html";i:1515663253;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -48,14 +49,10 @@
     function submit_form(){
         $.ajax({
             type:"POST",
-            url:"{:url('loginvalidate')}",
+            url:"<?php echo url('loginvalidate'); ?>",
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-                if(data.status==1){
-                    layer.alert(data.result);
-
-				}
                 layer.alert(data.result);
             }
         })
