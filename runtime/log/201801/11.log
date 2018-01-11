@@ -20983,3 +20983,1350 @@ INIT File
 [ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
 [ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.015600s ]
 [ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:01:49+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/index.html [运行时间：0.576722s][吞吐率：1.73req/s] [内存消耗：2,651.06kb] [文件加载：36]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Login->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:01:51+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.200204s][吞吐率：4.99req/s] [内存消耗：2,585.92kb] [文件加载：34]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '19',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080',
+)
+[ info ] [ PARAM ] array (
+  'name' => '',
+  'password' => 'root',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:02:08+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.364646s][吞吐率：2.74req/s] [内存消耗：4,474.87kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004638s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.026333s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.001956s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:02:31+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.077390s][吞吐率：12.92req/s] [内存消耗：2,585.91kb] [文件加载：34]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '21',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => '',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:14:03+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.383218s][吞吐率：2.61req/s] [内存消耗：4,474.87kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005874s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.011964s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.003408s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:14:10+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.293143s][吞吐率：3.41req/s] [内存消耗：2,549.50kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:14:13+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/favicon.ico
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/favicon.ico [运行时间：0.159251s][吞吐率：6.28req/s] [内存消耗：2,354.44kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'favicon.ico',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:14:23+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.154735s][吞吐率：6.46req/s] [内存消耗：4,473.91kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '25',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'root',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003606s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006292s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = '1fbb2bce335a8ff0015ccf9f76018b74'  AND `status` = 1 LIMIT 1 [ RunTime:0.001895s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:15:36+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.169162s][吞吐率：5.91req/s] [内存消耗：4,475.03kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003650s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006279s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.002292s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:15:56+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/index.html [运行时间：0.227933s][吞吐率：4.39req/s] [内存消耗：2,651.91kb] [文件加载：36]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Login->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:16:07+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.152385s][吞吐率：6.56req/s] [内存消耗：4,475.34kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003934s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006341s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.002367s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:16:07+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.106591s][吞吐率：9.38req/s] [内存消耗：2,276.87kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:16:21+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.820716s][吞吐率：1.22req/s] [内存消耗：4,475.34kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676569',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003266s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.323559s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.002006s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:16:21+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.116079s][吞吐率：8.61req/s] [内存消耗：2,276.87kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676569',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:18:06+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.231949s][吞吐率：4.31req/s] [内存消耗：4,475.03kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676584',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003601s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.023450s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.002320s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:18:06+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.098982s][吞吐率：10.10req/s] [内存消耗：2,276.87kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676584',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:18:18+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.202032s][吞吐率：4.95req/s] [内存消耗：4,473.91kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '25',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676687',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'root',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005014s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.044143s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = '1fbb2bce335a8ff0015ccf9f76018b74'  AND `status` = 1 LIMIT 1 [ RunTime:0.002359s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:18:25+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.140190s][吞吐率：7.13req/s] [内存消耗：4,475.03kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676687',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003858s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006230s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.002112s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:18:25+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.107118s][吞吐率：9.34req/s] [内存消耗：2,276.87kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676687',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:18:37+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.090322s][吞吐率：11.07req/s] [内存消耗：2,276.82kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676706',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:19:01+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/index.html [运行时间：0.127941s][吞吐率：7.82req/s] [内存消耗：2,651.93kb] [文件加载：36]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676718',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Login->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:19:06+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/index.html [运行时间：0.090003s][吞吐率：11.11req/s] [内存消耗：2,400.90kb] [文件加载：34]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676718',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Login->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:19:28+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.215567s][吞吐率：4.64req/s] [内存消耗：4,475.03kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676718',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003229s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.074704s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.003577s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:20:19+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/index.html [运行时间：0.138073s][吞吐率：7.24req/s] [内存消耗：2,651.93kb] [文件加载：36]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676718',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Login->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:20:26+08:00 ] ::1 ::1 POST /order/order-v1.0/order/admin.php/home/login/loginvalidate.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/login/loginvalidate.html [运行时间：0.139162s][吞吐率：7.19req/s] [内存消耗：4,475.03kb] [文件加载：43]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'login',
+    2 => 'loginvalidate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '27',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676718',
+)
+[ info ] [ PARAM ] array (
+  'name' => 'helian',
+  'password' => 'helian',
+)
+[ info ] [ RUN ] app\home\controller\Login->loginvalidate[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004064s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006802s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'helian'  AND `userpwd` = 'e538c70c13ba725630b11e30bc86b8a7'  AND `status` = 1 LIMIT 1 [ RunTime:0.002071s ]
+---------------------------------------------------------------
+[ 2018-01-11T21:20:26+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.102289s][吞吐率：9.78req/s] [内存消耗：2,276.87kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676718',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:21:12+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.132679s][吞吐率：7.54req/s] [内存消耗：2,550.33kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676827',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:21:13+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/static/h-ui/js/H-ui.js
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/static/h-ui/js/H-ui.js [运行时间：0.183223s][吞吐率：5.46req/s] [内存消耗：2,355.02kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'static',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676827',
+)
+[ info ] [ PARAM ] array (
+  'ui' => 'js',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:21:13+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/lib/jquery/1.9.1/jquery.min.js
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/lib/jquery/1.9.1/jquery.min.js [运行时间：0.223784s][吞吐率：4.47req/s] [内存消耗：2,355.06kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676827',
+)
+[ info ] [ PARAM ] array (
+  'jquery' => '1.9.1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:21:13+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/static/h-ui.admin/js/H-ui.admin.page.js
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/static/h-ui.admin/js/H-ui.admin.page.js [运行时间：0.176651s][吞吐率：5.66req/s] [内存消耗：2,355.16kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'static',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676827',
+)
+[ info ] [ PARAM ] array (
+  'admin' => 'js',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:21:13+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/lib/layer/2.4/layer.js
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/lib/layer/2.4/layer.js [运行时间：0.272073s][吞吐率：3.68req/s] [内存消耗：2,354.99kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676827',
+)
+[ info ] [ PARAM ] array (
+  'layer' => '2.4',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:21:13+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/static/h-ui/js/H-ui.js
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/static/h-ui/js/H-ui.js [运行时间：0.140186s][吞吐率：7.13req/s] [内存消耗：2,355.02kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'static',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676827',
+)
+[ info ] [ PARAM ] array (
+  'ui' => 'js',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:21:13+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/static/h-ui.admin/js/H-ui.admin.page.js
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/static/h-ui.admin/js/H-ui.admin.page.js [运行时间：0.105557s][吞吐率：9.47req/s] [内存消耗：2,355.16kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'static',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676827',
+)
+[ info ] [ PARAM ] array (
+  'admin' => 'js',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:22:16+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.106593s][吞吐率：9.38req/s] [内存消耗：2,549.74kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:22:22+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/picture-list.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/picture-list.html [运行时间：0.135533s][吞吐率：7.38req/s] [内存消耗：2,355.20kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'picture-list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:25:48+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.105453s][吞吐率：9.48req/s] [内存消耗：2,549.91kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/picture-list.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:28:10+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.110274s][吞吐率：9.07req/s] [内存消耗：2,549.91kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/picture-list.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:28:11+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.097382s][吞吐率：10.27req/s] [内存消耗：2,277.04kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/picture-list.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:28:31+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.133080s][吞吐率：7.51req/s] [内存消耗：2,549.91kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/picture-list.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:28:53+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.096014s][吞吐率：10.42req/s] [内存消耗：2,277.05kb] [文件加载：33]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'Huiskin=default; pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:29:40+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.129643s][吞吐率：7.71req/s] [内存消耗：2,550.81kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'Huiskin=default; pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-11T21:30:24+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.163201s][吞吐率：6.13req/s] [内存消耗：2,550.81kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'Huiskin=default; pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1515676874',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
