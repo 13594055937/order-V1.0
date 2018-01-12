@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\login\index.html";i:1515663253;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\login\index.html";i:1515738803;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -32,7 +32,7 @@
 			</div>
 			<div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3" style="margin-left:29%;">
-					<input name="" style="width:220px;" onclick="submit_form()" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+					<input style="width:220px;" onclick="submit_form()" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
 				</div>
 			</div>
 		</form>
@@ -53,6 +53,10 @@
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
+                if(data.status==1){
+                    // layer.msg(data.result);
+                    window.location.href="<?php echo url('index/index'); ?>";
+				}
                 layer.alert(data.result);
             }
         })
