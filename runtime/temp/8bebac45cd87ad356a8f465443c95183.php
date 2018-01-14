@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1515835583;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515834553;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1515835625;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\index.html";i:1515851939;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1515835583;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515851688;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1515835625;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -99,6 +99,7 @@
             <dd>
                 <ul>
                     <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户管理</a></li>
+                    <li><a href="<?php echo url('home/user/adduser'); ?>" title="用户管理">用户添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -106,7 +107,7 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 公司管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="member-list.html" title="会员列表">会员列表</a></li>
+                    <li><a href="" title="会员列表">会员列表</a></li>
                     <li><a href="member-del.html" title="删除的会员">删除的会员</a></li>
                     <li><a href="member-level.html" title="等级管理">等级管理</a></li>
                     <li><a href="member-scoreoperation.html" title="积分管理">积分管理</a></li>
@@ -166,182 +167,73 @@
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 
-
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a> 
-		<span class="c-999 en">&gt;</span>
-		<span class="c-666">我的桌面</span> 
-		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
-			<p class="f-20 text-success">欢迎使用H-ui.admin
-				<span class="f-14">v2.3</span>
-				后台模版！</p>
-			<p>登录次数：18 </p>
-			<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
-			<table class="table table-border table-bordered table-bg">
-				<thead>
-					<tr>
-						<th colspan="7" scope="col">信息统计</th>
-			</tr>
-					<tr class="text-c">
-						<th>统计</th>
-						<th>资讯库</th>
-						<th>图片库</th>
-						<th>产品库</th>
-						<th>用户</th>
-						<th>管理员</th>
-			</tr>
-		</thead>
-				<tbody>
-					<tr class="text-c">
-						<td>总数</td>
-						<td>92</td>
-						<td>9</td>
-						<td>0</td>
-						<td>8</td>
-						<td>20</td>
-			</tr>
-					<tr class="text-c">
-						<td>今日</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-					<tr class="text-c">
-						<td>昨日</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-					<tr class="text-c">
-						<td>本周</td>
-						<td>2</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-					<tr class="text-c">
-						<td>本月</td>
-						<td>2</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-		</tbody>
-	</table>
-			<table class="table table-border table-bordered table-bg mt-20">
-				<thead>
-					<tr>
-						<th colspan="2" scope="col">服务器信息</th>
-			</tr>
-		</thead>
-				<tbody>
-					<tr>
-						<th width="30%">服务器计算机名</th>
-						<td><span id="lbServerName">http://127.0.0.1/</span></td>
-			</tr>
-					<tr>
-						<td>服务器IP地址</td>
-						<td>192.168.1.1</td>
-			</tr>
-					<tr>
-						<td>服务器域名</td>
-						<td>www.h-ui.net</td>
-			</tr>
-					<tr>
-						<td>服务器端口 </td>
-						<td>80</td>
-			</tr>
-					<tr>
-						<td>服务器IIS版本 </td>
-						<td>Microsoft-IIS/6.0</td>
-			</tr>
-					<tr>
-						<td>本文件所在文件夹 </td>
-						<td>D:\WebSite\HanXiPuTai.com\XinYiCMS.Web\</td>
-			</tr>
-					<tr>
-						<td>服务器操作系统 </td>
-						<td>Microsoft Windows NT 5.2.3790 Service Pack 2</td>
-			</tr>
-					<tr>
-						<td>系统所在文件夹 </td>
-						<td>C:\WINDOWS\system32</td>
-			</tr>
-					<tr>
-						<td>服务器脚本超时时间 </td>
-						<td>30000秒</td>
-			</tr>
-					<tr>
-						<td>服务器的语言种类 </td>
-						<td>Chinese (People's Republic of China)</td>
-			</tr>
-					<tr>
-						<td>.NET Framework 版本 </td>
-						<td>2.050727.3655</td>
-			</tr>
-					<tr>
-						<td>服务器当前时间 </td>
-						<td>2014-6-14 12:06:23</td>
-			</tr>
-					<tr>
-						<td>服务器IE版本 </td>
-						<td>6.0000</td>
-			</tr>
-					<tr>
-						<td>服务器上次启动到现在已运行 </td>
-						<td>7210分钟</td>
-			</tr>
-					<tr>
-						<td>逻辑驱动器 </td>
-						<td>C:\D:\</td>
-			</tr>
-					<tr>
-						<td>CPU 总数 </td>
-						<td>4</td>
-			</tr>
-					<tr>
-						<td>CPU 类型 </td>
-						<td>x86 Family 6 Model 42 Stepping 1, GenuineIntel</td>
-			</tr>
-					<tr>
-						<td>虚拟内存 </td>
-						<td>52480M</td>
-			</tr>
-					<tr>
-						<td>当前程序占用内存 </td>
-						<td>3.29M</td>
-			</tr>
-					<tr>
-						<td>Asp.net所占内存 </td>
-						<td>51.46M</td>
-			</tr>
-					<tr>
-						<td>当前Session数量 </td>
-						<td>8</td>
-			</tr>
-					<tr>
-						<td>当前SessionID </td>
-						<td>gznhpwmp34004345jz2q3l45</td>
-			</tr>
-					<tr>
-						<td>当前系统用户名 </td>
-						<td>NETWORK SERVICE</td>
-			</tr>
-		</tbody>
-	</table>
-</article>
-		<footer class="footer">
-			<p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br> Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
-</footer>
-</div>
+			<div class="text-c">
+				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="" name="">
+				<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('user/adduser'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th><input type="checkbox" name="" value=""></th>
+							<th>用户ID</th>
+							<th>用户编号</th>
+							<th>用户名</th>
+							<th>手机</th>
+							<th>微信号</th>
+							<th>邮箱</th>
+							<th>所属公司</th>
+							<th>所在组</th>
+							<th>用户类型</th>
+							<th >最近登录时间</th>
+							<th>状态</th>
+							<th >操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+						<tr class="text-c">
+							<td width="25"><input type="checkbox" name="" value=""></td>
+							<td><?php echo $vo['id']; ?></td>
+							<td><?php echo $vo['usercode']; ?></td>
+							<td><?php echo $vo['username']; ?></td>
+							<td><?php echo $vo['mobile']; ?></td>
+							<td><?php echo $vo['openid']; ?></td>
+							<td><?php echo $vo['email']; ?></td>
+							<td><?php echo $vo['company']; ?></td>
+							<td><?php echo $vo['usergroup']; ?></td>
+							<td><?php echo $vo['usertype']; ?></td>
+							<td><?php echo $vo['latestLogin']; ?></td>
+							<td class="td-status">
+								<?php if($vo['status']==1): ?>
+								<span class="label label-success radius">已启用</span>
+								<?php elseif($vo['status']==0): ?>
+								<span class="label label-defaunt radius">已停用</span>
+								<?php else: ?>
+								<span class="label label-defaunt radius">异常</span>'
+								<?php endif; ?>
+							</td>
+							<td class="td-manage">
+							<?php if($vo['status']==1): ?>
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
+								<?php else: ?>
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
+								<?php endif; ?>
+							<a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+							<a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password.html','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>
+						<?php endforeach; endif; else: echo "" ;endif; ?>
+					</tbody>
+				</table>
+				<?php echo $list->render(); ?>
+			</div>
+		</article>
+	</div>
 </section>
 
 <script type="text/javascript" src="../../../public/lib/jquery/1.9.1/jquery.min.js"></script>
@@ -351,8 +243,60 @@
 <script type="text/javascript" src="../../../public/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="../../../public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../../public/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
+// /*用户-添加*/
+// function member_add(){
+// 		layer.open({
+//   type: 2 //Page层类型
+//   ,area: ['500px', '408px']
+//   ,title: '用户添加'
+//   ,shade: 0.6 //遮罩透明度
+//   ,maxmin: true //允许全屏最小化
+//   ,anim: 1 //0-6的动画形式，-1不开启
+//   ,content: 'adduser.html'
+// }); 
+// }
+/*用户-查看*/
+function member_show(title,url,id,w,h){
+	layer_show(title,url,w,h);
+}
+/*用户-停用*/
+function member_stop(id){
+	layer.confirm('确认要停用/启用吗？',function(){
+		$.post("<?php echo url('user/status'); ?>",{id:id},function(data){
+		layer.msg(data.message);
+		window.location.replace(location.href);
+		});
+	});
+}
 
+/*用户-启用*/
+function member_start(obj,id){
+	layer.confirm('确认要启用吗？',function(index){
+		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+		$(obj).remove();
+		layer.msg('已启用!',{icon: 6,time:1000});
+	});
+}
+/*用户-编辑*/
+function member_edit(title,url,id,w,h){
+	layer_show(title,url,w,h);
+}
+/*密码-修改*/
+function change_password(title,url,id,w,h){
+	layer_show(title,url,w,h);	
+}
+/*用户-删除*/
+function member_del(obj,id){
+	layer.confirm('确认要删除吗？',function(index){
+		$(obj).parents("tr").remove();
+		layer.msg('已删除!',{icon:1,time:1000});
+	});
+}
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

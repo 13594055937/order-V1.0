@@ -14,10 +14,13 @@ class User extends Model
         $status = [0=>'管理员',1=>'工程师',2=>'报修人'];
         return $status[$value];
     }
-    public function getStatusAttr($value)
-    {
-        $status = [0=>'停用',1=>'已启用'];
-        return $status[$value];
-    }
+    // public function getStatusAttr($value)
+    // {
+    //     $status = [
+    //     0=>'<span class="label label-defaunt radius">已停用</span>',
+    //     1=>'<span class="label label-success radius">已启用</span>'
+    //     ];
+    //     return $status[$value];
+    // }
 
 }

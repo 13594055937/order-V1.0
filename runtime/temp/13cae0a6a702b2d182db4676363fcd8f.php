@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1515835583;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515834553;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1515835625;}*/ ?>
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:70:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1515851999;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1515835583;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515851688;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1515835625;}*/ ?>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -99,6 +99,7 @@
             <dd>
                 <ul>
                     <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户管理</a></li>
+                    <li><a href="<?php echo url('home/user/adduser'); ?>" title="用户管理">用户添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -106,7 +107,7 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 公司管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="member-list.html" title="会员列表">会员列表</a></li>
+                    <li><a href="" title="会员列表">会员列表</a></li>
                     <li><a href="member-del.html" title="删除的会员">删除的会员</a></li>
                     <li><a href="member-level.html" title="等级管理">等级管理</a></li>
                     <li><a href="member-scoreoperation.html" title="积分管理">积分管理</a></li>
@@ -165,184 +166,81 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
-
-
-<section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a> 
-		<span class="c-999 en">&gt;</span>
-		<span class="c-666">我的桌面</span> 
-		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-	<div class="Hui-article">
-		<article class="cl pd-20">
-			<p class="f-20 text-success">欢迎使用H-ui.admin
-				<span class="f-14">v2.3</span>
-				后台模版！</p>
-			<p>登录次数：18 </p>
-			<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
-			<table class="table table-border table-bordered table-bg">
-				<thead>
-					<tr>
-						<th colspan="7" scope="col">信息统计</th>
-			</tr>
-					<tr class="text-c">
-						<th>统计</th>
-						<th>资讯库</th>
-						<th>图片库</th>
-						<th>产品库</th>
-						<th>用户</th>
-						<th>管理员</th>
-			</tr>
-		</thead>
-				<tbody>
-					<tr class="text-c">
-						<td>总数</td>
-						<td>92</td>
-						<td>9</td>
-						<td>0</td>
-						<td>8</td>
-						<td>20</td>
-			</tr>
-					<tr class="text-c">
-						<td>今日</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-					<tr class="text-c">
-						<td>昨日</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-					<tr class="text-c">
-						<td>本周</td>
-						<td>2</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-					<tr class="text-c">
-						<td>本月</td>
-						<td>2</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-			</tr>
-		</tbody>
-	</table>
-			<table class="table table-border table-bordered table-bg mt-20">
-				<thead>
-					<tr>
-						<th colspan="2" scope="col">服务器信息</th>
-			</tr>
-		</thead>
-				<tbody>
-					<tr>
-						<th width="30%">服务器计算机名</th>
-						<td><span id="lbServerName">http://127.0.0.1/</span></td>
-			</tr>
-					<tr>
-						<td>服务器IP地址</td>
-						<td>192.168.1.1</td>
-			</tr>
-					<tr>
-						<td>服务器域名</td>
-						<td>www.h-ui.net</td>
-			</tr>
-					<tr>
-						<td>服务器端口 </td>
-						<td>80</td>
-			</tr>
-					<tr>
-						<td>服务器IIS版本 </td>
-						<td>Microsoft-IIS/6.0</td>
-			</tr>
-					<tr>
-						<td>本文件所在文件夹 </td>
-						<td>D:\WebSite\HanXiPuTai.com\XinYiCMS.Web\</td>
-			</tr>
-					<tr>
-						<td>服务器操作系统 </td>
-						<td>Microsoft Windows NT 5.2.3790 Service Pack 2</td>
-			</tr>
-					<tr>
-						<td>系统所在文件夹 </td>
-						<td>C:\WINDOWS\system32</td>
-			</tr>
-					<tr>
-						<td>服务器脚本超时时间 </td>
-						<td>30000秒</td>
-			</tr>
-					<tr>
-						<td>服务器的语言种类 </td>
-						<td>Chinese (People's Republic of China)</td>
-			</tr>
-					<tr>
-						<td>.NET Framework 版本 </td>
-						<td>2.050727.3655</td>
-			</tr>
-					<tr>
-						<td>服务器当前时间 </td>
-						<td>2014-6-14 12:06:23</td>
-			</tr>
-					<tr>
-						<td>服务器IE版本 </td>
-						<td>6.0000</td>
-			</tr>
-					<tr>
-						<td>服务器上次启动到现在已运行 </td>
-						<td>7210分钟</td>
-			</tr>
-					<tr>
-						<td>逻辑驱动器 </td>
-						<td>C:\D:\</td>
-			</tr>
-					<tr>
-						<td>CPU 总数 </td>
-						<td>4</td>
-			</tr>
-					<tr>
-						<td>CPU 类型 </td>
-						<td>x86 Family 6 Model 42 Stepping 1, GenuineIntel</td>
-			</tr>
-					<tr>
-						<td>虚拟内存 </td>
-						<td>52480M</td>
-			</tr>
-					<tr>
-						<td>当前程序占用内存 </td>
-						<td>3.29M</td>
-			</tr>
-					<tr>
-						<td>Asp.net所占内存 </td>
-						<td>51.46M</td>
-			</tr>
-					<tr>
-						<td>当前Session数量 </td>
-						<td>8</td>
-			</tr>
-					<tr>
-						<td>当前SessionID </td>
-						<td>gznhpwmp34004345jz2q3l45</td>
-			</tr>
-					<tr>
-						<td>当前系统用户名 </td>
-						<td>NETWORK SERVICE</td>
-			</tr>
-		</tbody>
-	</table>
+<title>添加用户 - H-ui.admin v3.0</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<article class="cl pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="sex" type="radio" id="sex-1" checked>
+					<label for="sex-1">男</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="sex">
+					<label for="sex-2">女</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-3" name="sex">
+					<label for="sex-3">保密</label>
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" placeholder="@" name="email" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">附件：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" type="text" name="uploadfile" id="uploadfile" readonly nullmsg="请添加附件！" style="width:200px">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
+				<input type="file" multiple name="file-2" class="input-file">
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">所在城市：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+					<option value="" selected>请选择城市</option>
+					<option value="1">北京</option>
+					<option value="2">上海</option>
+					<option value="3">广州</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="textarealength(this,100)"></textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
 </article>
-		<footer class="footer">
-			<p>感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br> Copyright &copy;2015 H-ui.admin v3.0 All Rights Reserved.<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
-</footer>
-</div>
-</section>
 
 <script type="text/javascript" src="../../../public/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="../../../public/lib/layer/2.4/layer.js"></script>
@@ -351,9 +249,53 @@
 <script type="text/javascript" src="../../../public/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-
-</script>
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#form-member-add").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:2,
+				maxlength:16
+			},
+			sex:{
+				required:true,
+			},
+			mobile:{
+				required:true,
+				isMobile:true,
+			},
+			email:{
+				required:true,
+				email:true,
+			},
+			uploadfile:{
+				required:true,
+			},
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit();
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
+});
+</script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
