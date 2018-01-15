@@ -9,6 +9,7 @@ namespace app\home\controller;
 use think\Controller;
 use think\Request;
 use app\home\model\User as UserModel;
+use app\home\model\Company;
 class User extends Controller{
 	// 用户管理
     public function index(){
@@ -33,6 +34,61 @@ class User extends Controller{
     }
     //添加用户
     public function adduser(){
+        $company=Company::all();
+        $this->assign('company',$company);
     	return $this->fetch();
+    }
+    public function usersave(){
+        $request=Request::instance();
+        $data=$request->param();
+        $rules=[
+            'usercode'=>'require',
+            'username'=>'require',
+            'password'=>'require',
+            'mobile'=>'require|length:11',
+            'openid'=>'require',
+            'email'=>'require|email'
+        ];
+        $msg=[
+          'usercode'=>['require'=>'编号不能为空，请输入编号。'],
+            'username'=>['require'=>'用户名不能为空，请输入用户名。'],
+            'password'=>['require'=>'密码不能为空，请输入用密码。'],
+             'mobile'=>['require'=>'手机号不能为空，请输入手机号。','length'=>'手机号不符合规则。'],
+            'openid'=>['require'=>'微信号不能为空，请输入用微信号。'],
+            'email'=>['require'=>'邮箱不能为空,请输入邮箱。','email'=>'请输入正确的邮箱格式。']
+        ];
+        $result=$this->validate($data,$rules,$msg);
+        if($result===true){
+            $test=[
+        'usercode'=>$data['usercode'],
+        'username'=>$data['username'],
+        'userpwd'=>$data['password'],
+        'mobile'=>$data['mobile'],
+        'openid'=>$data['openid'],
+        'email'=>$data['email'],
+        'usertype'=>$data['usertype'],
+        'company'=>$data['company'],
+        'status'=>$data['status']
+        // 'latestLogin'=>$data['']
+        ];
+        $user=UserModel::create($test);
+        if($user){
+            $result="用户添加成功。";
+        }
+        else{
+            $result="系统错误，添加失败。";
+        }
+}
+        return ['result'=>$result];
+    }
+    //编辑用户
+    public function useredit(){
+        $request = Request::instance();
+        $id = $request->param('id');
+        $list=UserModel::get($id);
+        $company=Company::all();
+        $this->assign('company',$company);
+        $this->assign('list',$list);
+        return $this->fetch();
     }
 }

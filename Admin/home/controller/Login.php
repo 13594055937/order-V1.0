@@ -38,6 +38,7 @@ class Login extends Controller
                 $result="登陆失败，账号或密码错误。";
             }
         }
+        // exit(json_encode(array('status'=>$status,'msg'=>$result)));
         return ['result'=>$result,'status'=>$status];
 
 
