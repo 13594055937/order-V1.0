@@ -56,7 +56,7 @@
             success:function(data){
                 if(data.status==1){
                     layer.msg(data.result);
-                    window.location.href="index/index";
+                    // window.location.href="{:url('index/index')}";
 				}
                 layer.alert(data.result);
             }

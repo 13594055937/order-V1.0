@@ -6,6 +6,7 @@
 <body>
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<input type="hidden" name="id" value="{$list.id}">
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -37,13 +38,13 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
+			<label class="form-label col-xs-4 col-sm-3">用户类型：{$list.usertype}</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="status">
 				{switch name="list.usertype" }
-    			{case value="0"}<option value="0" selected>管理员</option>{/case}
-    			{case value="1"}<option value="1" selected>工程师</option>{/case}
-    			{case value="2"}<option value="2" selected>派单人</option>{/case}
+    			{case value="管理员"}<option value="0" selected>管理员</option>{/case}
+    			{case value="工程师"}<option value="1" selected>工程师</option>{/case}
+    			{case value="派单人"}<option value="2" selected>派单人</option>{/case}
 				{/switch}
 					<option value="0">管理员</option>
 					<option value="1">工程师</option>
@@ -114,10 +115,10 @@
 {include file="public/footer" /}
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
 function submit_form(url){
         $.ajax({
@@ -127,11 +128,7 @@ function submit_form(url){
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-                if(data.status==1){
                     layer.msg(data.result);
-                    window.location.href="index/index";
-				}
-                layer.alert(data.result);
             }
         })
     }

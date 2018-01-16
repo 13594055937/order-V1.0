@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\login\index.html";i:1515676814;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\login\index.html";i:1516106385;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -32,7 +32,7 @@
 			</div>
 			<div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3" style="margin-left:29%;">
-					<input style="width:220px;" onclick="submit_form()" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+					<input style="width:220px;" onclick="submit_form('loginvalidate')" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
 				</div>
 			</div>
 		</form>
@@ -43,18 +43,20 @@
 <script type="text/javascript" src="../../../public/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="../../../public/static/h-ui/js/H-ui.js"></script>
 <script src="../../../public/lib/layer/2.4/layer.js"></script>
+<!-- <script type="text/javascript" src="../../../public/js/ajax.js"></script> -->
 </body>
 </html>
 <script>
-    function submit_form(){
+ function submit_form(url){
         $.ajax({
             type:"POST",
-            url:"<?php echo url('loginvalidate'); ?>",
+            // url:"<?php echo url('loginvalidate'); ?>",
+            url:url,
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
                 if(data.status==1){
-                    // layer.msg(data.result);
+                    layer.msg(data.result);
                     window.location.href="<?php echo url('index/index'); ?>";
 				}
                 layer.alert(data.result);
