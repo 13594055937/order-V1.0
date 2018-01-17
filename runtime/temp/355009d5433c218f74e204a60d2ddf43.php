@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\useredit.html";i:1516110307;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\useredit.html";i:1516193581;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -30,6 +30,7 @@
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
 	<input type="hidden" name="id" value="<?php echo $list['id']; ?>">
+	<input type="hidden" name="password" value="<?php echo $list['userpwd']; ?>">
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -126,7 +127,7 @@
 		</div>
 <br>
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="submit_form('usersave')" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -143,15 +144,15 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-function submit_form(url){
+function submit_form(){
         $.ajax({
             type:"POST",
             // url:"<?php echo url('loginvalidate'); ?>",
-            url:url,
+            url:"<?php echo url('usersave'); ?>",
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-                    layer.msg(data.result);
+                    layer.alert(data.result);
             }
         })
     }

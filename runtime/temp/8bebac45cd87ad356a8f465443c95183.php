@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\index.html";i:1516107279;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515851688;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\index.html";i:1516195818;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515851688;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -171,8 +171,8 @@
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="text-c">
-				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="" name="">
-				<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
+				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('user/adduser'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
 			<div class="mt-20">
@@ -229,7 +229,7 @@
 						<?php endforeach; endif; else: echo "" ;endif; ?>
 					</tbody>
 				</table>
-				<?php echo $list->render(); ?>
+
 			</div>
 		</article>
 	</div>
@@ -259,8 +259,10 @@
 // }); 
 // }
 /*用户-查看*/
-function member_show(title,url,id,w,h){
-	layer_show(title,url,w,h);
+function search(){
+	var search = $('#search').val();
+	window.location.href='searchuser?value='+search;
+	// $.post("<?php echo url('user/searchuser'); ?>",{value:search});
 }
 /*用户-停用*/
 function member_stop(id){

@@ -58,38 +58,37 @@ class User extends Controller{
             'email'=>['require'=>'邮箱不能为空,请输入邮箱。','email'=>'请输入正确的邮箱格式。']
         ];
         $result=$this->validate($data,$rules,$msg);
-//         if($result===true){
-//             $test=[
-//         'usercode'=>$data['usercode'],
-//         'username'=>$data['username'],
-//         'userpwd'=>$data['password'],
-//         'mobile'=>$data['mobile'],
-//         'openid'=>$data['openid'],
-//         'email'=>$data['email'],
-//         'usertype'=>$data['usertype'],
-//         'company'=>$data['company'],
-//         'status'=>$data['status']
-//         ];
-//         if(@$data['id']){
-//             $update=UserModel::where('id',$data['id'])->update($test);
-//              if($update){
-//             $result="用户更新成功。";
-//         }
-//             else{
-//                 $result="系统错误，更新失败。";
-//             }
-//     }
-//         else{
-//         $user=UserModel::create($test);
-//         if($user){
-//             $result="用户添加成功。";
-//         }
-//         else{
-//             $result="系统错误，添加失败。";
-//         }
-//     }
-// }
-        $result=1111;
+        if($result===true){
+            $test=[
+        'usercode'=>$data['usercode'],
+        'username'=>$data['username'],
+        'userpwd'=>$data['password'],
+        'mobile'=>$data['mobile'],
+        'openid'=>$data['openid'],
+        'email'=>$data['email'],
+        'usertype'=>$data['usertype'],
+        'company'=>$data['company'],
+        'status'=>$data['status']
+        ];
+        if(@$data['id']){
+            $update=UserModel::where('id',$data['id'])->update($test);
+             if($update){
+            $result="用户更新成功。";
+        }
+            else{
+                $result="系统错误，更新失败。";
+            }
+    }
+        else{
+        $user=UserModel::create($test);
+        if($user){
+            $result="用户添加成功。";
+        }
+        else{
+            $result="系统错误，添加失败。";
+        }
+    }
+}
         return ['result'=>$result];
     }
     //编辑用户
@@ -114,9 +113,11 @@ class User extends Controller{
         }
         return ['retuls'=>$retuls];
     }
-    public function userupdate(){
+    public function searchuser(){
         $request = Request::instance();
-        $data = $request->param();
-
+        $value = $request->param('value');
+        $retuls=UserModel::all(['usercode'=>$value]||['username'=>$value]);
+        $this->assign('list',$retuls);
+        return $this->fetch('index');
     }
 }
