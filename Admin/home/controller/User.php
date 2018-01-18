@@ -71,7 +71,8 @@ class User extends Controller{
         'email'=>$data['email'],
         'usertype'=>$data['usertype'],
         'company'=>$data['company'],
-        'status'=>$data['status']
+        'status'=>$data['status'],
+        'latestLogin'=>strtotime('now'),
         ];
         if(@$data['id']){
             $update=UserModel::where('id',$data['id'])->update($test);
@@ -116,6 +117,19 @@ class User extends Controller{
         }
         return ['retuls'=>$retuls];
     }
+    public function deleteuser(){
+        $request = Request::instance();
+        $data=$request->param();
+        $rule='';
+        for($i=0;$i<count($data,1)-1;$i++){
+        $id=$data['delete'][$i];
+        if(UserModel::destroy($id)){
+            $rule="批量删除成功。";
+         }
+    }
+    return ["message"=>$rule];
+    }
+    //搜索用户
     public function searchuser(){
         $request = Request::instance();
         $value = $request->param('value');
@@ -133,9 +147,9 @@ class User extends Controller{
     }
     public function pwdsave(){
          $request = Request::instance();
-        $password = $request->param('newpassword1');
-        $update=UserModel::where('id',$data['id'])->update($test);
-
-
+        $data = $request->param();
+        $update=UserModel::where('id',$data['id'])->update(['userpwd'=>$data['newpassword1']]);
+        $retuls=$update?'更改密码成功':'更改密码失败';
+        return ['retuls'=>$retuls];
     }
 }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\index.html";i:1516195818;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515851688;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\index.html";i:1516281478;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516281569;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -95,7 +95,7 @@
             </dd>
         </dl>
         <dl id="menu-comments">
-            <dt><i class="Hui-iconfont">&#xe622;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户管理</a></li>
@@ -156,7 +156,7 @@
             </dd>
         </dl>
         <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe613;</i> 维修单查询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe622;</i> 维修单查询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a href="picture-list.html" title="图片管理">图片管理</a></li>
@@ -174,12 +174,13 @@
 				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('user/adduser'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('user/adduser'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<form action="">
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
-							<th><input type="checkbox" name="" value=""></th>
+							<th><input type="checkbox" name="" id="checkbox"></th>
 							<th>用户ID</th>
 							<th>用户编号</th>
 							<th>用户名</th>
@@ -197,7 +198,9 @@
 					<tbody>
 					<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 						<tr class="text-c">
-							<td width="25"><input type="checkbox" name="" value=""></td>
+							<td width="25">
+							<input type="checkbox" value="<?php echo $vo['id']; ?>" name="delete[]" >
+							</td>
 							<td><?php echo $vo['id']; ?></td>
 							<td><?php echo $vo['usercode']; ?></td>
 							<td><?php echo $vo['username']; ?></td>
@@ -224,13 +227,14 @@
 								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
 								<?php endif; ?>
 							<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('useredit',['id'=>$vo['id']]); ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-							<a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password.html','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							<a style="text-decoration:none" class="ml-5" onclick="change_password('<?php echo url('changepassword',['id'=>$vo['id']]); ?>')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 						</tr>
 						<?php endforeach; endif; else: echo "" ;endif; ?>
 					</tbody>
 				</table>
-
+				</form>
 			</div>
+				<?php echo $list->render(); ?>
 		</article>
 	</div>
 </section>
@@ -246,18 +250,18 @@
 <script type="text/javascript" src="../../../public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../../../public/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-// /*用户-添加*/
-// function member_add(){
-// 		layer.open({
-//   type: 2 //Page层类型
-//   ,area: ['500px', '408px']
-//   ,title: '用户添加'
-//   ,shade: 0.6 //遮罩透明度
-//   ,maxmin: true //允许全屏最小化
-//   ,anim: 1 //0-6的动画形式，-1不开启
-//   ,content: 'adduser.html'
-// }); 
-// }
+/*密码-修改*/
+function change_password(url){
+		layer.open({
+  type: 2 //Page层类型
+  ,area: ['430px', '345px']
+  ,title: '用户添加'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: url
+}); 
+}
 /*用户-查看*/
 function search(){
 	var search = $('#search').val();
@@ -273,16 +277,6 @@ function member_stop(id){
 		});
 	});
 }
-
-/*用户-启用*/
-function member_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-		$(obj).remove();
-		layer.msg('已启用!',{icon: 6,time:1000});
-	});
-}
 /*用户-编辑*/
 function member_edit(url){
 	layer.open({
@@ -295,10 +289,6 @@ function member_edit(url){
   ,content: url
 }); 
 }
-/*密码-修改*/
-function change_password(title,url,id,w,h){
-	layer_show(title,url,w,h);	
-}
 /*用户-删除*/
 function member_del(id){
 	layer.confirm('确认要删除吗？',function(){
@@ -307,6 +297,25 @@ function member_del(id){
 		});
 	window.location.replace(location.href);
 	});
+}
+//批量删除
+function datadel(){
+	var len=$("input:checkbox:checked").length;
+	if($('#checkbox').prop('checked') ){
+		len = len-1
+	}
+	 if(len==0){
+	 layer.msg("没有选中用户。");
+	}
+	 else{
+	 	layer.confirm('确定要删除这'+len+'名用户吗？',function(){
+	 	$.post("<?php echo url('user/deleteuser'); ?>",$('form').serializeArray(),
+	 	 function(data){
+	 		layer.msg(data.message);
+	 		window.location.replace(location.href);
+	 	});
+	 })
+	}
 }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

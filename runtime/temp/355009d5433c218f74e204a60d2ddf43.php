@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\useredit.html";i:1516193581;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\useredit.html";i:1516276874;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">用户类型：<?php echo $list['usertype']; ?></label>
+			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="status">
 				<?php switch($list['usertype']): case "管理员": ?><option value="0" selected>管理员</option><?php break; case "工程师": ?><option value="1" selected>工程师</option><?php break; case "派单人": ?><option value="2" selected>派单人</option><?php break; endswitch; ?>
