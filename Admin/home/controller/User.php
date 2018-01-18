@@ -10,11 +10,14 @@ use think\Controller;
 use think\Request;
 use app\home\model\User as UserModel;
 use app\home\model\Company;
+use think\Db;
 class User extends Controller{
 	// 用户管理
     public function index(){
+        $count=UserModel::count();
         $list=UserModel::paginate(3);
         $this->assign("list",$list);
+        $this->assign("count",$count);
        return $this->fetch();
     }
     // 启用/停用
@@ -32,7 +35,7 @@ class User extends Controller{
     	}
     	return ['message'=>$message];
     }
-    //添加用户
+    //添加和更新用户
     public function adduser(){
         $company=Company::all();
         $this->assign('company',$company);
@@ -116,8 +119,23 @@ class User extends Controller{
     public function searchuser(){
         $request = Request::instance();
         $value = $request->param('value');
-        $retuls=UserModel::all(['usercode'=>$value]||['username'=>$value]);
+        // $retuls=UserModel::all("usercode=$value OR username=$value");
+       $retuls = Db::table('user')->where("usercode = $value || username = $value")->paginate(1); 
         $this->assign('list',$retuls);
         return $this->fetch('index');
+    }
+    public function changepassword(){
+        $request = Request::instance();
+        $id = $request->param('id');
+        $list = UserModel::get($id);
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+    public function pwdsave(){
+         $request = Request::instance();
+        $password = $request->param('newpassword1');
+        $update=UserModel::where('id',$data['id'])->update($test);
+
+
     }
 }

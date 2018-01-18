@@ -1,4 +1,27 @@
-{include file="public/meta" /}
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\useredit.html";i:1516258266;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="favicon.ico" >
+    <link rel="Shortcut Icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <title>H-ui.admin v3.0</title>
+    <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
 <title>添加用户 - H-ui.admin v3.0</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
@@ -6,47 +29,43 @@
 <body>
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
-	<input type="hidden" name="id" value="{$list.id}">
-	<input type="hidden" name="password" value="{$list.userpwd}">
+	<input type="hidden" name="id" value="<?php echo $list['id']; ?>">
+	<input type="hidden" name="password" value="<?php echo $list['userpwd']; ?>">
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$list.usercode}" placeholder="" id="" name="usercode">
+				<input type="text" class="input-text" value="<?php echo $list['usercode']; ?>" placeholder="" id="" name="usercode">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$list.username}" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="<?php echo $list['username']; ?>" placeholder="" id="username" name="username">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$list.mobile}" placeholder="" id="mobile" name="mobile">
+				<input type="text" class="input-text" value="<?php echo $list['mobile']; ?>" placeholder="" id="mobile" name="mobile">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$list.openid}" name="openid" id="">
+				<input type="text" class="input-text" value="<?php echo $list['openid']; ?>" name="openid" id="">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$list.email}" name="email" id="email">
+				<input type="text" class="input-text" value="<?php echo $list['email']; ?>" name="email" id="email">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="status">
-				{switch name="list.usertype" }
-    			{case value="管理员"}<option value="0" selected>管理员</option>{/case}
-    			{case value="工程师"}<option value="1" selected>工程师</option>{/case}
-    			{case value="派单人"}<option value="2" selected>派单人</option>{/case}
-				{/switch}
+				<?php switch($list['usertype']): case "管理员": ?><option value="0" selected>管理员</option><?php break; case "工程师": ?><option value="1" selected>工程师</option><?php break; case "派单人": ?><option value="2" selected>派单人</option><?php break; endswitch; ?>
 					<option value="0">管理员</option>
 					<option value="1">工程师</option>
 					<option value="2">派单人</option>
@@ -57,10 +76,10 @@
 			<label class="form-label col-xs-4 col-sm-3">所在公司：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="company">
-					<option value="{$list.company}" selected>{$list.company}</option>
-					{volist name="company" id="list"}
-					<option value="{$list.name}">{$list.name}</option>
-					{/volist}
+					<option value="<?php echo $list['company']; ?>" selected><?php echo $list['company']; ?></option>
+					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $list['name']; ?>"><?php echo $list['name']; ?></option>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
 		</div>
@@ -113,7 +132,11 @@
 		</div>
 	</form>
 </article>
-{include file="public/footer" /}
+<script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="__STATIC__/static/h-ui.admin/js/H-ui.admin.page.js"></script>
+<script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
@@ -124,8 +147,8 @@
 function submit_form(){
         $.ajax({
             type:"POST",
-            // url:"{:url('loginvalidate')}",
-            url:"{:url('usersave')}",
+            // url:"<?php echo url('loginvalidate'); ?>",
+            url:"<?php echo url('usersave'); ?>",
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
