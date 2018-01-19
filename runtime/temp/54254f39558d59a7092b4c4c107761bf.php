@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1516001729;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516351513;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:79:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\company\addcompany.html";i:1516348781;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516351513;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -172,107 +172,56 @@
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
 	<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="usercode">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="companycode">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="" id="companyname" name="companyname">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司位置：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="password" name="password">
+				<input type="text" class="input-text" value="" placeholder="" id="company" name="position">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司联系人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+				<input type="text" class="input-text" value="" placeholder="" id="user" name="user">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="openid" id="email">
+				<input type="text" class="input-text" placeholder="" name="mobile" id="mobile">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="@" name="email" id="email">
+				<input type="text" class="input-text" placeholder="" name="memo" id="memo">
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="status">
-					<option value="0" selected>管理员</option>
-					<option value="1" selected>工程师</option>
-					<option value="2" selected>派单人</option>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">所在公司：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="company">
-					<option value="" selected>请选择公司</option>
-					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $list['name']; ?>"><?php echo $list['name']; ?></option>
-					<?php endforeach; endif; else: echo "" ;endif; ?>
-				</select>
-				</span> </div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="usertype" type="radio" id="sex-1" value="1" checked>
+					<input name="status" type="radio" id="sex-1" value="1" checked>
 					<label for="sex-1">启用</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="usertype" value="0">
+					<input type="radio" id="sex-2" name="status" value="0">
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理分组：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">用户管理</label>
-				</div>
-				<div class="radio-box">
-					<input type="checkbox" id="" name="">
-					<label for="sex-2">公司管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">客户管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工程师管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工单查询</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">基础数据管理</label>
-				</div>
-			</div>
-		</div>
-<br>
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="submit_form('usersave')" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -290,22 +239,69 @@
 <script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-function submit_form(url){
-        $.ajax({
-            type:"POST",
-            // url:"<?php echo url('loginvalidate'); ?>",
-            url:url,
-            data:$("form").serialize(),//将表单序列化
-            dataType:'json',
-            success:function(data){
-                if(data.status==1){
-                    layer.msg(data.result);
-                    window.location.href="index/index";
-				}
-                layer.alert(data.result);
-            }
-        })
-    }
+$(function(){
+	$("#form-member-add").validate({
+		rules:{
+			companycode:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			companyname:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			position:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			user:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			mobile:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+		},
+		messages: {
+      companycode: {
+        required: "请输入公司名",
+      },
+  },
+		submitHandler: function(form) {
+            $(form).ajaxSubmit(options);
+            return false;
+        }
+    })
+	var options = {
+	    url: "<?php echo url('company/savecompany'); ?>",
+	    type: 'post',
+	    success: function(data) {
+	    	layer.msg(data.retuls);
+	    	}
+	    } 
+})
+// function submit_form(url){
+//         $.ajax({
+//             type:"POST",
+//             // url:"<?php echo url('loginvalidate'); ?>",
+//             url:url,
+//             data:$("form").serialize(),//将表单序列化
+//             dataType:'json',
+//             success:function(data){
+//                 if(data.status==1){
+//                     layer.msg(data.result);
+//                     window.location.href="index/index";
+// 				}
+//                 layer.alert(data.result);
+//             }
+//         })
+//     }
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

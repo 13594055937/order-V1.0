@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\changepassword.html";i:1516323618;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\company\companyedit.html";i:1516353343;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,45 +22,83 @@
     <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-<title>修改密码 - 会员管理 - H-ui.admin v3.0</title>
+<title>添加用户 - H-ui.admin v3.0</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
+<section class="Hui-article-box">
 <article class="cl pd-20">
-	<form action="/" method="post" class="form form-horizontal" id="form-change-password">
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账户名：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <?php echo $list['username']; ?> </div>
-		</div>
-		<input type="hidden" class="input-text" autocomplete="off" name="pwd" id="pwd" value="<?php echo $list['userpwd']; ?>">
-		<input type="hidden" class="input-text" autocomplete="off" name="id" id="" value="<?php echo $list['id']; ?>">
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>旧密码：</label>
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<input type="hidden" value="<?php echo $list['id']; ?>" name="id">
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off" placeholder="请输入旧密码" name="password" id="password">
+				<input type="text" class="input-text" value="<?php echo $list['code']; ?>" placeholder="" id="" name="companycode">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>新密码：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off" placeholder="请输入新密码" name="newpassword1" id="new-password1">
+				<input type="text" class="input-text" value="<?php echo $list['name']; ?>" id="companyname" name="companyname">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司位置：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="password" class="input-text" autocomplete="off" placeholder="再次输入密码，与新密码相同" name="newpassword2" id="new-password2">
+				<input type="text" class="input-text" value="<?php echo $list['position']; ?>" id="company" name="position">
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司联系人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="<?php echo $list['contactname']; ?>" id="user" name="user">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="<?php echo $list['contacttel']; ?>" name="mobile" id="mobile">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="<?php echo $list['memo']; ?>" name="memo" id="memo">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<?php if($list['status']==1): ?>
+				<div class="radio-box">
+					<input name="status" type="radio" id="sex-1" value="1" checked>
+					<label for="sex-1">启用</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="status" value="0">
+					<label for="sex-2">停用</label>
+				</div>
+				<?php else: ?>
+				<div class="radio-box">
+					<input name="status" type="radio" id="sex-1" value="1">
+					<label for="sex-1">启用</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="status" value="0" checked>
+					<label for="sex-2">停用</label>
+				</div>
+				<?php endif; ?>
+			</div>
+		</div>
+		<br>
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
 </article>
-
+</section>
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
@@ -68,50 +106,59 @@
 <script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
 $(function(){
-	$("#form-change-password").validate({
+	$("#form-member-add").validate({
 		rules:{
-			password:{
+			companycode:{
 				required:true,
-				minlength:6,
-				maxlength:16,
-				equalTo: "#pwd"
+				// minlength:6,
+				// maxlength:16,
 			},
-			newpassword1:{
+			companyname:{
 				required:true,
-				minlength:6,
-				maxlength:16,
+				// minlength:6,
+				// maxlength:16,
 			},
-			newpassword2:{
+			position:{
 				required:true,
-				minlength:6,
-				maxlength:16,
-				equalTo: "#new-password1"
+				// minlength:6,
+				// maxlength:16,
+			},
+			user:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			mobile:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
 			},
 		},
-		  // messages:{
-    //         username:{
-    //         	equalTo:"用户旧密码错误",
-    //         }
-    //     },
+		messages: {
+      companycode: {
+        required: "请输入公司名",
+      },
+  },
 		submitHandler: function(form) {
             $(form).ajaxSubmit(options);
             return false;
         }
     })
 	var options = {
-	    url: "<?php echo url('user/pwdsave'); ?>",
+	    url: "<?php echo url('company/savecompany'); ?>",
 	    type: 'post',
 	    success: function(data) {
 	    	layer.msg(data.retuls);
 	    	}
 	    } 
 })
-</script>
+</script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>

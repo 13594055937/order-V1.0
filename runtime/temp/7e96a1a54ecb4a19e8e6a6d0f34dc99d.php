@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\index.html";i:1516265400;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1515980003;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\index.html";i:1516323618;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516351513;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -95,10 +95,10 @@
             </dd>
         </dl>
         <dl id="menu-comments">
-            <dt><i class="Hui-iconfont">&#xe622;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户管理</a></li>
+                    <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户列表</a></li>
                     <li><a href="<?php echo url('home/user/adduser'); ?>" title="用户管理">用户添加</a></li>
                 </ul>
             </dd>
@@ -107,13 +107,8 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 公司管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="" title="会员列表">会员列表</a></li>
-                    <li><a href="member-del.html" title="删除的会员">删除的会员</a></li>
-                    <li><a href="member-level.html" title="等级管理">等级管理</a></li>
-                    <li><a href="member-scoreoperation.html" title="积分管理">积分管理</a></li>
-                    <li><a href="member-record-browse.html" title="浏览记录">浏览记录</a></li>
-                    <li><a href="member-record-download.html" title="下载记录">下载记录</a></li>
-                    <li><a href="member-record-share.html" title="分享记录">分享记录</a></li>
+                    <li><a href="<?php echo url('company/index'); ?>" title="公司列表">公司列表</a></li>
+                    <li><a href="<?php echo url('home/company/addcompany'); ?>" title="删除的会员">公司添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -156,7 +151,7 @@
             </dd>
         </dl>
         <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe613;</i> 维修单查询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe622;</i> 维修单查询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
                     <li><a href="picture-list.html" title="图片管理">图片管理</a></li>
@@ -175,11 +170,12 @@
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('user/adduser'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<form action="">
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
-							<th><input type="checkbox" name="" value=""></th>
+							<th><input type="checkbox" name="" id="checkbox"></th>
 							<th>用户ID</th>
 							<th>用户编号</th>
 							<th>用户名</th>
@@ -197,7 +193,9 @@
 					<tbody>
 					<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 						<tr class="text-c">
-							<td width="25"><input type="checkbox" name="" value=""></td>
+							<td width="25">
+							<input type="checkbox" value="<?php echo $vo['id']; ?>" name="delete[]" >
+							</td>
 							<td><?php echo $vo['id']; ?></td>
 							<td><?php echo $vo['usercode']; ?></td>
 							<td><?php echo $vo['username']; ?></td>
@@ -229,8 +227,9 @@
 						<?php endforeach; endif; else: echo "" ;endif; ?>
 					</tbody>
 				</table>
-				<?php echo $list->render(); ?>
+				</form>
 			</div>
+				<?php echo $list->render(); ?>
 		</article>
 	</div>
 </section>
@@ -293,6 +292,25 @@ function member_del(id){
 		});
 	window.location.replace(location.href);
 	});
+}
+//批量删除
+function datadel(){
+	var len=$("input:checkbox:checked").length;
+	if($('#checkbox').prop('checked') ){
+		len = len-1
+	}
+	 if(len==0){
+	 layer.msg("没有选中用户。");
+	}
+	 else{
+	 	layer.confirm('确定要删除这'+len+'名用户吗？',function(){
+	 	$.post("<?php echo url('user/deleteuser'); ?>",$('form').serializeArray(),
+	 	 function(data){
+	 		layer.msg(data.message);
+	 		window.location.replace(location.href);
+	 	});
+	 })
+	}
 }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

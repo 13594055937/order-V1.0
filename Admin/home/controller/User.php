@@ -84,6 +84,7 @@ class User extends Controller{
             }
     }
         else{
+            $test['userpwd']=md5($data['username'].$data['password']."~!@");
         $user=UserModel::create($test);
         if($user){
             $result="用户添加成功。";
