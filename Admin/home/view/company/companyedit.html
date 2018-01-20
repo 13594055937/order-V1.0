@@ -21,9 +21,20 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司位置：</label>
+			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+				<option value="{$list.position|strstr='--',true}" selected>{$list.position|strstr='--',true}</option>
+				{volist name="city" id="vo"}
+					<option value="{$vo.cityname}">{$vo.cityname}</option>
+				{/volist}
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="{$list.position}" id="company" name="position">
+				<input type="text" class="input-text" value="{$list.position|strstr='--'|substr=2}" id="company" name="position">
 			</div>
 		</div>
 		<div class="row cl">

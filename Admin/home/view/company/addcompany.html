@@ -24,10 +24,20 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司位置：</label>
+			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+				{volist name="list" id="vo"}
+					<option value="{$vo.cityname}" selected>{$vo.cityname}</option>
+				{/volist}
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="company" name="position">
-			</div>
+				<input type="text" class="input-text" value="" placeholder="这里输入详细地址" id="company" name="position">
+		</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司联系人：</label>

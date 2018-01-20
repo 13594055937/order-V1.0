@@ -3,6 +3,7 @@ namespace app\home\controller;
 use think\Controller;
 use think\Request;
 use app\home\model\Company as CompanyModel;
+use app\home\model\City;
 class Company extends Controller{
 	public function index(){
 		$list=CompanyModel::paginate(15);
@@ -43,6 +44,8 @@ class Company extends Controller{
     }
     //添加公司
     public function addcompany(){
+        $list=City::all();
+        $this->assign('list',$list);
     	return $this->fetch();
     }
     public function savecompany(){
@@ -51,7 +54,7 @@ class Company extends Controller{
         $test=[
         'code'=>$data["companycode"],
         'name'=>$data["companyname"],
-        'position'=>$data["position"],
+        'position'=>$data['city'].'--'.$data["position"],
         'contactname'=>$data["user"],
         'contacttel'=>$data["mobile"],
         'status'=>$data["status"],
@@ -59,17 +62,21 @@ class Company extends Controller{
         ];
         if(@$data['id']){
              $update=CompanyModel::where('id',$data['id'])->update($test);
-             $result=$update?"数据更新成功。": $result="系统错误，更新失败。";
+             $retuls=$update?"数据更新成功。":"系统错误，更新失败。";
         }
+        else{
         $retuls=CompanyModel::create($test);
         $retuls=$retuls? '添加公司成功。':'添加公司失败。';
-        return ['retuls'=>$retuls];
     }
+        return ['retuls'=>$retuls];
+}
     //公司信息修改
     public function companyedit(){
     	$request = Request::instance();
         $id=$request->param('id');
         $list=CompanyModel::get($id);
+        $city=City::all();
+        $this->assign('city',$city);
         $this->assign('list',$list);
         return $this->fetch();
     }
