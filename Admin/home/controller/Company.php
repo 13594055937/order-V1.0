@@ -80,5 +80,46 @@ class Company extends Controller{
         $this->assign('list',$list);
         return $this->fetch();
     }
+    //excel导出
+    public function daochu(){
+        $userMdl = M("User");
+        $where_str = parent::getWhereByPost(I('post.'));
+        $count = $userMdl->where($where_str)->count();
+        $pageSize = C("admin_pageCount");
+        $p = ceil($count/$pageSize);
+        $file_name = date("Y_m_d")."_user.xls";
+        header("Content-type:application/vnd.ms-excel");
+        header("Content-Disposition:attachment; filename={$file_name}");
+        echo iconv("UTF-8","GBK",'编号')."\t".iconv("UTF-8","GBK",'姓名')."\t".iconv("UTF-8","GBK",'联系方式')."\t"
+            .iconv("UTF-8","GBK",'openid')."\t".iconv("UTF-8","GBK",'用户类型')."\t".iconv("UTF-8","GBK",'所属公司')."\t"
+            .iconv("UTF-8","GBK",'状态')."\n";
+        for($i=1; $i<=$p;$i++){
+            $list = $userMdl->where($where_str)->field("usercode,username,mobile,openid,usertype,company,status")->where($where_str)->limit(($i-1)*$pageSize.','.$pageSize)->select();
+            foreach ($list as $key=>$v)
+            {
+                foreach ($v as $k1 => $value) {
+                    if($k1 == 'status') {
+                        if($value==1){
+                            echo iconv("UTF-8","GBK",'启用')."\t";
+                        }else{
+                            echo iconv("UTF-8","GBK",'停用')."\t";
+                        }
+                    }elseif($k1 == 'usertype') {
+                        if($value==1){
+                            echo iconv("UTF-8","GBK",'工程师')."\t";
+                        }elseif($value ==2){
+                            echo iconv("UTF-8","GBK",'派单人')."\t";
+                        }else{
+                            echo iconv("UTF-8","GBK",'管理员')."\t";
+                        }
+                    }else{
+                        echo iconv("UTF-8","GBK",$value)."\t";
+                    }
+                }
+                echo "\n";
+            }
+        }
+        exit;
+    }
 }
  ?>

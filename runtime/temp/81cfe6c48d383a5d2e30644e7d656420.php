@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\company\companyedit.html";i:1516353343;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\company\companyedit.html";i:1516582914;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -44,9 +44,20 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司位置：</label>
+			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+				<option value="<?php echo strstr($list['position'],'--',true); ?>" selected><?php echo strstr($list['position'],'--',true); ?></option>
+				<?php if(is_array($city) || $city instanceof \think\Collection || $city instanceof \think\Paginator): $i = 0; $__LIST__ = $city;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $vo['cityname']; ?>"><?php echo $vo['cityname']; ?></option>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="<?php echo $list['position']; ?>" id="company" name="position">
+				<input type="text" class="input-text" value="<?php echo substr(strstr($list['position'],'--'),2); ?>" id="company" name="position">
 			</div>
 		</div>
 		<div class="row cl">

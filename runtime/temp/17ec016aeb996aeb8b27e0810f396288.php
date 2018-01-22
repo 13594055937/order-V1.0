@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:79:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\company\addcompany.html";i:1516582914;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516603346;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\order\orderadd.html";i:1516592868;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516599354;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -72,7 +72,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 客户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<?php echo url('home/customer/index'); ?>" title="资讯管理">客户列表</a></li>
+                    <li><a href="article-list.html" title="资讯管理">资讯管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -80,7 +80,7 @@
             <dt><i class="Hui-iconfont">&#xe613;</i> 工程师管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<?php echo url('home/engineer/index'); ?>" title="工程师列表">工程师列表</a></li>
+                    <li><a href="picture-list.html" title="图片管理">图片管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -160,82 +160,127 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<script src="__STATIC__/lib/layer/laydate/laydate.js"></script>
 <title>添加用户 - H-ui.admin v3.0</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-
-<section class="Hui-article-box">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
 	<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司编号：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>工单编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="companycode">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="ordercode">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司名称：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>客户名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="companyname" name="companyname">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>派单人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">问题类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-				<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo['cityname']; ?>" selected><?php echo $vo['cityname']; ?></option>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
+				<select class="select" size="1" name="jobtype">
+					<option value="" selected>请选择问题类型</option>
+					<?php if(is_array($type) || $type instanceof \think\Collection || $type instanceof \think\Paginator): $i = 0; $__LIST__ = $type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $vo['name']; ?>"><?php echo $vo['name']; ?></option>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>接单人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="这里输入详细地址" id="company" name="position">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+			</div>
 		</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司联系人：</label>
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>预期时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="user" name="user">
+				<input type="text" class="input-text" value="" placeholder="请选择日期" id="time" name="">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>接单时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="mobile" id="mobile">
+				<input type="text" class="input-text" value="" placeholder="请选择日期" id="time" name="">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>备注：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>到场时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="memo" id="memo">
+				<input type="text" class="input-text" value="" placeholder="请选择日期" id="time" name="">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>结束时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="请选择日期" id="time" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">工作说明：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="info" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="textarealength(this,100)"></textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">特殊要求：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="textarealength(this,100)"></textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="status" type="radio" id="sex-1" value="1" checked>
-					<label for="sex-1">启用</label>
+					<input name="type" type="radio" id="sex-1" checked>
+					<label for="sex-1">已申请</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="status" value="0">
-					<label for="sex-2">停用</label>
+					<input type="radio" id="sex-2" name="type">
+					<label for="sex-2">已派单</label>
+				</div>
+				<div class="radio-box">
+					<input name="type" type="radio" id="sex-1">
+					<label for="sex-1">处理中</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="type">
+					<label for="sex-2">已关闭</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="type">
+					<label for="sex-2">已支付</label>
 				</div>
 			</div>
 		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="textarealength(this,100)"></textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+			</div>
+		</div>
+		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
 </article>
-</section>
+
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
@@ -243,74 +288,65 @@
 <script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
+// var myDate = new Date();
+lay('.input-text').each(function(){
+  laydate.render({
+    elem: this
+    ,trigger: 'click'
+  });
+}); 
+// 时间控件
+// var myDate = new Date();
+// 	laydate.render({
+//   elem: '#time'
+//   ,min: myDate.toLocaleDateString()
+// });
 $(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
 	$("#form-member-add").validate({
 		rules:{
-			companycode:{
+			username:{
 				required:true,
-				// minlength:6,
-				// maxlength:16,
+				minlength:2,
+				maxlength:16
 			},
-			companyname:{
+			jobtype:{
+				// addMethod:name,
+			},
+			info:{
 				required:true,
-				// minlength:6,
-				// maxlength:16,
+				maxlength:100,
 			},
-			position:{
+			beizhu:{
 				required:true,
-				// minlength:6,
-				// maxlength:16,
+				maxlength:100,
 			},
-			user:{
+			uploadfile:{
 				required:true,
-				// minlength:6,
-				// maxlength:16,
 			},
-			mobile:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
+			
 		},
-		messages: {
-      companycode: {
-        required: "请输入公司名",
-      },
-  },
-		submitHandler: function(form) {
-            $(form).ajaxSubmit(options);
-            return false;
-        }
-    })
-	var options = {
-	    url: "<?php echo url('company/savecompany'); ?>",
-	    type: 'post',
-	    success: function(data) {
-	    	layer.msg(data.retuls);
-	    	}
-	    } 
-})
-// function submit_form(url){
-//         $.ajax({
-//             type:"POST",
-//             // url:"<?php echo url('loginvalidate'); ?>",
-//             url:url,
-//             data:$("form").serialize(),//将表单序列化
-//             dataType:'json',
-//             success:function(data){
-//                 if(data.status==1){
-//                     layer.msg(data.result);
-//                     window.location.href="index/index";
-// 				}
-//                 layer.alert(data.result);
-//             }
-//         })
-//     }
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit();
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
+});
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

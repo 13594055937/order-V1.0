@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:79:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\company\addcompany.html";i:1516582914;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516603346;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\index.html";i:1516601666;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516603346;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -160,82 +160,77 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
-<title>添加用户 - H-ui.admin v3.0</title>
-<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-</head>
-<body>
-
 <section class="Hui-article-box">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<article class="cl pd-20">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
-	<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司编号：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="companycode">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c">
+				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
+				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司名称：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="companyname" name="companyname">
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('home/order/orderadd'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加工单</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<form action="">
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th><input type="checkbox" name="" id="checkbox"></th>
+							<th>ID</th>
+							<th>工程师编号</th>
+							<th>客户名称</th>
+							<th>手机号</th>
+							<th>微信id号</th>
+							<th>微信号</th>
+							<th>所属公司名称</th>
+							<th>类型</th>
+							<th>所属地区</th>
+							<th >费用</th>
+							<th >状态</th>
+							<th >备注</th>
+							<th >创建时间</th>
+							<th>关联用户id</th>
+							<th >操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+						<tr class="text-c">
+							<td width="25">
+							<input type="checkbox" value="<?php echo $vo['id']; ?>" name="delete[]" >
+							</td>
+							<td><?php echo $vo['id']; ?></td>
+							<td><?php echo $vo['engineerCode']; ?></td>
+							<td><?php echo $vo['engineerName']; ?></td>
+							<td><?php echo $vo['mobile']; ?></td>
+							<td><?php echo $vo['openid']; ?></td>
+							<td><?php echo $vo['weixin']; ?></td>
+							<td><?php echo $vo['company']; ?></td>
+							<td><?php echo $vo['type']; ?></td>
+							<td><?php echo $vo['province']; ?><?php echo $vo['city']; ?><?php echo $vo['area']; ?></td>
+							<td><?php echo $vo['stardfee']; ?></td>
+							<td><?php echo $vo['status']; ?></td>
+							<td><?php echo $vo['memo']; ?></td>
+							<td><?php echo $vo['create_time']; ?></td>
+							<td>无</td>
+							<td class="td-manage">
+							<?php if($vo['status']==1): ?>
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
+								<?php else: ?>
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
+								<?php endif; ?>
+							<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('useredit',['id'=>$vo['id']]); ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+							<a style="text-decoration:none" class="ml-5" onclick="change_password('<?php echo url('changepassword',['id'=>$vo['id']]); ?>')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>
+						<?php endforeach; endif; else: echo "" ;endif; ?>
+					</tbody>
+				</table>
+				</form>
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-				<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo['cityname']; ?>" selected><?php echo $vo['cityname']; ?></option>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="这里输入详细地址" id="company" name="position">
-		</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司联系人：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="user" name="user">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="mobile" id="mobile">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>备注：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="memo" id="memo">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="status" type="radio" id="sex-1" value="1" checked>
-					<label for="sex-1">启用</label>
-				</div>
-				<div class="radio-box">
-					<input type="radio" id="sex-2" name="status" value="0">
-					<label for="sex-2">停用</label>
-				</div>
-			</div>
-		</div>
-			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-			</div>
-		</div>
-	</form>
-</article>
+				<?php echo $list->render(); ?>
+		</article>
+	</div>
 </section>
+
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
@@ -244,74 +239,77 @@
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="../../../public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../../public/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-$(function(){
-	$("#form-member-add").validate({
-		rules:{
-			companycode:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			companyname:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			position:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			user:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			mobile:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-		},
-		messages: {
-      companycode: {
-        required: "请输入公司名",
-      },
-  },
-		submitHandler: function(form) {
-            $(form).ajaxSubmit(options);
-            return false;
-        }
-    })
-	var options = {
-	    url: "<?php echo url('company/savecompany'); ?>",
-	    type: 'post',
-	    success: function(data) {
-	    	layer.msg(data.retuls);
-	    	}
-	    } 
-})
-// function submit_form(url){
-//         $.ajax({
-//             type:"POST",
-//             // url:"<?php echo url('loginvalidate'); ?>",
-//             url:url,
-//             data:$("form").serialize(),//将表单序列化
-//             dataType:'json',
-//             success:function(data){
-//                 if(data.status==1){
-//                     layer.msg(data.result);
-//                     window.location.href="index/index";
-// 				}
-//                 layer.alert(data.result);
-//             }
-//         })
-//     }
-</script> 
+/*密码-修改*/
+function change_password(url){
+		layer.open({
+  type: 2 //Page层类型
+  ,area: ['430px', '345px']
+  ,title: '用户添加'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: url
+}); 
+}
+/*用户-查看*/
+function search(){
+	var search = $('#search').val();
+	window.location.href='searchuser?value='+search;
+	// $.post("<?php echo url('user/searchuser'); ?>",{value:search});
+}
+/*用户-停用*/
+function member_stop(id){
+	layer.confirm('确认要停用/启用吗？',function(){
+		$.post("<?php echo url('user/status'); ?>",{id:id},function(data){
+		layer.msg(data.message);
+		window.location.replace(location.href);
+		});
+	});
+}
+/*用户-编辑*/
+function member_edit(url){
+	layer.open({
+  type: 2 //Page层类型
+  ,area: ['770px', '620px']
+  ,title: '用户添加'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: url
+}); 
+}
+/*用户-删除*/
+function member_del(id){
+	layer.confirm('确认要删除吗？',function(){
+		$.get("<?php echo url('user/userdel'); ?>",{id:id},function(data){
+			layer.msg(data.retuls,{icon:1,time:1000});
+		});
+	window.location.replace(location.href);
+	});
+}
+//批量删除
+function datadel(){
+	var len=$("input:checkbox:checked").length;
+	if($('#checkbox').prop('checked') ){
+		len = len-1
+	}
+	 if(len==0){
+	 layer.msg("没有选中用户。");
+	}
+	 else{
+	 	layer.confirm('确定要删除这'+len+'名用户吗？',function(){
+	 	$.post("<?php echo url('user/deleteuser'); ?>",$('form').serializeArray(),
+	 	 function(data){
+	 		layer.msg(data.message);
+	 		window.location.replace(location.href);
+	 	});
+	 })
+	}
+}
+</script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
