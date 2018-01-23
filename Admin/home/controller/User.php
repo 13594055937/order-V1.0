@@ -135,8 +135,10 @@ class User extends Controller{
         $request = Request::instance();
         $value = $request->param('value');
         // $retuls=UserModel::all("usercode=$value OR username=$value");
-       $retuls = Db::table('user')->where("usercode = $value || username = $value")->paginate(1); 
+       $retuls = Db::table('user')->where("usercode = '$value' || username = '$value'")->paginate(10); 
+        $count = Db::table('user')->where("usercode = '$value' || username = '$value'")->count();
         $this->assign('list',$retuls);
+         $this->assign('count',$count);
         return $this->fetch('index');
     }
     public function changepassword(){

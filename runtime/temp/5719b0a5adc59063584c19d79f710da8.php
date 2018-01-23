@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\customer\index.html";i:1516676783;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:81:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\customer\customeradd.html";i:1516678885;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -162,83 +162,125 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
-<section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-	<div class="Hui-article">
-		<article class="cl pd-20">
-			<div class="text-c">
-				<input type="text" class="input-text" style="width:250px" placeholder="输入名称、编号" id="search" name="value">
-				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜客户</button>
+<title>添加用户 - H-ui.admin v3.0</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<article class="cl pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>编号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="usercode">
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('customer/customeradd'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加客户</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
-			<form action="">
-			<div class="mt-20">
-				<table class="table table-border table-bordered table-hover table-bg table-sort">
-					<thead>
-						<tr class="text-c">
-							<th><input type="checkbox" name="" id="checkbox"></th>
-							<th>ID</th>
-							<th>医院编号</th>
-							<th>医院名称</th>
-							<th>详细地址</th>
-							<th>等级</th>
-							<th>门诊数</th>
-							<th>床位数</th>
-							<th>联系人</th>
-							<th>联系电话</th>
-							<th>状态</th>
-							<th>备注</th>
-							<th >创建时间</th>
-							<th>所属公司</th>
-							<th >操作</th>
-						</tr>
-					</thead>
-					<tbody>
-					<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-						<tr class="text-c">
-							<td width="25">
-							<input type="checkbox" value="<?php echo $vo['id']; ?>" name="delete[]" >
-							</td>
-							<td><?php echo $vo['id']; ?></td>
-							<td><?php echo $vo['code']; ?></td>
-							<td><?php echo $vo['name']; ?></td>
-							<td><?php echo $vo['province']; ?><?php echo $vo['city']; ?><?php echo $vo['area']; ?><?php echo $vo['position']; ?></td>
-							<td><?php echo $vo['grade']; ?></td>
-							<td><?php echo $vo['outpatient']; ?></td>
-							<td><?php echo $vo['bednum']; ?></td>
-							<td><?php echo $vo['contactname']; ?></td>
-							<td><?php echo $vo['contacttel']; ?></td>
-							<td class="td-status">
-								<?php if($vo['status']==1): ?>
-								<span class="label label-success radius">已启用</span>
-								<?php elseif($vo['status']==0): ?>
-								<span class="label label-defaunt radius">已停用</span>
-								<?php else: ?>
-								<span class="label label-defaunt radius">异常</span>'
-								<?php endif; ?>
-							</td>
-							<td><?php echo $vo['memo']; ?></td>
-							<td><?php echo $vo['create_time']; ?></td>
-							<td><?php echo $vo['company']; ?></td>
-							<td class="td-manage">
-							<?php if($vo['status']==1): ?>
-								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
-								<?php else: ?>
-								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
-								<?php endif; ?>
-							<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('customeredit',['id'=>$vo['id']]); ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-							<a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-						</tr>
-						<?php endforeach; endif; else: echo "" ;endif; ?>
-					</tbody>
-				</table>
-				</form>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
 			</div>
-				<?php echo $list->render(); ?>
-		</article>
-	</div>
-</section>
-
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
+			<div class="formControls col-xs-8 col-sm-9"> 
+			<span class="select-box" style="width:32%">
+				<select class="select" size="1" name="city">
+				<option value="" selected>请选择所在省</option>
+				<?php if(is_array($province) || $province instanceof \think\Collection || $province instanceof \think\Paginator): $i = 0; $__LIST__ = $province;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $vo['name']; ?>"><?php echo $vo['name']; ?></option>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+				</span>&emsp;
+			<span class="select-box" style="width:32%">
+				<select class="select" size="1" name="city">
+				<option value="" selected>请选择所在市</option>
+				<?php if(is_array($city) || $city instanceof \think\Collection || $city instanceof \think\Paginator): $i = 0; $__LIST__ = $city;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $vo1['cityname']; ?>"><?php echo $vo1['cityname']; ?></option>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+				</span>&emsp;
+				<span class="select-box" style="width:32%">
+				<select class="select" size="1" name="city">
+				<option value="" selected>请选择所在区</option>
+				<?php if(is_array($district) || $district instanceof \think\Collection || $district instanceof \think\Paginator): $i = 0; $__LIST__ = $district;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $vo2['districtname']; ?>"><?php echo $vo2['districtname']; ?></option>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="这里输入详细地址" id="company" name="position">
+		</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>等级：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>门诊数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="openid" id="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>床位数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="email" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="email" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="email" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">所属公司：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="company">
+					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $list['name']; ?>"><?php echo $list['name']; ?></option>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="" onKeyUp="textarealength(this,100)"></textarea>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="usertype" type="radio" id="sex-1" value="1" checked>
+					<label for="sex-1">启用</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="usertype" value="0">
+					<label for="sex-2">停用</label>
+				</div>
+			</div>
+		</div>
+<br>
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
@@ -246,66 +288,24 @@
 <script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="../../../public/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-/*用户-查看*/
-function search(){
-	var search = $('#search').val();
-	window.location.href='searchcustomer?value='+search;
-	// $.post("<?php echo url('user/searchuser'); ?>",{value:search});
-}
-/*用户-停用*/
-function member_stop(id){
-	layer.confirm('确认要停用/启用吗？',function(){
-		$.post("<?php echo url('customer/status'); ?>",{id:id},function(data){
-		layer.msg(data.message);
-		setTimeout("location.reload()",500);
-		});
-	});
-}
-/*用户-编辑*/
-function member_edit(url){
-	layer.open({
-  type: 2 //Page层类型
-  ,area: ['770px', '620px']
-  ,title: '用户添加'
-  ,shade: 0.6 //遮罩透明度
-  ,maxmin: true //允许全屏最小化
-  ,anim: 1 //0-6的动画形式，-1不开启
-  ,content: url
-}); 
-}
-/*用户-删除*/
-function member_del(id){
-	layer.confirm('确认要删除吗？',function(){
-		$.get("<?php echo url('customer/customerdel'); ?>",{id:id},function(data){
-			layer.msg(data.retuls,{icon:1,time:1000});
-		});
-	setTimeout("location.reload()",500);
-	});
-}
-//批量删除
-function datadel(){
-	var len=$("input:checkbox:checked").length;
-	if($('#checkbox').prop('checked') ){
-		len = len-1
-	}
-	 if(len==0){
-	 layer.msg("没有选中用户。");
-	}
-	 else{
-	 	layer.confirm('确定要删除这'+len+'名用户吗？',function(){
-	 	$.post("<?php echo url('customer/deletecustomer'); ?>",$('form').serializeArray(),
-	 	 function(data){
-	 		layer.msg(data.message);
-	 		setTimeout("location.reload()",500);
-	 	});
-	 })
-	}
-}
-</script>
+function submit_form(){
+        $.ajax({
+            type:"POST",
+            // url:"<?php echo url('loginvalidate'); ?>",
+            url:"<?php echo url('customersave'); ?>",
+            data:$("form").serialize(),//将表单序列化
+            dataType:'json',
+            success:function(data){
+                    layer.alert(data.result);
+            }
+        })
+    }
+</script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
