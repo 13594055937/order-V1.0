@@ -11,42 +11,18 @@
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="usercode">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="code">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="name">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
-			<div class="formControls col-xs-8 col-sm-9"> 
-			<span class="select-box" style="width:32%">
-				<select class="select" size="1" name="city">
-				<option value="" selected>请选择所在省</option>
-				{volist name="province" id="vo"}
-					<option value="{$vo.name}">{$vo.name}</option>
-				{/volist}
-				</select>
-				</span>&emsp;
-			<span class="select-box" style="width:32%">
-				<select class="select" size="1" name="city">
-				<option value="" selected>请选择所在市</option>
-				{volist name="city" id="vo1"}
-					<option value="{$vo1.cityname}">{$vo1.cityname}</option>
-				{/volist}
-				</select>
-				</span>&emsp;
-				<span class="select-box" style="width:32%">
-				<select class="select" size="1" name="city">
-				<option value="" selected>请选择所在区</option>
-				{volist name="district" id="vo2"}
-					<option value="{$vo2.districtname}">{$vo2.districtname}</option>
-				{/volist}
-				</select>
-				</span> </div>
+			<label class="form-label col-xs-4 col-sm-3">覆盖区域：</label>
+		{include file='cityarea/index' /}
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
@@ -57,31 +33,31 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>等级：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="grade">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>门诊数：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="openid" id="">
+				<input type="text" class="input-text" value="" name="sum" id="">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>床位数：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="email" id="email">
+				<input type="text" class="input-text" value="" name="int" id="">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="email" id="email">
+				<input type="text" class="input-text" value="" name="contacts" id="email">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="email" id="email">
+				<input type="text" class="input-text" value="" name="mobile" id="email">
 			</div>
 		</div>
 		<div class="row cl">
@@ -97,11 +73,11 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="" onKeyUp="textarealength(this,100)"></textarea>
+				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder=""></textarea>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>客户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
 					<input name="usertype" type="radio" id="sex-1" value="1" checked>
@@ -115,7 +91,7 @@
 		</div>
 <br>
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -128,6 +104,93 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
+$(function(){
+	$("#form-member-add").validate({
+		rules:{
+			code:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			grade:{
+				required:true,
+			}, 
+			sum:{
+				required:true,
+			}, 
+			int:{
+				required:true,
+			},
+			contacts:{
+				required:true,
+			},
+			name:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			position:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			user:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			mobile:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+		},
+		// messages: {
+  //     companycode: {
+  //       required: "请输入公司名",
+  //     },
+  // },
+		submitHandler: function(form) {
+            $(form).ajaxSubmit(options);
+            return false;
+        }
+    })
+	var options = {
+	    url: "{:url('customer/customersave')}",
+	    type: 'post',
+	    success: function(data) {
+	    	layer.msg(data.result);
+	    	}
+	    } 
+})
+$(document).ready(function() {
+        $("#province").change(function(){
+            var uu = $(this).find('option:selected').val();
+            $.ajax({
+            type:"POST",
+            // url:'getcityinfo',
+            url:"{:url('home/Cityarea/getcityinfo')}",
+            data:{'province':uu},
+            success:function(msg){
+         // console.log(msg);
+          $("#cityinfo").html(msg);
+            }
+        })
+        });
+        $("#cityinfo").change(function(){
+            var uu = $(this).find('option:selected').val();
+             var province = $('#province').find('option:selected').val();
+            $.ajax({
+                // url  :'getareainfo',
+                url:"{:url('home/Cityarea/getareainfo')}",
+                data :{'city':uu,'province':province},
+                type :'POST',
+                success:function(msg){
+                    $("#areainfo").html(msg);
+                }
+            })
+        });
+    })
 function submit_form(){
         $.ajax({
             type:"POST",

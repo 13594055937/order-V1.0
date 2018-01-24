@@ -67,16 +67,34 @@ class Customer extends Controller{
     }
     //添加
 	public function customeradd(){
-        $request = Request::instance();
         $company=Company::all();
-        $city=City::all();
-        $district=District::all();
         $province=Province::all();
         $this->assign('province',$province);
-        $this->assign('city',$city);
-        $this->assign('district',$district);
         $this->assign('company',$company);
         return $this->fetch();
+    }
+    public function customersave(){
+         $request = Request::instance();
+         $data=$request->param();
+         $test=[
+         'code'=>$data['code'],
+         'name'=>$data['name'],
+         'province'=>$data['province'],
+         'city'=>$data['city'],
+         'area'=>$data['area'],
+         'position'=>$data['position'],
+         'grade'=>$data['grade'],
+         'outpatient'=>$data['sum'],
+         'bednum'=>$data['int'],
+         'contactname'=>$data['contacts'],
+         'contacttel'=>$data['mobile'],
+         'status'=>$data['usertype'],
+         'memo'=>$data['beizhu'],
+         'company'=>$data['company'],
+         ];
+        $customer=CustomerModel::create($test);
+        $result=$customer?"客户添加成功。":"系统错误，添加失败。";
+        return ['result'=>$result];
     }
     
 

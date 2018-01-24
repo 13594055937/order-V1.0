@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:81:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\enginerradd.html";i:1516679226;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:81:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\enginerradd.html";i:1516779401;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\cityarea\index.html";i:1516779060;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -197,31 +197,65 @@
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">覆盖区域：</label>
+			
 			<div class="formControls col-xs-8 col-sm-9"> 
 			<span class="select-box" style="width:32%">
-				<select class="select" size="1" name="city">
-				<option value="" selected>请选择所在省</option>
+				<select class="select" size="1" name="province" id="province">
+				<if condition="empty($data['province'])">
+    			<option value="">请选择省市</option>
+    			</if>
 				<?php if(is_array($province) || $province instanceof \think\Collection || $province instanceof \think\Paginator): $i = 0; $__LIST__ = $province;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 					<option value="<?php echo $vo['name']; ?>"><?php echo $vo['name']; ?></option>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span>&nbsp;--
-			<span class="select-box" style="width:32%">
-				<select class="select" size="1" name="city">
-				<option value="" selected>请选择所在市</option>
-				<?php if(is_array($city) || $city instanceof \think\Collection || $city instanceof \think\Paginator): $i = 0; $__LIST__ = $city;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo1['cityname']; ?>"><?php echo $vo1['cityname']; ?></option>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
+				<span class="select-box" style="width:32%">
+				<select class="select" size="1" name="city" id='cityinfo'>
+				<if condition="empty($data['city'])">
+				<option value="">请选择市</option>
+				</if>
 				</select>
 				</span>&nbsp;--
 				<span class="select-box" style="width:32%">
-				<select class="select" size="1" name="city">
-				<option value="" selected>请选择所在区</option>
-				<?php if(is_array($district) || $district instanceof \think\Collection || $district instanceof \think\Paginator): $i = 0; $__LIST__ = $district;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo2['districtname']; ?>"><?php echo $vo2['districtname']; ?></option>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
+				<select class="select" size="1" name="area" id="areainfo">
+				<if condition="empty($data['area'])">
+				<option value="">请选择城区</option>
+				</if>
 				</select>
 				</span> </div>
+		</div>
+<script type="text/javascript">
+//select监听事件
+    // $(document).ready(function() {
+    //     $("#province").change(function(){
+    //         var uu = $(this).find('option:selected').val();
+    //         $.ajax({
+    //         type:"POST",
+    //         // url:'getcityinfo',
+    //         url:"<?php echo url('home/Cityarea/getcityinfo'); ?>",
+    //         data:{'province':uu},
+    //         success:function(msg){
+    //      // console.log(msg);
+    //       $("#cityinfo").html(msg);
+    //         }
+    //     })
+    //     });
+    //     $("#cityinfo").change(function(){
+    //         var uu = $(this).find('option:selected').val();
+    			// var uu = $('province').find('option:selected').val();
+    //         $.ajax({
+    //             // url  :'getareainfo',
+    //             url:"<?php echo url('home/Cityarea/getareainfo'); ?>",
+    //             data :{'city':uu},
+    //             type :'POST',
+    //             success:function(msg){
+    //                 $("#areainfo").html(msg);
+    //             }
+    //         })
+    //     });
+    // })
+</script> 
+
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>等级：</label>
@@ -301,6 +335,35 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
+// select监听事件
+    $(document).ready(function() {
+        $("#province").change(function(){
+            var uu = $(this).find('option:selected').val();
+            $.ajax({
+            type:"POST",
+            // url:'getcityinfo',
+            url:"<?php echo url('home/Cityarea/getcityinfo'); ?>",
+            data:{'province':uu},
+            success:function(msg){
+         // console.log(msg);
+          $("#cityinfo").html(msg);
+            }
+        })
+        });
+        $("#cityinfo").change(function(){
+            var uu = $(this).find('option:selected').val();
+           var province = $('#province').find('option:selected').val();
+            $.ajax({
+                // url  :'getareainfo',
+                url:"<?php echo url('home/Cityarea/getareainfo'); ?>",
+                data :{'city':uu,'province':province},
+                type :'POST',
+                success:function(msg){
+                    $("#areainfo").html(msg);
+                }
+            })
+        });
+    })
 function submit_form(){
         $.ajax({
             type:"POST",

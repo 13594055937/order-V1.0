@@ -16,6 +16,36 @@ class Engineer extends Controller{
         $this->assign("count",$count);
 		return $this->fetch(); 
 	}
+        //停用 启用
+        public function status(){
+        $request = Request::instance();
+        $id = $request->param('id');
+        $engineer = EngineerModel::get($id);
+        $status=($engineer->getData('status')===1)?0:1;
+        $rule=EngineerModel::where(['id'=>$id])->update(['status'=>$status]);
+        $message=($rule===null)?"操作失败":"操作成功";
+        return ['message'=>$message];
+    }
+    // 删除
+    public function engineerdel(){
+        $request = Request::instance();
+        $id = $request->param('id');
+        $del=EngineerModel::destroy($id);
+        $retuls=($del>0)?"用户删除成功。":"系统错误,用户删除失败。";
+        return ['retuls'=>$retuls];
+    }
+    public function deleteengineer(){
+        $request = Request::instance();
+        $data=$request->param();
+        $rule='';
+        for($i=0;$i<count($data,1)-1;$i++){
+        $id=$data['delete'][$i];
+        if(EngineerModel::destroy($id)){
+            $rule="批量删除成功。";
+         }
+           return ["message"=>$rule];
+    }
+}
 	public function enginerradd(){
 		$company=Company::all();
         $city=City::all();
@@ -27,6 +57,7 @@ class Engineer extends Controller{
         $this->assign('company',$company);
 		return $this->fetch();
 	}
+
 
 }
 

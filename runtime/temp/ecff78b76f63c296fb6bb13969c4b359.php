@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\index.html";i:1516601666;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\index.html";i:1516787021;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -170,7 +170,7 @@
 				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('home/order/orderadd'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加工单</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('home/engineer/enginerradd'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加工程师</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
 			<form action="">
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -210,7 +210,15 @@
 							<td><?php echo $vo['type']; ?></td>
 							<td><?php echo $vo['province']; ?><?php echo $vo['city']; ?><?php echo $vo['area']; ?></td>
 							<td><?php echo $vo['stardfee']; ?></td>
-							<td><?php echo $vo['status']; ?></td>
+							<td class="td-status">
+								<?php if($vo['status']==1): ?>
+								<span class="label label-success radius">已启用</span>
+								<?php elseif($vo['status']==0): ?>
+								<span class="label label-defaunt radius">已停用</span>
+								<?php else: ?>
+								<span class="label label-defaunt radius">异常</span>'
+								<?php endif; ?>
+							</td>
 							<td><?php echo $vo['memo']; ?></td>
 							<td><?php echo $vo['create_time']; ?></td>
 							<td>无</td>
@@ -221,7 +229,7 @@
 								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
 								<?php endif; ?>
 							<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('useredit',['id'=>$vo['id']]); ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-							<a style="text-decoration:none" class="ml-5" onclick="change_password('<?php echo url('changepassword',['id'=>$vo['id']]); ?>')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							<a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 						</tr>
 						<?php endforeach; endif; else: echo "" ;endif; ?>
 					</tbody>
@@ -244,18 +252,6 @@
 <script type="text/javascript" src="../../../public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../../../public/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-/*密码-修改*/
-function change_password(url){
-		layer.open({
-  type: 2 //Page层类型
-  ,area: ['430px', '345px']
-  ,title: '用户添加'
-  ,shade: 0.6 //遮罩透明度
-  ,maxmin: true //允许全屏最小化
-  ,anim: 1 //0-6的动画形式，-1不开启
-  ,content: url
-}); 
-}
 /*用户-查看*/
 function search(){
 	var search = $('#search').val();
@@ -265,9 +261,9 @@ function search(){
 /*用户-停用*/
 function member_stop(id){
 	layer.confirm('确认要停用/启用吗？',function(){
-		$.post("<?php echo url('user/status'); ?>",{id:id},function(data){
+		$.post("<?php echo url('engineer/status'); ?>",{id:id},function(data){
 		layer.msg(data.message);
-		window.location.replace(location.href);
+		setTimeout("location.reload()",1000);
 		});
 	});
 }
@@ -283,13 +279,13 @@ function member_edit(url){
   ,content: url
 }); 
 }
-/*用户-删除*/
+/*-删除*/
 function member_del(id){
 	layer.confirm('确认要删除吗？',function(){
-		$.get("<?php echo url('user/userdel'); ?>",{id:id},function(data){
+		$.get("<?php echo url('engineer/engineerdel'); ?>",{id:id},function(data){
 			layer.msg(data.retuls,{icon:1,time:1000});
 		});
-	window.location.replace(location.href);
+	setTimeout("location.reload()",1000);
 	});
 }
 //批量删除
@@ -299,14 +295,14 @@ function datadel(){
 		len = len-1
 	}
 	 if(len==0){
-	 layer.msg("没有选中用户。");
+	 layer.msg("没有选中客户。");
 	}
 	 else{
 	 	layer.confirm('确定要删除这'+len+'名用户吗？',function(){
-	 	$.post("<?php echo url('user/deleteuser'); ?>",$('form').serializeArray(),
+	 	$.post("<?php echo url('engineer/deleteengineer'); ?>",$('form').serializeArray(),
 	 	 function(data){
 	 		layer.msg(data.message);
-	 		window.location.replace(location.href);
+	 		setTimeout("location.reload()",1000);
 	 	});
 	 })
 	}
