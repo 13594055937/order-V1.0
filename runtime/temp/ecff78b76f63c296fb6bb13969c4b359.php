@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\index.html";i:1516787021;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\index.html";i:1516870605;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516869610;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script src="__STATIC__/lib/layer/laydate/laydate.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <title>H-ui.admin v3.0</title>
     <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
@@ -82,7 +83,7 @@
             <dd>
                 <ul>
                     <li><a href="<?php echo url('home/engineer/index'); ?>" title="工程师列表">工程师列表</a></li>
-                    <li><a href="<?php echo url('home/engineer/enginerradd'); ?>" title="工程师列表">工程师添加</a></li>
+                    <li><a href="<?php echo url('home/engineer/engineeradd'); ?>" title="工程师列表">工程师添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -170,7 +171,7 @@
 				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('home/engineer/enginerradd'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加工程师</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="<?php echo url('home/engineer/engineeradd'); ?>" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加工程师</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
 			<form action="">
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -186,6 +187,7 @@
 							<th>所属公司名称</th>
 							<th>类型</th>
 							<th>所属地区</th>
+							<th>等级</th>
 							<th >费用</th>
 							<th >状态</th>
 							<th >备注</th>
@@ -209,6 +211,7 @@
 							<td><?php echo $vo['company']; ?></td>
 							<td><?php echo $vo['type']; ?></td>
 							<td><?php echo $vo['province']; ?><?php echo $vo['city']; ?><?php echo $vo['area']; ?></td>
+							<td><?php echo $vo['grade']; ?></td>
 							<td><?php echo $vo['stardfee']; ?></td>
 							<td class="td-status">
 								<?php if($vo['status']==1): ?>

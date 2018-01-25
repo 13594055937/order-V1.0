@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:81:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\enginerradd.html";i:1516779401;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\cityarea\index.html";i:1516779060;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:81:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\enginerradd.html";i:1516869045;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\cityarea\index.html";i:1516779060;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script src="__STATIC__/lib/layer/laydate/laydate.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <title>H-ui.admin v3.0</title>
     <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
@@ -174,25 +175,38 @@
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="usercode">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="code">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="nex" type="radio" id="sex-1" value="1" checked>
+					<label for="sex-1">男</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="nex" value="0">
+					<label for="sex-2">女</label>
+				</div>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="mobile">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="openid">
 			</div>
 		</div>
 		<div class="row cl">
@@ -257,42 +271,44 @@
 </script> 
 
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>等级：</label>
+		<!-- <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>服务时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+				<input type="text" class="input-text" value="" placeholder="请选择日期" id="time" name="">
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>门诊数：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="openid" id="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>床位数：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="email" id="email">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="email" id="email">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" name="email" id="email">
-			</div>
+		</div> -->
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">人员分类：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="type">
+					<?php if(is_array($Engineertype) || $Engineertype instanceof \think\Collection || $Engineertype instanceof \think\Paginator): $i = 0; $__LIST__ = $Engineertype;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $list['name']; ?>"><?php echo $list['name']; ?></option>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+				</span> </div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">所属公司：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="company">
-					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $list['name']; ?>"><?php echo $list['name']; ?></option>
+					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list2): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $list2['name']; ?>"><?php echo $list2['name']; ?></option>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>标准成本：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="cost" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">人员评级：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="grade">
+					<?php if(is_array($Engineerrate) || $Engineerrate instanceof \think\Collection || $Engineerrate instanceof \think\Paginator): $i = 0; $__LIST__ = $Engineerrate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list1): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $list1['name']; ?>"><?php echo $list1['name']; ?></option>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
@@ -300,25 +316,25 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="" onKeyUp="textarealength(this,100)"></textarea>
+				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder=""></textarea>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>工程师状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="usertype" type="radio" id="sex-1" value="1" checked>
+					<input name="engineer" type="radio" id="sex-1" value="1" checked>
 					<label for="sex-1">启用</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="usertype" value="0">
+					<input type="radio" id="sex-2" name="engineer" value="0">
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
 		</div>
 <br>
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -335,6 +351,50 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
+  //常规用法
+laydate.render({
+  elem: '#time'
+});
+$(function(){
+	$("#form-member-add").validate({
+		rules:{
+			code:{
+				required:true,
+			},
+			name:{
+				required:true,
+			},
+			mobile:{
+				required:true,
+			},
+			openid:{
+				required:true,
+			},
+			cost:{
+				required:true,
+			},
+			beizhun:{
+				required:true,
+			},
+		},
+		// messages: {
+  //     companycode: {
+  //       required: "请输入公司名",
+  //     },
+  // },
+		submitHandler: function(form) {
+            $(form).ajaxSubmit(options);
+            return false;
+        }
+    })
+	var options = {
+	    url: "<?php echo url('enginerr/enginerrsave'); ?>",
+	    type: 'post',
+	    success: function(data) {
+	    	layer.msg(data.result);
+	    	}
+	    } 
+})
 // select监听事件
     $(document).ready(function() {
         $("#province").change(function(){

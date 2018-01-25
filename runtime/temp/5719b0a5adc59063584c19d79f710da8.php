@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:81:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\customer\customeradd.html";i:1516784827;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\cityarea\index.html";i:1516779060;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:81:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\customer\customeradd.html";i:1516784827;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\cityarea\index.html";i:1516779060;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script src="__STATIC__/lib/layer/laydate/laydate.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <title>H-ui.admin v3.0</title>
     <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">

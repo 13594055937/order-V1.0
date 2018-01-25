@@ -9,7 +9,7 @@
 				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="{:url('home/engineer/enginerradd')}" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加工程师</a></span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="{:url('home/engineer/engineeradd')}" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加工程师</a></span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
 			<form action="">
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -25,6 +25,7 @@
 							<th>所属公司名称</th>
 							<th>类型</th>
 							<th>所属地区</th>
+							<th>等级</th>
 							<th >费用</th>
 							<th >状态</th>
 							<th >备注</th>
@@ -48,6 +49,7 @@
 							<td>{$vo.company}</td>
 							<td>{$vo.type}</td>
 							<td>{$vo.province}{$vo.city}{$vo.area}</td>
+							<td>{$vo.grade}</td>
 							<td>{$vo.stardfee}</td>
 							<td class="td-status">
 								{if condition="$vo['status']==1"}

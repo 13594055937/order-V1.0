@@ -7,6 +7,8 @@ use app\home\model\Company;
 use app\home\model\City;
 use app\home\model\District;
 use app\home\model\Province;
+use app\home\model\Engineertype;
+use app\home\model\Engineerrate;
 use think\Db;
 class Engineer extends Controller{
 	public function index(){
@@ -46,17 +48,40 @@ class Engineer extends Controller{
            return ["message"=>$rule];
     }
 }
-	public function enginerradd(){
-		$company=Company::all();
-        $city=City::all();
-        $district=District::all();
+	public function engineeradd(){
+		$Engineertype=Engineertype::all();
         $province=Province::all();
-        $this->assign('province',$province);
-        $this->assign('city',$city);
-        $this->assign('district',$district);
+        $Engineerrate=Engineerrate::all();
+        $company=Company::all();
         $this->assign('company',$company);
+        $this->assign('province',$province);
+        $this->assign('Engineertype',$Engineertype);
+        $this->assign('Engineerrate',$Engineerrate);
 		return $this->fetch();
 	}
+    public function engineersave(){
+        $request = Request::instance();
+         $data=$request->param();
+         $test=[
+         'engineerCode'=>$data['code'],
+         'engineerName'=>$data['name'],
+         'nex'=>$data['nex'],
+         'mobile'=>$data['mobile'],
+         'weixin'=>$data['openid'],
+         'province'=>$data['province'],
+         'city'=>$data['city'],
+         'area'=>$data['area'],
+         'company'=>$data['company'],
+         'grade'=>$data['grade'],
+         'type'=>$data['type'],
+         'stardfee'=>$data['cost'],
+         'status'=>$data['engineer'],
+         'memo'=>$data['beizhu'],
+         ];
+        $engineer=EngineerModel::create($test);
+        $result=$engineer?"工程师添加成功。":"系统错误，添加失败。";
+        return ['result'=>$result];
+    }
 
 
 }
