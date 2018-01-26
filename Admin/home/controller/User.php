@@ -10,10 +10,16 @@ use think\Controller;
 use think\Request;
 use app\home\model\User as UserModel;
 use app\home\model\Company;
+use app\home\model\Role;
 use think\Db;
 class User extends Controller{
 	// 用户管理
     public function index(){
+//         $article = Article::get(1);
+// // 获取文章的所有评论
+// dump($article->comments);
+// // 也可以进行条件搜索
+// dump($article->comments()->where('status',1)->select());
         $count=UserModel::count();
         $list=UserModel::paginate(3);
         $this->assign("list",$list);
@@ -37,8 +43,10 @@ class User extends Controller{
     }
     //添加和更新用户
     public function adduser(){
+        $role=Role::all();
         $company=Company::all();
         $this->assign('company',$company);
+        $this->assign('role',$role);
     	return $this->fetch();
     }
     public function usersave(){

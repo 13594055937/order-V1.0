@@ -7,6 +7,7 @@
  */
 namespace app\home\model;
 use think\Model;
+use app\home\model\Role;
 class User extends Model
 {
     // 关闭自动写入update_time字段
@@ -16,10 +17,9 @@ class User extends Model
         'latestLogin'  =>  'timestamp',
     ];
     
-    public function getUsertypeAttr($value)
+    public function role()
     {
-        $status = [0=>'管理员',1=>'工程师',2=>'报修人'];
-        return $status[$value];
+        return $this->belongsTo('Role');
     }
 
 

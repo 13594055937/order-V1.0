@@ -50,10 +50,10 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="status">
-					<option value="0" selected>管理员</option>
-					<option value="1" selected>工程师</option>
-					<option value="2" selected>派单人</option>
+				<select class="select" size="1" name="usertype">
+				{volist name="role" id="vo1"}
+					<option value="{$vo1.id}" >{$vo1.name}</option>
+				{/volist}
 				</select>
 				</span> </div>
 		</div>
@@ -72,11 +72,11 @@
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="usertype" type="radio" id="sex-1" value="1" checked>
+					<input name="status" type="radio" id="sex-1" value="1" checked>
 					<label for="sex-1">启用</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="usertype" value="0">
+					<input type="radio" id="sex-2" name="status" value="0">
 					<label for="sex-2">停用</label>
 				</div>
 			</div>

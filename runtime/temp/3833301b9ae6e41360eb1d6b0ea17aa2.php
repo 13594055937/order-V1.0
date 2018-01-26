@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1516001729;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516678307;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1516949683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516938236;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script src="__STATIC__/lib/layer/laydate/laydate.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <title>H-ui.admin v3.0</title>
     <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
@@ -72,7 +73,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 客户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<?php echo url('home/customer/index'); ?>" title="客户列表">客户列表</a></li>
+                    <li><a href="<?php echo url('home/customer/index'); ?>" title="客户列表">客户管理</a></li>
                     <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">客户添加</a></li>
                 </ul>
             </dd>
@@ -82,7 +83,7 @@
             <dd>
                 <ul>
                     <li><a href="<?php echo url('home/engineer/index'); ?>" title="工程师列表">工程师列表</a></li>
-                    <li><a href="<?php echo url('home/engineer/enginerradd'); ?>" title="工程师列表">工程师添加</a></li>
+                    <li><a href="<?php echo url('home/engineer/engineeradd'); ?>" title="工程师列表">工程师添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -101,6 +102,8 @@
                 <ul>
                     <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户列表</a></li>
                     <li><a href="<?php echo url('home/user/adduser'); ?>" title="用户管理">用户添加</a></li>
+                    <li><a href="<?php echo url('home/role/index'); ?>" title="角色管理">角色管理</a></li>
+                    <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">权限管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -212,9 +215,9 @@
 			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="status">
-					<option value="0" selected>管理员</option>
-					<option value="1" selected>工程师</option>
-					<option value="2" selected>派单人</option>
+				<?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $vo1['id']; ?>" ><?php echo $vo1['name']; ?></option>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
 		</div>
