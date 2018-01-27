@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:70:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1517049318;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\role\index.html";i:1517056476;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -165,123 +165,62 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
-<title>添加用户 - H-ui.admin v3.0</title>
-<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-</head>
-<body>
-
 <section class="Hui-article-box">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<article class="cl pd-20">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
-	<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="usercode">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="password" name="password">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="openid" id="email">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="@" name="email" id="email">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="usertype">
-				<?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo1['role_id']; ?>" ><?php echo $vo1['name']; ?></option>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">所在公司：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="company">
-					<option value="" selected>请选择公司</option>
-					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $list['name']; ?>"><?php echo $list['name']; ?></option>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="role_add()"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+			<div class="mt-10">
+			<table class="table table-border table-bordered table-hover table-bg">
+				<thead>
+					<tr>
+						<th scope="col" colspan="8">角色管理</th>
+					</tr>
+					<tr class="text-c">
+						<th width="25"><input type="checkbox" value="" name=""></th>
+						<th width="">ID</th>
+						<th width="">角色名</th>
+		<!-- 				<th>用户列表</th> -->
+						<th width="">描述</th>
+						<th>创建时间</th>
+						<th>状态</th>
+						<th width="">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+					<tr class="text-c">
+						<td><input type="checkbox" value="" name=""></td>
+						<td><?php echo $vo['role_id']; ?></td>
+						<td><?php echo $vo['name']; ?></td>
+						<!-- <td><?php echo $vo['powerid']; ?></td> -->
+						<td><?php echo $vo['bewrite']; ?></td>
+						<td><?php echo $vo['create_roletime']; ?></td>
+						<td class="td-status">
+								<?php if($vo['role_status']==1): ?>
+								<span class="label label-success radius">已启用</span>
+								<?php elseif($vo['role_status']==0): ?>
+								<span class="label label-defaunt radius">已停用</span>
+								<?php else: ?>
+								<span class="label label-defaunt radius">异常</span>'
+								<?php endif; ?>
+							</td>
+						<td width="8%">
+						<?php if($vo['role_status']==1): ?>
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['role_id']; ?>)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>  
+								<?php else: ?>
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['role_id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a> 
+								<?php endif; ?> 
+						&ensp;<a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.html','1')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['role_id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="status" type="radio" id="sex-1" value="1" checked>
-					<label for="sex-1">启用</label>
-				</div>
-				<div class="radio-box">
-					<input type="radio" id="sex-2" name="status" value="0">
-					<label for="sex-2">停用</label>
-				</div>
+				</tbody>
+			</table>
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理分组：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">用户管理</label>
-				</div>
-				<div class="radio-box">
-					<input type="checkbox" id="" name="">
-					<label for="sex-2">公司管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">客户管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工程师管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工单查询</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">基础数据管理</label>
-				</div>
-			</div>
-		</div>
-<br>
-			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="submit_form('usersave')" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-			</div>
-		</div>
-	</form>
-</article>
+		</article>
+	</div>
 </section>
+
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
@@ -289,28 +228,42 @@
 <script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-function submit_form(url){
-        $.ajax({
-            type:"POST",
-            // url:"<?php echo url('loginvalidate'); ?>",
-            url:url,
-            data:$("form").serialize(),//将表单序列化
-            dataType:'json',
-            success:function(data){
-                if(data.status==1){
-                    layer.msg(data.result);
-                    window.location.href="index/index";
-				}
-                layer.alert(data.result);
-            }
-        })
-    }
-</script> 
+/*管理员-角色-添加*/
+function role_add(){
+		layer.open({
+  type: 2 //Page层类型
+  ,area: ['45%','90%']
+  ,title: '角色添加'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: 'roleadd.html'
+}); 
+}
+/*用户-停用*/
+function member_stop(id){
+	layer.confirm('确认要停用/启用吗？',function(){
+		$.post("<?php echo url('role/status'); ?>",{id:id},function(data){
+		layer.msg(data.message);
+		setTimeout("location.reload()",500);
+		});
+	});
+}
+/*用户-删除*/
+function member_del(id){
+	layer.confirm('确认要删除吗？删除前请确保该角色中没有用户。',function(){
+		// $.get("<?php echo url('role/roledel'); ?>",{role_id:id},function(data){
+			// layer.msg(data.retuls,{icon:1,time:1000});
+			layer.msg('删除失败',{icon:1,time:1000});
+		// });
+	setTimeout("location.reload()",1000);
+	});
+}
+</script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>

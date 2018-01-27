@@ -10,26 +10,44 @@
 			<table class="table table-border table-bordered table-hover table-bg">
 				<thead>
 					<tr>
-						<th scope="col" colspan="6">角色管理</th>
+						<th scope="col" colspan="8">角色管理</th>
 					</tr>
 					<tr class="text-c">
 						<th width="25"><input type="checkbox" value="" name=""></th>
-						<th width="40">ID</th>
-						<th width="200">角色名</th>
-						<th>用户列表</th>
-						<th width="300">描述</th>
-						<th width="70">操作</th>
+						<th width="">ID</th>
+						<th width="">角色名</th>
+		<!-- 				<th>用户列表</th> -->
+						<th width="">描述</th>
+						<th>创建时间</th>
+						<th>状态</th>
+						<th width="">操作</th>
 					</tr>
 				</thead>
 				<tbody>
 				{volist name="list" id="vo"}
 					<tr class="text-c">
 						<td><input type="checkbox" value="" name=""></td>
-						<td>{$vo.id}</td>
+						<td>{$vo.role_id}</td>
 						<td>{$vo.name}</td>
-						<td>{$vo.powerid}</td>
-						<td>{$vo.describe}</td>
-						<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.html','1')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						<!-- <td>{$vo.powerid}</td> -->
+						<td>{$vo.bewrite}</td>
+						<td>{$vo.create_roletime}</td>
+						<td class="td-status">
+								{if condition="$vo['role_status']==1"}
+								<span class="label label-success radius">已启用</span>
+								{elseif condition="$vo['role_status']==0"/}
+								<span class="label label-defaunt radius">已停用</span>
+								{else /}
+								<span class="label label-defaunt radius">异常</span>'
+								{/if}
+							</td>
+						<td width="8%">
+						{if condition="$vo['role_status']==1"}
+								<a style="text-decoration:none" onClick="member_stop({$vo.role_id})" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>  
+								{else /}
+								<a style="text-decoration:none" onClick="member_stop({$vo.role_id})" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a> 
+								{/if} 
+						&ensp;<a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.html','1')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del({$vo.role_id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr>
 					{/volist}
 				</tbody>
@@ -50,7 +68,7 @@
 function role_add(){
 		layer.open({
   type: 2 //Page层类型
-  ,area: ['50%','70%']
+  ,area: ['45%','90%']
   ,title: '角色添加'
   ,shade: 0.6 //遮罩透明度
   ,maxmin: true //允许全屏最小化
@@ -58,18 +76,23 @@ function role_add(){
   ,content: 'roleadd.html'
 }); 
 }
-/*管理员-角色-编辑*/
-function admin_role_edit(title,url,id,w,h){
-	layer_show(title,url,w,h);
+/*用户-停用*/
+function member_stop(id){
+	layer.confirm('确认要停用/启用吗？',function(){
+		$.post("{:url('role/status')}",{id:id},function(data){
+		layer.msg(data.message);
+		setTimeout("location.reload()",500);
+		});
+	});
 }
-/*管理员-角色-删除*/
-function admin_role_del(obj,id){
-	layer.confirm('角色删除须谨慎，确认要删除吗？',function(index){
-		//此处请求后台程序，下方是成功后的前台处理……
-		
-		
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
+/*用户-删除*/
+function member_del(id){
+	layer.confirm('确认要删除吗？删除前请确保该角色中没有用户。',function(){
+		// $.get("{:url('role/roledel')}",{role_id:id},function(data){
+			// layer.msg(data.retuls,{icon:1,time:1000});
+			layer.msg('删除失败',{icon:1,time:1000});
+		// });
+	setTimeout("location.reload()",1000);
 	});
 }
 </script>

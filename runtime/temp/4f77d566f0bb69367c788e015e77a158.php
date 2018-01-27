@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\company\index.html";i:1516412651;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516101630;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516421557;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\company\index.html";i:1516412651;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script src="__STATIC__/lib/layer/laydate/laydate.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <title>H-ui.admin v3.0</title>
     <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
@@ -72,7 +73,8 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 客户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="article-list.html" title="资讯管理">资讯管理</a></li>
+                    <li><a href="<?php echo url('home/customer/index'); ?>" title="客户列表">客户管理</a></li>
+                    <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">客户添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -80,7 +82,8 @@
             <dt><i class="Hui-iconfont">&#xe613;</i> 工程师管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="picture-list.html" title="图片管理">图片管理</a></li>
+                    <li><a href="<?php echo url('home/engineer/index'); ?>" title="工程师列表">工程师列表</a></li>
+                    <li><a href="<?php echo url('home/engineer/engineeradd'); ?>" title="工程师列表">工程师添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -88,9 +91,8 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 工单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="product-brand.html" title="品牌管理">品牌管理</a></li>
-                    <li><a href="product-category.html" title="分类管理">分类管理</a></li>
-                    <li><a href="product-list.html" title="产品管理">产品管理</a></li>
+                    <li><a href="<?php echo url('home/order/index'); ?>" title="工单列表">工单列表</a></li>
+                    <li><a href="<?php echo url('home/order/orderadd'); ?>" title="工单添加">工单添加</a></li>
                 </ul>
             </dd>
         </dl>
@@ -100,6 +102,8 @@
                 <ul>
                     <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户列表</a></li>
                     <li><a href="<?php echo url('home/user/adduser'); ?>" title="用户管理">用户添加</a></li>
+                    <li><a href="<?php echo url('home/role/index'); ?>" title="角色管理">角色管理</a></li>
+                    <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">权限管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -126,7 +130,7 @@
             <dt><i class="Hui-iconfont">&#xe61a;</i> 我要报修<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<?php echo url('order/addorder'); ?>" title="我要保修">我要报修</a></li>
+                    <li><a href="<?php echo url('home/order/Repair'); ?>" title="我要保修">我要报修</a></li>
                 </ul>
             </dd>
         </dl>

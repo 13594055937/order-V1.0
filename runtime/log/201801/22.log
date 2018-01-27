@@ -9721,3 +9721,58 @@
 [ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `customer` LIMIT 1 [ RunTime:0.001000s ]
 [ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `customer` LIMIT 1 [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SELECT * FROM `customer` LIMIT 0,20 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-01-22T20:49:46+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/index.html [运行时间：0.611537s][吞吐率：1.64req/s] [内存消耗：2,657.13kb] [文件加载：36]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-22T20:49:48+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/index/favicon.ico
+[ info ] localhost/order/order-v1.0/order/admin.php/home/index/favicon.ico [运行时间：0.306405s][吞吐率：3.26req/s] [内存消耗：2,354.38kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'favicon.ico',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=7874478080; Hm_lvt_080836300300be57b7f34f4b3e97d911=1515676454',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File

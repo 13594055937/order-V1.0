@@ -15,13 +15,10 @@ use think\Db;
 class User extends Controller{
 	// 用户管理
     public function index(){
-//         $article = Article::get(1);
-// // 获取文章的所有评论
-// dump($article->comments);
-// // 也可以进行条件搜索
-// dump($article->comments()->where('status',1)->select());
+$list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->paginate(10);
+// $list=UserModel::paginate(5);
         $count=UserModel::count();
-        $list=UserModel::paginate(3);
+        // $list=UserModel::paginate(3);
         $this->assign("list",$list);
         $this->assign("count",$count);
        return $this->fetch();
@@ -33,12 +30,7 @@ class User extends Controller{
     	$user = UserModel::get($id);
     	$status=($user->getData('status')===1)?0:1;
     	$rule=UserModel::where(['id'=>$id])->update(['status'=>$status]);
-    	if($rule===null){
-    		$message="操作失败";
-    	}
-    	else{
-    		$message="操作成功";
-    	}
+    	$message=($rule===null)?"操作失败":"操作成功";
     	return ['message'=>$message];
     }
     //添加和更新用户
@@ -77,7 +69,7 @@ class User extends Controller{
         'mobile'=>$data['mobile'],
         'openid'=>$data['openid'],
         'email'=>$data['email'],
-        'usertype'=>$data['usertype'],
+        'roleid'=>$data['usertype'],
         'company'=>$data['company'],
         'status'=>$data['status'],
         'latestLogin'=>strtotime('now'),

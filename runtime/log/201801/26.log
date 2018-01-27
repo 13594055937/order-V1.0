@@ -7562,3 +7562,144 @@ LOG ] INIT File
 [ sql ] [ SQL ] SELECT * FROM `role` [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SELECT * FROM `role` [ RunTime:0.000000s ]
 [ error ] [8]未定义数组下标: 4[C:\PHP\php11\WWW\order\order-v1.0\order\Admin\home\model\User.php:28]
+---------------------------------------------------------------
+[ 2018-01-26T19:56:06+08:00 ] 127.0.0.1 127.0.0.1 GET /order/order-v1.0/order/admin.php
+[ info ] 127.0.0.1/order/order-v1.0/order/admin.php [运行时间：1.030180s][吞吐率：0.97req/s] [内存消耗：1,844.15kb] [文件加载：28]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/order/order-v1.0/order/',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-26T19:56:18+08:00 ] 127.0.0.1 127.0.0.1 GET /order/order-v1.0/order/admin.php/home/index/index
+[ info ] 127.0.0.1/order/order-v1.0/order/admin.php/home/index/index [运行时间：0.359050s][吞吐率：2.79req/s] [内存消耗：2,657.04kb] [文件加载：36]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\Index.php ]
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-26T19:56:20+08:00 ] 127.0.0.1 127.0.0.1 GET /order/order-v1.0/order/admin.php/home/index/favicon.ico
+[ info ] 127.0.0.1/order/order-v1.0/order/admin.php/home/index/favicon.ico [运行时间：0.089052s][吞吐率：11.23req/s] [内存消耗：2,353.97kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'favicon.ico',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/order/order-v1.0/order/admin.php/home/index/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-01-26T19:56:24+08:00 ] 127.0.0.1 127.0.0.1 GET /order/order-v1.0/order/admin.php/home/user/index.html
+[ info ] 127.0.0.1/order/order-v1.0/order/admin.php/home/user/index.html [运行时间：0.650927s][吞吐率：1.54req/s] [内存消耗：4,837.23kb] [文件加载：48]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/order/order-v1.0/order/admin.php/home/index/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\home\controller\User->index[ C:\wamp64\www\order\order-v1.0\order\Admin\home\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] C:\wamp64\www\order\order-v1.0\order/Admin/home\view\user\index.html [ array (
+  0 => 'list',
+  1 => 'count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.136961s ] mysql:dbname=city;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.303048s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1 [ RunTime:0.008103s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1 [ RunTime:0.000867s ]
+[ sql ] [ SQL ] SELECT * FROM `user` LIMIT 0,3 [ RunTime:0.001802s ]
+---------------------------------------------------------------
+[ 2018-01-26T19:56:25+08:00 ] 127.0.0.1 127.0.0.1 GET /order/order-v1.0/order/admin.php/home/user/favicon.ico
+[ info ] 127.0.0.1/order/order-v1.0/order/admin.php/home/user/favicon.ico [运行时间：0.197279s][吞吐率：5.07req/s] [内存消耗：2,406.95kb] [文件加载：35]
+[ info ] [ LANG ] C:\wamp64\www\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'user',
+    2 => 'favicon.ico',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3236.0 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/order/order-v1.0/order/admin.php/home/user/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
