@@ -21,12 +21,18 @@ class Role extends Controller{
     	$data = $request->param();
     	$test=[
     	'name'=>$data['roleName'],
-    	'bewrite'=>$data['memo']
+    	'bewrite'=>$data['memo'],
+    	'role_status'=>$data['status']
     	];
+    	if(@$data['id']){
+            $update=RoleModel::where('role_id',$data['id'])->update($test);
+            $result=$update?"用户更新成功。":"系统错误，更新失败。";
+    }else{
     	$role=RoleModel::create($test);
         $result= $role?"角色添加成功。":"系统错误，添加失败。";
-        return ['result'=>$result];    	
-	 }
+    } 	
+     return ['result'=>$result];   
+}
 	 //停用启用
 	 public function status(){
     	$request = Request::instance();
@@ -38,13 +44,20 @@ class Role extends Controller{
     	return ['message'=>$message];
     }
     //删除
-    //删除用户
     public function roledel(){
         $request = Request::instance();
         $id = $request->param('role_id');
         $del=UserModel::destroy($id);
         $retuls=($del>0)?"用户删除成功。":"系统错误,用户删除失败。";
         return ['retuls'=>$retuls];
+    }
+    //角色编辑
+    public function roleedit(){  
+    	$request = Request::instance();
+    	$id = $request->param('role_id');
+    	$list=RoleModel::get($id);
+    	$this->assign('list',$list);
+    	return $this->fetch();
     }
 
 }

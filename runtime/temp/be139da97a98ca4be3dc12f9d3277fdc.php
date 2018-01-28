@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\role\roleadd.html";i:1517120384;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\role\roleedit.html";i:1517121740;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -30,16 +30,17 @@
 <body>
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
+	<input type="hidden" value="<?php echo $list['role_id']; ?>" name="id">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="roleName" name="roleName" datatype="*4-16" nullmsg="用户账户不能为空">
+				<input type="text" class="input-text" value="<?php echo $list['name']; ?>" placeholder="" id="roleName" name="roleName" datatype="*4-16" nullmsg="用户账户不能为空">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="memo">
+				<input type="text" class="input-text" value="<?php echo $list['bewrite']; ?>" placeholder="" id="" name="memo">
 			</div>
 		</div>
 		<div class="row cl">
@@ -153,11 +154,11 @@
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="status" type="radio" id="sex-1" value="1" checked>
+<input name="status" type="radio" id="sex-1" value="1" <?php if(($list['role_status'] == 1)): ?>checked<?php endif; ?>>
 					<label for="sex-1">启用</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="status" value="0">
+					<input type="radio" id="sex-2" name="status" value="0" <?php if(($list['role_status'] == 0)): ?>checked<?php endif; ?>>
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
@@ -201,8 +202,8 @@ $(function(){
 			}
 		}
 	});
-	
-	$("#form-admin-role-add").validate({
+	});
+$("#form-admin-role-add").validate({
 		rules:{
 			roleName:{
 				required:true,
@@ -223,7 +224,6 @@ $(function(){
 	    	layer.msg(data.result);
 	    	}
 	    }
-});	
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

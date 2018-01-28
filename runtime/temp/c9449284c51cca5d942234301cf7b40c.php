@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\role\index.html";i:1517056476;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:68:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\role\index.html";i:1517119593;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515834553;s:69:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516967607;s:71:"C:\wamp64\www\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516101630;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -211,7 +211,7 @@
 								<?php else: ?>
 								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['role_id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a> 
 								<?php endif; ?> 
-						&ensp;<a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.html','1')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['role_id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						&ensp;<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('roleedit',['role_id'=>$vo['role_id']]); ?>')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['role_id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
@@ -262,6 +262,18 @@ function member_del(id){
 		// });
 	setTimeout("location.reload()",1000);
 	});
+}
+/*用户-编辑*/
+function member_edit(url){
+	layer.open({
+  type: 2 //Page层类型
+  ,area: ['770px', '620px']
+  ,title: '用户添加'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: url
+}); 
 }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
