@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\useredit.html";i:1516258266;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\useredit.html";i:1517192296;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -65,11 +65,10 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="status">
-				<?php switch($list['usertype']): case "管理员": ?><option value="0" selected>管理员</option><?php break; case "工程师": ?><option value="1" selected>工程师</option><?php break; case "派单人": ?><option value="2" selected>派单人</option><?php break; endswitch; ?>
-					<option value="0">管理员</option>
-					<option value="1">工程师</option>
-					<option value="2">派单人</option>
+				<select class="select" size="1" name="usertype">
+				<?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$name): $mod = ($i % 2 );++$i;?>
+				<option value="<?php echo $name['role_id']; ?>" <?php if(($list['roleid'] == $name['role_id'])): ?>selected<?php endif; ?>><?php echo $name['name']; ?></option>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
 		</div>
@@ -88,16 +87,16 @@
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="usertype" type="radio" id="sex-1" value="1" checked>
+					<input name="status" type="radio" id="sex-1" value="1" checked>
 					<label for="sex-1">启用</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="usertype" value="0">
+					<input type="radio" id="sex-2" name="status" value="0">
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
 		</div>
-		<div class="row cl">
+	<!-- 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理分组：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
@@ -126,7 +125,7 @@
 				</div>
 			</div>
 		</div>
-<br>
+<br> -->
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>

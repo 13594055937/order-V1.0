@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1516949683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516938236;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1517210725;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -23,186 +23,41 @@
     <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-<header class="navbar-wrapper">
-    <div class="navbar navbar-fixed-top">
-        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>
-            <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span>
-            <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-            <nav class="nav navbar-nav">
-                <ul class="cl">
-                    <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
-                        <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-                            <li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-                            <li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-                            <li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-                <ul class="cl">
-                    <li>超级管理员</li>
-                    <li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
-                        <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-                            <li><a href="#">切换账户</a></li>
-                            <li><a href="#">退出</a></li>
-                        </ul>
-                    </li>
-                    <li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
-                    <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
-                        <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-                            <li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-                            <li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-                            <li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-                            <li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-                            <li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
-<aside class="Hui-aside">
-
-    <div class="menu_dropdown bk_2">
-        <dl id="menu-article">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 客户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="<?php echo url('home/customer/index'); ?>" title="客户列表">客户管理</a></li>
-                    <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">客户添加</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe613;</i> 工程师管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="<?php echo url('home/engineer/index'); ?>" title="工程师列表">工程师列表</a></li>
-                    <li><a href="<?php echo url('home/engineer/engineeradd'); ?>" title="工程师列表">工程师添加</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-product">
-            <dt><i class="Hui-iconfont">&#xe620;</i> 工单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="<?php echo url('home/order/index'); ?>" title="工单列表">工单列表</a></li>
-                    <li><a href="<?php echo url('home/order/orderadd'); ?>" title="工单添加">工单添加</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-comments">
-            <dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户列表</a></li>
-                    <li><a href="<?php echo url('home/user/adduser'); ?>" title="用户管理">用户添加</a></li>
-                    <li><a href="<?php echo url('home/role/index'); ?>" title="角色管理">角色管理</a></li>
-                    <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">权限管理</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-member">
-            <dt><i class="Hui-iconfont">&#xe60d;</i> 公司管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="<?php echo url('company/index'); ?>" title="公司列表">公司列表</a></li>
-                    <li><a href="<?php echo url('home/company/addcompany'); ?>" title="删除的会员">公司添加</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-admin">
-            <dt><i class="Hui-iconfont">&#xe62d;</i> 工单查询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="admin-role.html" title="角色管理">角色管理</a></li>
-                    <li><a href="admin-permission.html" title="权限管理">权限管理</a></li>
-                    <li><a href="admin-list.html" title="管理员列表">管理员列表</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-tongji">
-            <dt><i class="Hui-iconfont">&#xe61a;</i> 我要报修<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="<?php echo url('home/order/Repair'); ?>" title="我要保修">我要报修</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-system">
-            <dt><i class="Hui-iconfont">&#xe62e;</i> 基础数据管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="system-base.html" title="系统设置">系统设置</a></li>
-                    <li><a href="system-category.html" title="栏目管理">栏目管理</a></li>
-                    <li><a href="system-data.html" title="数据字典">数据字典</a></li>
-                    <li><a href="system-shielding.html" title="屏蔽词">屏蔽词</a></li>
-                    <li><a href="system-log.html" title="系统日志">系统日志</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe613;</i> 维修单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="picture-list.html" title="图片管理">图片管理</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe622;</i> 维修单查询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a href="picture-list.html" title="图片管理">图片管理</a></li>
-                </ul>
-            </dd>
-        </dl>
-    </div>
-</aside>
-<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
 <title>添加用户 - H-ui.admin v3.0</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-
-<section class="Hui-article-box">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="usercode">
+				<input type="text" class="input-text" value="" placeholder="3到15位字符由字母开头、数字组合" id="" name="usercode">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="2到17位字符组合" id="username" name="username">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="password" name="password">
+				<input type="password" class="input-text" value="" placeholder="6到17位字符由字母、数字及英文符号组合" id="password" name="password">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+				<input type="text" class="input-text" value="" placeholder="11位的手机号" id="mobile" name="mobile">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="openid" id="email">
+				<input type="text" class="input-text" placeholder="以字母开头的6-20个字母、数字、下划线或减号" name="openid" id="email">
 			</div>
 		</div>
 		<div class="row cl">
@@ -214,9 +69,9 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="status">
+				<select class="select" size="1" name="usertype">
 				<?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo1['id']; ?>" ><?php echo $vo1['name']; ?></option>
+					<option value="<?php echo $vo1['role_id']; ?>" ><?php echo $vo1['name']; ?></option>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
@@ -236,16 +91,16 @@
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="usertype" type="radio" id="sex-1" value="1" checked>
+					<input name="status" type="radio" id="sex-1" value="1" checked>
 					<label for="sex-1">启用</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="sex-2" name="usertype" value="0">
+					<input type="radio" id="sex-2" name="status" value="0">
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
 		</div>
-		<div class="row cl">
+		<!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理分组：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
@@ -274,14 +129,13 @@
 				</div>
 			</div>
 		</div>
-<br>
+<br> -->
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="button" onclick="submit_form('usersave')" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
 </article>
-</section>
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
@@ -304,9 +158,10 @@ function submit_form(url){
             success:function(data){
                 if(data.status==1){
                     layer.msg(data.result);
-                    window.location.href="index/index";
+                    setTimeout("parent.location.reload()",1000);
+				}else{
+					  layer.msg(data.result);
 				}
-                layer.alert(data.result);
             }
         })
     }

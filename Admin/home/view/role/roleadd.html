@@ -192,9 +192,17 @@ $(function(){
 	    url: "{:url('role/rolesave')}",
 	    type: 'post',
 	    success: function(data) {
-	    	layer.msg(data.result);
+	    	if(data.status==1){
+	    		layer.msg(data.result);
+	    		// setTimeout("parent.layer.closeAll();",1000);
+	    		setTimeout("parent.location.reload()",1000);
 	    	}
+	    	else{
+	    		 layer.msg(data.result);
+	    	}
+	   
 	    }
+	 }
 });	
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

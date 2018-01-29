@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\changepassword.html";i:1516323618;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516008607;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\changepassword.html";i:1517191117;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script src="__STATIC__/lib/layer/laydate/laydate.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <title>H-ui.admin v3.0</title>
     <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
@@ -31,8 +32,9 @@
 	<form action="/" method="post" class="form form-horizontal" id="form-change-password">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账户名：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <?php echo $list['username']; ?> </div>
+			<div class="formControls col-xs-8 col-sm-9"><?php echo $list['username']; ?> </div>
 		</div>
+		<input type="hidden" class="input-text" autocomplete="off" name="username" id="username" value="<?php echo $list['username']; ?>">
 		<input type="hidden" class="input-text" autocomplete="off" name="pwd" id="pwd" value="<?php echo $list['userpwd']; ?>">
 		<input type="hidden" class="input-text" autocomplete="off" name="id" id="" value="<?php echo $list['id']; ?>">
 		<div class="row cl">
@@ -79,7 +81,7 @@ $(function(){
 				required:true,
 				minlength:6,
 				maxlength:16,
-				equalTo: "#pwd"
+				// equalTo: "#pwd"
 			},
 			newpassword1:{
 				required:true,

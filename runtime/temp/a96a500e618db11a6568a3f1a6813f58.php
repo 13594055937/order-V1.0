@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\role\roleadd.html";i:1516949277;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\role\roleadd.html";i:1517210657;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -49,14 +49,14 @@
 					<dt>
 						<label>
 							<input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
-							资讯管理</label>
+							用户管理</label>
 					</dt>
 					<dd>
 						<dl class="cl permission-list2">
 							<dt>
 								<label class="">
 									<input type="checkbox" value="" name="user-Character-0-0" id="user-Character-0-0">
-									栏目管理</label>
+									用户管理</label>
 							</dt>
 							<dd>
 								<label class="">
@@ -71,17 +71,13 @@
 								<label class="">
 									<input type="checkbox" value="" name="user-Character-0-0-0" id="user-Character-0-0-3">
 									查看</label>
-								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-0-0" id="user-Character-0-0-4">
-									审核</label>
-								<label class="c-orange"><input type="checkbox" value="" name="user-Character-0-0-0" id="user-Character-0-0-5"> 只能操作自己发布的</label>
 							</dd>
 						</dl>
 						<dl class="cl permission-list2">
 							<dt>
 								<label class="">
 									<input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
-									文章管理</label>
+									角色管理</label>
 							</dt>
 							<dd>
 								<label class="">
@@ -96,15 +92,32 @@
 								<label class="">
 									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-3">
 									查看</label>
+							</dd>
+						</dl>
+						<dl class="cl permission-list2">
+							<dt>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-4">
-									审核</label>
-								<label class="c-orange"><input type="checkbox" value="" name="user-Character-0-2-0" id="user-Character-0-2-5"> 只能操作自己发布的</label>
+									<input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
+									权限管理</label>
+							</dt>
+							<dd>
+								<label class="">
+									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-0">
+									添加</label>
+								<label class="">
+									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-1">
+									修改</label>
+								<label class="">
+									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-2">
+									删除</label>
+								<label class="">
+									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-3">
+									查看</label>
 							</dd>
 						</dl>
 					</dd>
 				</dl>
-				<dl class="permission-list">
+				<!-- <dl class="permission-list">
 					<dt>
 						<label>
 							<input type="checkbox" value="" name="user-Character-0" id="user-Character-1">
@@ -130,13 +143,23 @@
 								<label class="">
 									<input type="checkbox" value="" name="user-Character-1-0-0" id="user-Character-1-0-3">
 									查看</label>
-								<label class="">
-									<input type="checkbox" value="" name="user-Character-1-0-0" id="user-Character-1-0-4">
-									审核</label>
 							</dd>
 						</dl>
 					</dd>
-				</dl>
+				</dl> -->
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="status" type="radio" id="sex-1" value="1" checked>
+					<label for="sex-1">启用</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="status" value="0">
+					<label for="sex-2">停用</label>
+				</div>
 			</div>
 		</div>
 		<div class="row cl">
@@ -197,9 +220,17 @@ $(function(){
 	    url: "<?php echo url('role/rolesave'); ?>",
 	    type: 'post',
 	    success: function(data) {
-	    	layer.msg(data.result);
+	    	if(data.status==1){
+	    		layer.msg(data.result);
+	    		// setTimeout("parent.layer.closeAll();",1000);
+	    		setTimeout("parent.location.reload()",1000);
 	    	}
+	    	else{
+	    		 layer.msg(data.result);
+	    	}
+	   
 	    }
+	 }
 });	
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

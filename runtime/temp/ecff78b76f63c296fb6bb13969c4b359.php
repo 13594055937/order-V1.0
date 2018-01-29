@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\index.html";i:1516870605;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1516869610;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:75:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\engineer\index.html";i:1516870605;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1517192183;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -73,7 +73,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 客户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a href="<?php echo url('home/customer/index'); ?>" title="客户列表">客户列表</a></li>
+                    <li><a href="<?php echo url('home/customer/index'); ?>" title="客户列表">客户管理</a></li>
                     <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">客户添加</a></li>
                 </ul>
             </dd>
@@ -101,7 +101,8 @@
             <dd>
                 <ul>
                     <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户列表</a></li>
-                    <li><a href="<?php echo url('home/user/adduser'); ?>" title="用户管理">用户添加</a></li>
+                    <li><a href="<?php echo url('home/role/index'); ?>" title="角色管理">角色管理</a></li>
+                    <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">权限管理</a></li>
                 </ul>
             </dd>
         </dl>

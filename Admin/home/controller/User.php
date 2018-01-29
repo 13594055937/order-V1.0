@@ -45,19 +45,19 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
         $request=Request::instance();
         $data=$request->param();
         $rules=[
-            'usercode'=>'require',
-            'username'=>'require',
-            'password'=>'require',
-            'mobile'=>'require|length:11',
-            'openid'=>'require',
+            'usercode'=>'require|length:3,15|regex:/^[a-zA-Z0-9]{3,15}$/',
+            'username'=>'require|length:2,17',
+            'password'=>'require|length:6,17|regex:/^[a-zA-Z0-9_.@~!?]{6,17}$/',
+            'mobile'=>'require|length:11|regex:/^[0-9]{11}$/',
+            'openid'=>'require|length:6,20|regex:/^[a-zA-Z0-9_-]{6,20}$/',
             'email'=>'require|email'
         ];
         $msg=[
-          'usercode'=>['require'=>'编号不能为空，请输入编号。'],
+          'usercode'=>['require'=>'编号不能为空，请输入编号。','length'=>'请输入编号长度为3-15的字符','regex'=>'编号不符合规则。'],
             'username'=>['require'=>'用户名不能为空，请输入用户名。'],
-            'password'=>['require'=>'密码不能为空，请输入用密码。'],
-             'mobile'=>['require'=>'手机号不能为空，请输入手机号。','length'=>'手机号不符合规则。'],
-            'openid'=>['require'=>'微信号不能为空，请输入用微信号。'],
+            'password'=>['require'=>'密码不能为空，请输入用密码。','length'=>'请输入密码长度为6-17的字符','regex'=>'密码不符合规则。'],
+             'mobile'=>['require'=>'手机号不能为空，请输入手机号。','length'=>'手机号长度有误。','regex'=>'手机号不符合规则。'],
+            'openid'=>['require'=>'微信号不能为空，请输入用微信号。','length'=>'请输入微信号长度为6-20的字符','regex'=>'微信号不符合规则。'],
             'email'=>['require'=>'邮箱不能为空,请输入邮箱。','email'=>'请输入正确的邮箱格式。']
         ];
         $result=$this->validate($data,$rules,$msg);
@@ -76,25 +76,16 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
         ];
         if(@$data['id']){
             $update=UserModel::where('id',$data['id'])->update($test);
-             if($update){
-            $result="用户更新成功。";
-        }
-            else{
-                $result="系统错误，更新失败。";
-            }
+            $result=($update)?"用户更新成功。":"系统错误，更新失败。";
     }
         else{
-            $test['userpwd']=md5($data['username'].$data['password']."~!@");
+        $test['userpwd']=md5($data['username'].$data['password']."~!@");
         $user=UserModel::create($test);
-        if($user){
-            $result="用户添加成功。";
+          $result=($user)?"用户添加成功。":"系统错误，添加失败。";
+          $status=($user)?1:0;
         }
-        else{
-            $result="系统错误，添加失败。";
-        }
-    }
 }
-        return ['result'=>$result];
+        return ['result'=>$result,'status'=>$status];
     }
     //编辑用户
     public function useredit(){
@@ -102,7 +93,9 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
         $id = $request->param('id');
         $list=UserModel::get($id);
         $company=Company::all();
+        $role=Role::all();
         $this->assign('company',$company);
+         $this->assign('role',$role);
         $this->assign('list',$list);
         return $this->fetch();
     }
@@ -141,6 +134,7 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
          $this->assign('count',$count);
         return $this->fetch('index');
     }
+    //密码修改
     public function changepassword(){
         $request = Request::instance();
         $id = $request->param('id');
@@ -151,8 +145,13 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
     public function pwdsave(){
          $request = Request::instance();
         $data = $request->param();
-        $update=UserModel::where('id',$data['id'])->update(['userpwd'=>$data['newpassword1']]);
+        if($data['pwd']!==md5($data['username'].$data['password']."~!@")){
+            $retuls="旧密码错误。";
+        }else{
+        $newpassword=md5($data['username'].$data['newpassword1']."~!@");
+         $update=UserModel::where('id',$data['id'])->update(['userpwd'=>$newpassword]);
         $retuls=$update?'更改密码成功':'更改密码失败';
+        }
         return ['retuls'=>$retuls];
     }
 }

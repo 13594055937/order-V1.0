@@ -17,6 +17,7 @@ class Role extends Controller{
 		return $this->fetch();
 	}
 	 public function rolesave(){
+	 	// $status=0;
 	 	$request = Request::instance();
     	$data = $request->param();
     	$test=[
@@ -30,8 +31,9 @@ class Role extends Controller{
     }else{
     	$role=RoleModel::create($test);
         $result= $role?"角色添加成功。":"系统错误，添加失败。";
+        $status= $role?"1":"0";
     } 	
-     return ['result'=>$result];   
+     return ['result'=>$result,'status'=>$status];   
 }
 	 //停用启用
 	 public function status(){
