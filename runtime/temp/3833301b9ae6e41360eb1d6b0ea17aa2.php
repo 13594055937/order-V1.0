@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1517210725;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\user\adduser.html";i:1517279774;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -71,7 +71,7 @@
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="usertype">
 				<?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo1['role_id']; ?>" ><?php echo $vo1['name']; ?></option>
+					<option value="<?php echo $vo1['role_id']; ?>"><?php echo $vo1['name']; ?></option>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>

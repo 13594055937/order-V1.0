@@ -1,5 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\role\roleadd.html";i:1517366212;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\power\poweredit.html";i:1517384289;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -31,87 +31,75 @@
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="roleName" name="roleName" datatype="*4-16" nullmsg="用户账户不能为空">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">备注：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="memo">
-			</div>
-		</div>
-		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">网站角色：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<dl class="permission-list">
 					<dt>
 						<label>
-							<input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
+							<input type="checkbox" value="" name="user" id="user-Character-0">
 							用户管理</label>
 					</dt>
 					<dd>
 						<dl class="cl permission-list2">
 							<dt>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-0" id="user-Character-0-0">
+									<input type="checkbox" value="用户管理" name="user-manage" id="user-Character-0-0">
 									用户管理</label>
 							</dt>
 							<dd>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-0-0" id="user-Character-0-0-0">
+									<input type="checkbox" value="1" name="user-add" id="user-Character-0-0-0">
 									添加</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-0-0" id="user-Character-0-0-1">
+									<input type="checkbox" value="1" name="user-edit" id="user-Character-0-0-1">
 									修改</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-0-0" id="user-Character-0-0-2">
+									<input type="checkbox" value="1" name="user-del" id="user-Character-0-0-2">
 									删除</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-0-0" id="user-Character-0-0-3">
+									<input type="checkbox" value="1" name="user-see" id="user-Character-0-0-3">
 									查看</label>
 							</dd>
 						</dl>
 						<dl class="cl permission-list2">
 							<dt>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
+									<input type="checkbox" value="角色管理" name="user-Character-0-1" id="user-Character-0-1">
 									角色管理</label>
 							</dt>
 							<dd>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-0">
+									<input type="checkbox" value="" name="user-Character-0-1-1" id="user-Character-0-1-0">
 									添加</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-1">
+									<input type="checkbox" value="" name="user-Character-0-1-2" id="user-Character-0-1-1">
 									修改</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-2">
+									<input type="checkbox" value="" name="user-Character-0-1-3" id="user-Character-0-1-2">
 									删除</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-3">
+									<input type="checkbox" value="" name="user-Character-0-1-4" id="user-Character-0-1-3">
 									查看</label>
 							</dd>
 						</dl>
 						<dl class="cl permission-list2">
 							<dt>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1" id="user-Character-0-1">
+									<input type="checkbox" value="" name="user-Character-1-1" id="user-Character-0-1">
 									权限管理</label>
 							</dt>
 							<dd>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-0">
+									<input type="checkbox" value="权限管理" name="user-Character-1-1-1" id="user-Character-0-1-0">
 									添加</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-1">
+									<input type="checkbox" value="" name="user-Character-1-1-2" id="user-Character-0-1-1">
 									修改</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-2">
+									<input type="checkbox" value="" name="user-Character-1-1-3" id="user-Character-0-1-2">
 									删除</label>
 								<label class="">
-									<input type="checkbox" value="" name="user-Character-0-1-0" id="user-Character-0-1-3">
+									<input type="checkbox" value="" name="user-Character-1-1-4" id="user-Character-0-1-3">
 									查看</label>
 							</dd>
 						</dl>
@@ -150,21 +138,8 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="status" type="radio" id="sex-1" value="1" checked>
-					<label for="sex-1">启用</label>
-				</div>
-				<div class="radio-box">
-					<input type="radio" id="sex-2" name="status" value="0">
-					<label for="sex-2">停用</label>
-				</div>
-			</div>
-		</div>
-		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+				<button type="button" onclick="submit_form('poweredit')" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
 			</div>
 		</div>
 	</form>
@@ -201,37 +176,24 @@ $(function(){
 			}
 		}
 	});
-	
-	$("#form-admin-role-add").validate({
-		rules:{
-			roleName:{
-				required:true,
-			},
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			 $(form).ajaxSubmit(options);
-            return false;
-		}
-	});
-	var options = {
-	    url: "<?php echo url('role/rolesave'); ?>",
-	    type: 'post',
-	    success: function(data) {
-	    	if(data.status==1){
-	    		layer.msg(data.result);
-	    		// setTimeout("parent.layer.closeAll();",1000);
-	    		setTimeout("parent.location.reload()",1000);
-	    	}
-	    	else{
-	    		 layer.msg(data.result);
-	    	}
-	   
-	    }
-	 }
-});	
+});
+	function submit_form(url){
+        $.ajax({
+            type:"POST",
+            // url:"<?php echo url('loginvalidate'); ?>",
+            url:url,
+            data:$("form").serialize(),//将表单序列化
+            dataType:'json',
+            success:function(data){
+                if(data.status==1){
+                    layer.msg(data.result);
+				}
+				else{
+                layer.alert(data.result);
+            }
+        }
+        })
+    }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

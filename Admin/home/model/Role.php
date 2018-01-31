@@ -9,6 +9,10 @@ class Role extends Model{
     {
         return $this->hasMany('User');
     }
+    public function power()
+    {
+        return $this->hasMany('Power');
+    }
 
 }
  ?>

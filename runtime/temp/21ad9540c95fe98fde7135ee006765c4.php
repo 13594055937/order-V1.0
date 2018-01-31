@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:79:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\company\addcompany.html";i:1516582914;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1517364086;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\power\index.html";i:1517380811;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\meta.html";i:1516865898;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\header.html";i:1515742683;s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\menu.html";i:1517378136;s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/home\view\public\footer.html";i:1516008553;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -101,7 +101,7 @@
                 <ul>
                     <li><a href="<?php echo url('home/user/index'); ?>" title="用户管理">用户列表</a></li>
                     <li><a href="<?php echo url('home/role/index'); ?>" title="角色管理">角色管理</a></li>
-                    <li><a href="<?php echo url('home/customer/customeradd'); ?>" title="客户添加">权限管理</a></li>
+                    <li><a href="<?php echo url('home/power/index'); ?>" title="权限管理">权限管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -163,82 +163,42 @@
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
-<title>添加用户 - H-ui.admin v3.0</title>
-<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-</head>
-<body>
-
 <section class="Hui-article-box">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<article class="cl pd-20">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
-	<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司编号：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="companycode">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司名称：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="companyname" name="companyname">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="role_add()"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+			<div class="mt-10">
+			<table class="table table-border table-bordered table-hover table-bg">
+				<thead>
+					<tr>
+						<th scope="col" colspan="8">角色管理</th>
+					</tr>
+					<tr class="text-c">
+						<th width="25"><input type="checkbox" value="" name=""></th>
+					<!-- 	<th width=""></th> -->
+						<th>角色名</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
 				<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $vo['cityname']; ?>" selected><?php echo $vo['cityname']; ?></option>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="这里输入详细地址" id="company" name="position">
-		</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司联系人：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="user" name="user">
+					<tr class="text-c">
+						<td><input type="checkbox" value="" name=""></td>
+						<td><?php echo $vo['name']; ?></td>
+						<td width="10%">
+						<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('poweredit',['role_id'=>$vo['role_id']]); ?>')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>&emsp;
+						  <a title="查看" href="javascript:;" onclick="" style="text-decoration:none"><span class="glyphicon glyphicon-eye-open"></span></a>
+						</td>
+					</tr>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
+				</tbody>
+			</table>
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="mobile" id="mobile">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>备注：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="" name="memo" id="memo">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="status" type="radio" id="sex-1" value="1" checked>
-					<label for="sex-1">启用</label>
-				</div>
-				<div class="radio-box">
-					<input type="radio" id="sex-2" name="status" value="0">
-					<label for="sex-2">停用</label>
-				</div>
-			</div>
-		</div>
-			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-			</div>
-		</div>
-	</form>
-</article>
+		</article>
+	</div>
 </section>
+
 <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="__STATIC__/static/h-ui/js/H-ui.js"></script>
@@ -246,75 +206,23 @@
 <script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="../../../public/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-$(function(){
-	$("#form-member-add").validate({
-		rules:{
-			companycode:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			companyname:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			position:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			user:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-			mobile:{
-				required:true,
-				// minlength:6,
-				// maxlength:16,
-			},
-		},
-		messages: {
-      companycode: {
-        required: "请输入公司名",
-      },
-  },
-		submitHandler: function(form) {
-            $(form).ajaxSubmit(options);
-            return false;
-        }
-    })
-	var options = {
-	    url: "<?php echo url('company/savecompany'); ?>",
-	    type: 'post',
-	    success: function(data) {
-	    	layer.msg(data.retuls);
-	    	}
-	    } 
-})
-// function submit_form(url){
-//         $.ajax({
-//             type:"POST",
-//             // url:"<?php echo url('loginvalidate'); ?>",
-//             url:url,
-//             data:$("form").serialize(),//将表单序列化
-//             dataType:'json',
-//             success:function(data){
-//                 if(data.status==1){
-//                     layer.msg(data.result);
-//                     window.location.href="index/index";
-// 				}
-//                 layer.alert(data.result);
-//             }
-//         })
-//     }
-</script> 
+/*用户-编辑*/
+function member_edit(url){
+	layer.open({
+  type: 2 //Page层类型
+  ,area: ['770px', '620px']
+  ,title: '权限编辑'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: url
+}); 
+}
+</script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
