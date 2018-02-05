@@ -1,0 +1,143 @@
+{include file="/../../common/view/public/meta" /}
+<title>添加用户 - H-ui.admin v3.0</title>
+<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<article class="cl pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="3到15位字符由字母开头、数字组合" id="" name="usercode">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="2到17位字符组合" id="username" name="username">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="password" class="input-text" value="" placeholder="6到17位字符由字母、数字及英文符号组合" id="password" name="password">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="11位的手机号" id="mobile" name="mobile">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" placeholder="以字母开头的6-20个字母、数字、下划线或减号" name="openid" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" placeholder="@" name="email" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="usertype">
+				{volist name="role" id="vo1"}
+					<option value="{$vo1.role_id}">{$vo1.name}</option>
+				{/volist}
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">所在公司：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="company">
+					<option value="" selected>请选择公司</option>
+					{volist name="company" id="list"}
+					<option value="{$list.name}">{$list.name}</option>
+					{/volist}
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="status" type="radio" id="sex-1" value="1" checked>
+					<label for="sex-1">启用</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="status" value="0">
+					<label for="sex-2">停用</label>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理分组：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="" type="checkbox" id="">
+					<label for="sex-1">用户管理</label>
+				</div>
+				<div class="radio-box">
+					<input type="checkbox" id="" name="">
+					<label for="sex-2">公司管理</label>
+				</div>
+				<div class="radio-box">
+					<input name="" type="checkbox" id="">
+					<label for="sex-1">客户管理</label>
+				</div>
+				<div class="radio-box">
+					<input name="" type="checkbox" id="">
+					<label for="sex-1">工程师管理</label>
+				</div>
+				<div class="radio-box">
+					<input name="" type="checkbox" id="">
+					<label for="sex-1">工单查询</label>
+				</div>
+				<div class="radio-box">
+					<input name="" type="checkbox" id="">
+					<label for="sex-1">基础数据管理</label>
+				</div>
+			</div>
+		</div>
+<br> -->
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="button" onclick="submit_form('usersave')" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+{include file="/../../common/view/public/footer" /}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="../../../common/view/publicpublic/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript">
+function submit_form(url){
+        $.ajax({
+            type:"POST",
+            // url:"{:url('loginvalidate')}",
+            url:url,
+            data:$("form").serialize(),//将表单序列化
+            dataType:'json',
+            success:function(data){
+                if(data.status==1){
+                    layer.msg(data.result);
+                    setTimeout("parent.location.reload()",1000);
+				}else{
+					  layer.msg(data.result);
+				}
+            }
+        })
+    }
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

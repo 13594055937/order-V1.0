@@ -1,9 +1,9 @@
 <?php 
-namespace app\home\controller;
+namespace app\user\controller;
 use think\Controller;
 use think\Request;
-use app\home\model\Power as PowerModel;
-use app\home\model\Role;
+use app\user\model\Power as PowerModel;
+use app\user\model\Role;
 use think\Db;
 class Power extends Controller{
 	public function index(){
