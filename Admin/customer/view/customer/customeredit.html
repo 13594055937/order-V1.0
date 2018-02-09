@@ -1,0 +1,138 @@
+{include file="/../../com/view/public/meta" /}
+<article class="cl pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<input type="hidden" name="id" value="{$list.id}">
+	<input type="hidden" name="status" value="{$list.status}">
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>编号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.code}" placeholder="" id="" name="code">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.name}" placeholder="" id="username" name="name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">公司位置：</label>
+					  <div class="formControls col-xs-8 col-sm-9"> 
+			<span class="select-box" style="width:25%">
+				<select class="select" size="1" name="province" id="province">
+				{if condition="empty($list['province'])"}
+				<option value="">请选择省市</option>
+				{else /}
+				<option value="{$list.province}">{$list.province}</option>
+    			{/if}
+    			{volist name="province" id="vo"}
+					<option value="{$vo.name}">{$vo.name}</option>
+				{/volist}
+				</select>
+				</span>&nbsp;--
+				<span class="select-box" style="width:25%">
+				<select class="select" size="1" name="city" id='cityinfo'>
+				{if condition="empty($list['city'])"}
+					<option value="">请选择市</option>
+				{else /}
+				<option value="{$list.city}">{$list.city}</option>
+    			{/if}
+				</select>
+				</span>&nbsp;--
+				<span class="select-box" style="width:25%">
+				<select class="select" size="1" name="area" id="areainfo">
+				{if condition="empty($list['area'])"}
+					<option value="">请选择城区</option>
+				{else /}
+				<option value="{$list.area}">{$list.area}</option>
+    			{/if}
+				</select>
+				</span> </div>
+		</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.position}" id="company" name="position">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>等级：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.grade}" placeholder="" id="mobile" name="grade">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>门诊数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.outpatient}" name="num" id="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>床位数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.bednum}" name="int" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.contactname}" name="contacts" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$list.contacttel}" name="mobile" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">所属公司：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="company">
+					{volist name="company" id="list2"}
+					<option value="{$list2.name}" {if condition="$list2['name']==$list['company']"}selected{/if}>{$list2.name}</option>
+					{/volist}
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="beizhu" cols="" rows="" class="textarea"  value="{$list.memo}" onKeyUp="textarealength(this,100)"></textarea>
+			</div>
+		</div>
+<br>
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+{include file="/../../com/view/public/footer" /}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript">
+function submit_form(){
+        $.ajax({
+            type:"POST",
+            // url:"{:url('loginvalidate')}",
+            url:"{:url('customersave')}",
+            data:$("form").serialize(),//将表单序列化
+            dataType:'json',
+            success:function(data){
+            	layer.msg(data.result);
+                if(data.status==1){
+                setTimeout("parent.location.reload()",1000);
+                }
+            }
+        })
+    }
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

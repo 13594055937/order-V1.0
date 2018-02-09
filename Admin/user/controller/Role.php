@@ -9,7 +9,9 @@ use think\Db;
 class Role extends Controller{
 	public function index(){
 		$list=RoleModel::all();
-		$this->assign('list',$list);
+        $count=RoleModel::count();
+        $this->assign('list',$list);
+		$this->assign('count',$count);
 		return $this->fetch();
 	}
 	//添加角色
@@ -28,10 +30,11 @@ class Role extends Controller{
     	if(@$data['id']){
             $update=RoleModel::where('role_id',$data['id'])->update($test);
             $result=$update?"用户更新成功。":"系统错误，更新失败。";
+            $status= $update?1:0;
     }else{
     	$role=RoleModel::create($test);
         $result= $role?"角色添加成功。":"系统错误，添加失败。";
-        $status= $role?"1":"0";
+        $status= $role?1:0;
     } 	
      return ['result'=>$result,'status'=>$status];   
 }

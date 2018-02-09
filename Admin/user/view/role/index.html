@@ -1,11 +1,8 @@
-{include file="/../../common/view/public/meta" /}
-{include file="/../../common/view/public/header" /}
-{include file="/../../common/view/public/menu" /}
-<section class="Hui-article-box">
+{include file="/../../com/view/public/meta" /}
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
-			<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="role_add()"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="role_add()"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
 			<div class="mt-10">
 			<table class="table table-border table-bordered table-hover table-bg">
 				<thead>
@@ -15,7 +12,7 @@
 					<tr class="text-c">
 						<th width="25"><input type="checkbox" value="" name=""></th>
 						<th width="">ID</th>
-						<th width="">父ID</th>
+				<!-- 		<th width="">父ID</th> -->
 						<th width="">角色名</th>
 		<!-- 				<th>用户列表</th> -->
 						<th width="">描述</th>
@@ -29,7 +26,7 @@
 					<tr class="text-c">
 						<td><input type="checkbox" value="" name=""></td>
 						<td>{$vo.role_id}</td>
-						<td>{$vo.father_id}</td>
+			<!-- 			<td>{$vo.father_id}</td> -->
 						<td>{$vo.name}</td>
 						<!-- <td>{$vo.powerid}</td> -->
 						<td>{$vo.bewrite}</td>
@@ -57,20 +54,19 @@
 			</div>
 		</article>
 	</div>
-</section>
 
-{include file="/../../common/view/public/footer" /}
+{include file="/../../com/view/public/footer" /}
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="__STATIC__/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
-/*管理员-角色-添加*/
+/*角色-添加*/
 function role_add(){
 		layer.open({
   type: 2 //Page层类型
-  ,area: ['45%','90%']
+  ,area: ['45%','35%']
   ,title: '角色添加'
   ,shade: 0.6 //遮罩透明度
   ,maxmin: true //允许全屏最小化
@@ -78,7 +74,7 @@ function role_add(){
   ,content: 'roleadd.html'
 }); 
 }
-/*用户-停用*/
+/*角色-停用/启用*/
 function member_stop(id){
 	layer.confirm('确认要停用/启用吗？',function(){
 		$.post("{:url('role/status')}",{id:id},function(data){
@@ -87,7 +83,7 @@ function member_stop(id){
 		});
 	});
 }
-/*用户-删除*/
+/*角色-删除*/
 function member_del(id){
 	layer.confirm('确认要删除吗？删除前请确保该角色中没有用户。',function(){
 		// $.get("{:url('role/roledel')}",{role_id:id},function(data){
@@ -97,11 +93,11 @@ function member_del(id){
 	setTimeout("location.reload()",1000);
 	});
 }
-/*用户-编辑*/
+/*角色-编辑*/
 function member_edit(url){
 	layer.open({
   type: 2 //Page层类型
-  ,area: ['770px', '620px']
+  ,area: ['500px', '400px']
   ,title: '用户添加'
   ,shade: 0.6 //遮罩透明度
   ,maxmin: true //允许全屏最小化

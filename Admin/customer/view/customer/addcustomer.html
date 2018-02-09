@@ -1,0 +1,203 @@
+{include file="/../../com/view/public/meta" /}
+<article class="cl pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>编号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="code">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">覆盖区域：</label>
+		{include file="/../../com/view/public/cityarea" /}
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span></label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="这里输入详细地址" id="company" name="position">
+		</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>等级：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="mobile" name="grade">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>门诊数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="sum" id="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>床位数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="int" id="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="contacts" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" name="mobile" id="email">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">所属公司：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="company">
+					{volist name="company" id="list"}
+					<option value="{$list.name}">{$list.name}</option>
+					{/volist}
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="beizhu" cols="" rows="" class="textarea"  placeholder=""></textarea>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>客户状态：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="usertype" type="radio" id="sex-1" value="1" checked>
+					<label for="sex-1">启用</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="usertype" value="0">
+					<label for="sex-2">停用</label>
+				</div>
+			</div>
+		</div>
+<br>
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+{include file="/../../com/view/public/footer" /}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript">
+$(function(){
+	$("#form-member-add").validate({
+		rules:{
+			code:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			grade:{
+				required:true,
+			}, 
+			sum:{
+				required:true,
+			}, 
+			int:{
+				required:true,
+			},
+			contacts:{
+				required:true,
+			},
+			name:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			position:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			user:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+			mobile:{
+				required:true,
+				// minlength:6,
+				// maxlength:16,
+			},
+		},
+		// messages: {
+  //     companycode: {
+  //       required: "请输入公司名",
+  //     },
+  // },
+		submitHandler: function(form) {
+            $(form).ajaxSubmit(options);
+            return false;
+        }
+    })
+	var options = {
+	    url: "{:url('customer/customersave')}",
+	    type: 'post',
+	    success: function(data) {
+	    	layer.msg(data.result);
+	    	}
+	    } 
+})
+//地址选择
+$(document).ready(function() {
+        $("#province").change(function(){
+            var uu = $(this).find('option:selected').val();
+            $.ajax({
+            type:"POST",
+            // url:'getcityinfo',
+            url:"{:url('home/Cityarea/getcityinfo')}",
+            data:{'province':uu},
+            success:function(msg){
+         // console.log(msg);
+          $("#cityinfo").html(msg);
+            }
+        })
+        });
+        $("#cityinfo").change(function(){
+            var uu = $(this).find('option:selected').val();
+             var province = $('#province').find('option:selected').val();
+            $.ajax({
+                // url  :'getareainfo',
+                url:"{:url('home/Cityarea/getareainfo')}",
+                data :{'city':uu,'province':province},
+                type :'POST',
+                success:function(msg){
+                    $("#areainfo").html(msg);
+                }
+            })
+        });
+    })
+function submit_form(){
+        $.ajax({
+            type:"POST",
+            // url:"{:url('loginvalidate')}",
+            url:"{:url('customersave')}",
+            data:$("form").serialize(),//将表单序列化
+            dataType:'json',
+            success:function(data){
+                    layer.alert(data.result);
+            }
+        })
+    }
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

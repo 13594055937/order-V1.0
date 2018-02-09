@@ -2,53 +2,74 @@
 namespace app\user\controller;
 use think\Controller;
 use think\Request;
-use app\user\model\Power as PowerModel;
 use app\user\model\Role;
+use app\system\model\Power as PowerModel;
+use app\system\model\Module;
+use app\system\model\Controller as ControllerModel;
 use think\Db;
 class Power extends Controller{
 	public function index(){
-		$list=PowerModel::all();
-		$count=Role::count();
+		$list=Role::all();
     $this->assign("list",$list);
-    $this->assign("count",$count);
     return $this->fetch();
-	}
-	//权限添加
-	public function poweradd(){
-		$request=Request::instance();
-		if($request->ispost()){
-			$data=$request->param();
-			$test=[
-			'action_name'=>$data['name'],
-			'url'=>$data['url'],
-			'bewrite'=>$data['bewrite']
-			];
-			$power=PowerModel::create($test);
-          	$result=($power)?"权限添加成功。":"系统错误，添加失败。";
-          	$status=($power)?1:0;
-          	return ['result'=>$result,'status'=>$status];
-		}
-		return $this->fetch();
 	}
 	public function poweredit(){
 		$request = Request::instance();
-		if($request->ispost()){
-			$data=$request->param();
-			$test=[
-			'action_name'=>$data['name'],
-			'url'=>$data['url'],
-			'bewrite'=>$data['bewrite']
-			];
-			$update=PowerModel::where('id',$data['id'])->update($test);
-			$result=($update)?"权限更新成功。":"系统错误，添加失败。";
-			$status=($update)?1:0;
-			return ['result'=>$result,'status'=>$status];
-		}
 		$id=$request->param('id');
-		$list=PowerModel::get($id);
-		$this->assign('list',$list);
-		return $this->fetch();
+		$list=Role::get($id);
+		$html=[];
+		$module=Module::all();
+		$controller=ControllerModel::all();
+		$power=PowerModel::all();
+		foreach ($module as $key => $value) {
+			$var=['title'=> $value['m_name'], 'value'=>'module,'.$value['m_id'], 'data'=> []];
+				foreach ($controller as $key => $value1) {
+					if($value['m_id']==$value1['m_id']){
+						$var1=['title'=> $value1['c_name'], 'value'=>'controller,'.$value1['c_id'],'data'=> []];
+					}
+					elseif (isset($value1['m_id'])) {
+						continue;
+					}
+						foreach ($power as $key => $value2) {
+							if($value1['c_id']==$value2['c_id']){
+						$var2=['title'=> $value2['action_name'], 'value'=>'power,'.$value2['id'],'data'=> []];
+						// $arr = explode(",",$list['powerid']);
+						// if(in_array($value2['c_id'],$arr))
+						// {
+						// 	echo  $value2['c_id'].'<br>';
+						// 		// var_dump($value2['c_id']);
+						// 	// $var2['checked']='true';
+						// }
+						array_push($var1['data'],$var2);
+						// unset($var2['checked']);
+					}
+				}
+						array_push($var['data'],$var1);
+			}
+				array_push($html,$var);
+		}
+         	$value= json_encode($html,JSON_UNESCAPED_UNICODE);
+    		$this->assign("json",$value);
+    		$this->assign('list',$list);
+    		return $this->fetch();
 	}
+	// 权限管理
+	public function addpower(){
+		$request=Request::instance();
+		$id='';
+		$role_id=$request->param('role_id');
+		$data=input('post.id/a');
+		foreach ($data as $value) {
+			$arr = explode(",",$value);
+			if($arr['0']=='power'){
+				$id.=$arr['1'].',';
+			}
+		}
+		$id=substr($id,0,strlen($id)-1);
+		$update=Role::where('role_id',$role_id)->update(['powerid'=>$id]);
+        $result=($update)?"授权成功成功。":"系统错误，更新失败。";
+	return ['result'=>$result];
+}
 
 
 }

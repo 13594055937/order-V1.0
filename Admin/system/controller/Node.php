@@ -14,17 +14,17 @@ class Node extends Controller{
 		$power=Power::all();
 		$count=Power::count();
 		foreach ($module as $key => $value) {
-			$var=['title'=> $value['m_name'], 'value'=>$value['m_id'], 'data'=> []];
+			$var=['title'=> $value['m_name'], 'value'=>'module,'.$value['m_id'], 'data'=> []];
 				foreach ($controller as $key => $value1) {
 					if($value['m_id']==$value1['m_id']){
-						$var1=['title'=> $value1['c_name'], 'value'=>$value1['c_id'], 'data'=> []];
+						$var1=['title'=> $value1['c_name'], 'value'=>'controller,'.$value1['c_id'], 'data'=> []];
 					}
 					elseif (isset($value1['m_id'])) {
 						continue;
 					}
 						foreach ($power as $key => $value2) {
 							if($value1['c_id']==$value2['c_id']){
-						$var2=['title'=> $value2['action_name'], 'value'=>$value2['id'], 'data'=> []];
+						$var2=['title'=> $value2['action_name'], 'value'=>'power,'.$value2['id'], 'data'=> []];
 						array_push($var1['data'],$var2);
 					}
 				}
@@ -100,14 +100,24 @@ class Node extends Controller{
 		$request=Request::instance();
 		// $data=$request->post('id');
 		$data=input('post.id/a');
-		$rule='';
-        for($i=0;$i<count($data);$i++){
-        $id=$data[$i];
-        // if(Power::destroy($id)){
-            $rule="节点删除成功。";
-        //  }  
-	}
+		foreach ($data as $value) {
+			$arr = explode(",",$value);
+			if($arr['0']=='module'){
+				$del=Module::destroy($arr['1']);
+				$rule=$del>0?'节点删除成功。':'节点删除失败。';
+			}
+			elseif($arr['0']=='controller'){
+				$del=ControllerModel::destroy($arr['1']);
+				$rule=$del>0?'节点删除成功。':'节点删除失败。';
+			}
+			elseif($arr['0']=='power'){
+				$del=Power::destroy($arr['1']);
+				$rule=$del>0?'节点删除成功。':'节点删除失败。';
+			}
+		}
 	return ['result'=>$rule];
 }
+
+
 }
  ?>

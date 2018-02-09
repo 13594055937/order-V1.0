@@ -9,7 +9,7 @@ namespace app\user\controller;
 use think\Controller;
 use think\Request;
 use app\user\model\User as UserModel;
-use app\user\model\Company;
+use app\company\model\Company;
 use app\user\model\Role;
 use think\Db;
 class User extends Controller{
@@ -128,8 +128,9 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
     public function searchuser(){
         $request = Request::instance();
         $value = $request->param('value');
-        // $retuls=UserModel::all("usercode=$value OR username=$value");
-       $retuls = Db::table('user')->where("usercode = '$value' || username = '$value'")->paginate(10); 
+      $retuls=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')
+      ->where("usercode = '$value' || username = '$value'")->paginate(10);
+       // $retuls = Db::table('user')->where("usercode = '$value' || username = '$value'")->paginate(10); 
         $count = Db::table('user')->where("usercode = '$value' || username = '$value'")->count();
         $this->assign('list',$retuls);
          $this->assign('count',$count);

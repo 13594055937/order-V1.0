@@ -1,0 +1,136 @@
+{include file="/../../com/view/public/meta" /}
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 工程师管理 <span class="c-gray en">&gt;</span> 工程师类别<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="Hui-article">
+		<article class="cl pd-20">
+			<div class="text-c">
+				<input type="text" class="input-text" style="width:250px" placeholder="输入类别名称、编号" id="search" name="value">
+				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜类别</button>
+			</div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="add()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加类别</a></span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
+			<form action="">
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th><input type="checkbox" name="" id="checkbox"></th>
+							<th>ID</th>
+							<th>工程师等级</th>
+							<th >状态</th>
+							<th >创建时间</th>
+							<th >操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					{volist name="list" id="vo"}
+						<tr class="text-c">
+							<td width="25">
+							<input type="checkbox" value="{$vo.id}" name="delete[]" >
+							</td>
+							<td>{$vo.id}</td>
+							<td>{$vo.name}</td>
+							<td class="td-status">
+								{if condition="$vo['status']==1"}
+								<span class="label label-success radius">已启用</span>
+								{elseif condition="$vo['status']==0"/}
+								<span class="label label-defaunt radius">已停用</span>
+								{else /}
+								<span class="label label-defaunt radius">异常</span>'
+								{/if}
+							</td>
+							<td>{$vo.create_time}</td>
+							<td class="td-manage">
+							{if condition="$vo['status']==1"}
+								<a style="text-decoration:none" onClick="member_stop({$vo.id})" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
+								{else /}
+								<a style="text-decoration:none" onClick="member_stop({$vo.id})" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
+								{/if}
+							<a title="编辑" href="javascript:;" onclick="member_edit('{:url('rateedit',['id'=>$vo['id']])}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+							<a title="删除" href="javascript:;" onclick="member_del({$vo.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						</tr>
+						{/volist}
+					</tbody>
+				</table>
+				</form>
+			</div>
+				{$list->render()}
+		</article>
+	</div>
+
+{include file="/../../com/view/public/footer" /}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="../../../public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="../../../public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../../public/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+/*类别-添加*/
+function add(){
+	layer.open({
+  type: 2 //Page层类型
+  ,area: ['400px', '300px']
+  ,title: '工程师等级添加'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: 'addgrade.html'
+}); 
+}
+/*类别-搜索*/
+// function search(){
+// 	var search = $('#search').val();
+// 	window.location.href='searchuser?value='+search;
+// 	// $.post("{:url('user/searchuser')}",{value:search});
+// }
+/*类别-停用/启用*/
+function member_stop(id){
+	layer.confirm('确认要停用/启用吗？',function(){
+		$.post("{:url('engineerrate/status')}",{id:id},function(data){
+		layer.msg(data.message);
+		setTimeout("location.reload()",500);
+		});
+	});
+}
+/*类别-编辑*/
+function member_edit(url){
+	layer.open({
+  type: 2 //Page层类型
+  ,area: ['400px', '300px']
+  ,title: '工程师等级编辑'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: url
+}); 
+}
+/*类别-删除*/
+// function member_del(id){
+// 	layer.confirm('确认要删除吗？',function(){
+// 		$.get("{:url('engineer/engineerdel')}",{id:id},function(data){
+// 			layer.msg(data.retuls,{icon:1,time:1000});
+// 		});
+// 	setTimeout("location.reload()",1000);
+// 	});
+// }
+//批量删除
+// function datadel(){
+// 	var len=$("input:checkbox:checked").length;
+// 	if($('#checkbox').prop('checked') ){
+// 		len = len-1
+// 	}
+// 	 if(len==0){
+// 	 layer.msg("没有选中工程师。");
+// 	}
+// 	 else{
+// 	 	layer.confirm('确定要删除这'+len+'名工程师吗？',function(){
+// 	 	$.post("{:url('engineer/deleteengineer')}",$('form').serializeArray(),
+// 	 	 function(data){
+// 	 		layer.msg(data.message);
+// 	 		setTimeout("location.reload()",1000);
+// 	 	});
+// 	 })
+// 	}
+// }
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
