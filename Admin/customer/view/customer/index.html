@@ -124,7 +124,7 @@ function member_edit(url){
 function member_del(id){
 	layer.confirm('确认要删除吗？',function(){
 		$.get("{:url('customer/customerdel')}",{id:id},function(data){
-			layer.msg(data.retuls,{icon:1,time:1000});
+			layer.msg(data.message,{icon:1,time:1000});
 		});
 	setTimeout("location.reload()",500);
 	});

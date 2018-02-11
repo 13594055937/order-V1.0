@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\adduser.html";i:1517993497;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518053636;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\adduser.html";i:1518339814;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,16 +15,11 @@
 <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
 <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css" />
-<!-- <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
-<script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/bootstrap_page.css" />
+<!-- <script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script> -->
 <title>H-ui.admin v3.1</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-</head>
-<body>
-<title>添加用户 - H-ui.admin v3.0</title>
-<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
 <article class="cl pd-20">
@@ -56,7 +51,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="以字母开头的6-20个字母、数字、下划线或减号" name="openid" id="email">
+				<input type="text" class="input-text" placeholder="以字母开头的6-20个字母、数字、下划线或减号" name="openid" >
 			</div>
 		</div>
 		<div class="row cl">
@@ -144,10 +139,10 @@
 
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
 function submit_form(url){
         $.ajax({
@@ -157,11 +152,9 @@ function submit_form(url){
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
+            	layer.msg(data.message);
                 if(data.status==1){
-                    layer.msg(data.result);
                     setTimeout("parent.location.reload()",1000);
-				}else{
-					  layer.msg(data.result);
 				}
             }
         })

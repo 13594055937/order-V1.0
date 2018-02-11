@@ -56,7 +56,7 @@ $(function(){
 	    url: "{:url('power/poweradd')}",
 	    type: 'post',
 	    success: function(data) {
-	    	layer.msg(data.result);
+	    	layer.msg(data.message);
 	    	if(data.status==1){
 	    	setTimeout("parent.location.reload()",1000);
 	    	}

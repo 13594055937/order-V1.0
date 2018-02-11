@@ -28,7 +28,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>微信号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" placeholder="以字母开头的6-20个字母、数字、下划线或减号" name="openid" id="email">
+				<input type="text" class="input-text" placeholder="以字母开头的6-20个字母、数字、下划线或减号" name="openid" >
 			</div>
 		</div>
 		<div class="row cl">
@@ -110,10 +110,10 @@
 {include file="/../../com/view/public/footer" /}
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="../../../common/view/publicpublic/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
 function submit_form(url){
         $.ajax({
@@ -123,11 +123,9 @@ function submit_form(url){
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
+            	layer.msg(data.message);
                 if(data.status==1){
-                    layer.msg(data.result);
                     setTimeout("parent.location.reload()",1000);
-				}else{
-					  layer.msg(data.result);
 				}
             }
         })

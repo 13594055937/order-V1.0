@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\index.html";i:1517993046;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\index.html";i:1518338357;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -29,7 +29,7 @@
 				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="adduser()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="adduser()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a> <a href="javascript:;" onclick="excel_add()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Excel导入</a> <a href="javascript:;" onclick="" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Excel导出</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
 			<form action="">
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -160,7 +160,7 @@ function member_edit(url){
 function member_del(id){
 	layer.confirm('确认要删除吗？',function(){
 		$.get("<?php echo url('user/userdel'); ?>",{id:id},function(data){
-			layer.msg(data.retuls,{icon:1,time:1000});
+			layer.msg(data.message,{icon:1,time:1000});
 		});
 	setTimeout("location.reload()",1000);
 	});
@@ -183,6 +183,18 @@ function datadel(){
 	 	});
 	 })
 	}
+}
+//excel--添加
+function excel_add(){
+		layer.open({
+  type: 2 //Page层类型
+  ,area: ['780px', '200px']
+  ,title: '用户添加'
+  ,shade: 0.6 //遮罩透明度
+  ,maxmin: true //允许全屏最小化
+  ,anim: 1 //0-6的动画形式，-1不开启
+  ,content: 'exceladd.html'
+}); 
 }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

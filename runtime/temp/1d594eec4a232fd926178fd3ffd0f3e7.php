@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\index\index.html";i:1517992852;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\meta.html";i:1518159452;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\header.html";i:1518073139;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\menu.html";i:1518163528;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\index\index.html";i:1517992852;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\meta.html";i:1518159452;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\header.html";i:1518330669;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\menu.html";i:1518163528;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\footer.html";i:1518053708;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -27,7 +27,7 @@
         <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> 
             <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> 
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-            <nav class="nav navbar-nav">
+            <!-- <nav class="nav navbar-nav">
                 <ul class="cl">
                     <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
@@ -38,7 +38,7 @@
                     </ul>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
         <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
             <ul class="cl">
                 <li><?php echo session('role_info.name'); ?></li>

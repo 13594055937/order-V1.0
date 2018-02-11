@@ -152,7 +152,7 @@ $(function(){
 	    url: "{:url('customer/customersave')}",
 	    type: 'post',
 	    success: function(data) {
-	    	layer.msg(data.result);
+	    	layer.msg(data.message);
 	    	}
 	    } 
 })
@@ -193,7 +193,7 @@ function submit_form(){
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-                    layer.alert(data.result);
+                    layer.alert(data.message);
             }
         })
     }

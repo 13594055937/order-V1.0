@@ -119,7 +119,7 @@ function submit_form(){
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-                    layer.alert(data.result);
+                    layer.alert(data.message);
             }
         })
     }

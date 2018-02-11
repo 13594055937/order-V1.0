@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\power\poweredit.html";i:1518161209;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\power\poweredit.html";i:1518330335;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,7 +22,7 @@
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-<div class="Hui-article">
+  <div class="Hui-article">
 <article class="cl pd-20">
   <form action="" method="post" class="layui-form form form-horizontal" id="form-admin-role-add">
   <input type="hidden" value="<?php echo $list['role_id']; ?>" id="role_id">
@@ -90,7 +90,7 @@
                 }
         $.post("<?php echo url('user/power/addpower'); ?>",{id:id,role_id:role_id},function(data){
          console.log(id); 
-        layer.msg(data.result);
+        layer.msg(data.message);
         });
         setTimeout("location.reload()",1000);
       }

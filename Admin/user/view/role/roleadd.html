@@ -125,7 +125,7 @@
 	    url: "{:url('role/rolesave')}",
 	    type: 'post',
 	    success: function(data) {
-	    	layer.msg(data.result);
+	    	layer.msg(data.message);
 	    	if(data.status==1){
 	    		// setTimeout("parent.layer.closeAll();",1000);
 	    		setTimeout("parent.location.reload()",1000);

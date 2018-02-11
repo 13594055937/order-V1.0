@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/order\view\order\addorder.html";i:1518147177;s:88:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/order\view\..\..\com\view\public\meta.html";i:1518053636;s:90:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/order\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/order\view\order\addorder.html";i:1518147177;s:88:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/order\view\..\..\com\view\public\meta.html";i:1518159452;s:90:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/order\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,8 +15,8 @@
 <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="__STATIC__/static/h-ui.admin/css/style.css" />
 <link rel="stylesheet" type="text/css" href="__STATIC__/layui/css/layui.css" />
-<!-- <link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/bootstrap.min.css" />
-<script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/bootstrap_page.css" />
+<!-- <script type="text/javascript" src="__STATIC__/bootstrap/bootstrap.min.js"></script> -->
 <title>H-ui.admin v3.1</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">

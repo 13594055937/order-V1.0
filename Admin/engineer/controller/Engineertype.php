@@ -1,9 +1,9 @@
 <?php 
 namespace app\engineer\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\engineer\model\Engineertype as EngineertypeModel;
-class Engineertype extends Controller{
+class Engineertype extends Accesscontrol{
 	public function index(){
 		$count=EngineertypeModel::count();
         $list=EngineertypeModel::paginate(15);
@@ -51,9 +51,9 @@ class Engineertype extends Controller{
             'status'=>$data['status']
             ];
             $type=EngineertypeModel::create($test);
-            $result=$type?"工程师类别添加成功。":"系统错误，添加失败。";
+            $message=$type?"工程师类别添加成功。":"系统错误，添加失败。";
             $status=$type?1:0;
-            return ['result'=>$result,'status'=>$status];
+            return ['message'=>$message,'status'=>$status];
         }
 		return $this->fetch();
 	}
@@ -66,9 +66,9 @@ class Engineertype extends Controller{
             'status'=>$data['status']
             ];
             $update=EngineertypeModel::where('id',$data['id'])->update($test);
-            $result=$update?"工程师类别更新成功。":"系统错误，添加失败。";
+            $message=$update?"工程师类别更新成功。":"系统错误，添加失败。";
             $status=$update?1:0;
-            return ['result'=>$result,'status'=>$status];
+            return ['message'=>$message,'status'=>$status];
         }
         $id=$request->param('id');
         $list=EngineertypeModel::get($id);

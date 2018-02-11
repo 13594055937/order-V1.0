@@ -69,8 +69,8 @@
             		}
 				layer.confirm('确认要删除这'+oCks.length+'个末级节点吗？',function(){
 				$.post("{:url('system/node/deletenode')}",{id:id},function(data){
-				 console.log(id);	
-				layer.msg(data.result);
+				 // console.log(id);	
+				layer.msg(data.message);
 				});
 				setTimeout("location.reload()",1000);
 				});

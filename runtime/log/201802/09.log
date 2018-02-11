@@ -29960,3 +29960,109 @@
 [ sql ] [ SQL ] SELECT * FROM `engineerrate` [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SHOW COLUMNS FROM `company` [ RunTime:0.013000s ]
 [ sql ] [ SQL ] SELECT * FROM `company` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-09T17:35:59+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/com/index/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/com/index/index.html [运行时间：0.040002s][吞吐率：25.00req/s] [内存消耗：1,334.01kb] [文件加载：36]
+[ info ] [ LANG ] C:\PHP\php11\WWW\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'com',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/login/login/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 0,
+)
+[ info ] [ RUN ] app\com\controller\Index->index[ C:\PHP\php11\WWW\order\order-v1.0\order\Admin\com\controller\Index.php ]
+[ info ] [ VIEW ] C:\PHP\php11\WWW\order\order-v1.0\tp5\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-09T17:36:00+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/home/order/favicon.ico
+[ info ] localhost/order/order-v1.0/order/admin.php/home/order/favicon.ico [运行时间：0.026001s][吞吐率：38.46req/s] [内存消耗：1,010.05kb] [文件加载：28]
+[ info ] [ LANG ] C:\PHP\php11\WWW\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'order',
+    2 => 'favicon.ico',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/home/order/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6o4s8u6qifd85rnpcmmckqhpd0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-09T17:36:03+08:00 ] ::1 ::1 GET /order/order-v1.0/order/admin.php/login/login/index.html
+[ info ] localhost/order/order-v1.0/order/admin.php/login/login/index.html [运行时间：0.039003s][吞吐率：25.64req/s] [内存消耗：1,334.30kb] [文件加载：35]
+[ info ] [ LANG ] C:\PHP\php11\WWW\order\order-v1.0\tp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/order/order-v1.0/order/admin.php/com/index/index.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6o4s8u6qifd85rnpcmmckqhpd0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 0,
+)
+[ info ] [ RUN ] app\login\controller\Login->index[ C:\PHP\php11\WWW\order\order-v1.0\order\Admin\login\controller\Login.php ]
+[ info ] [ VIEW ] C:\PHP\php11\WWW\order\order-v1.0\order/Admin/login\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

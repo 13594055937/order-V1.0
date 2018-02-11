@@ -160,7 +160,7 @@ $(function(){
 	    url: "{:url('engineer/engineersave')}",
 	    type: 'post',
 	    success: function(data) {
-	    	layer.msg(data.result);
+	    	layer.msg(data.message);
 	    	if(data.status==1){
 	    		setTimeout("parent.location.reload()",500);
 	    	}

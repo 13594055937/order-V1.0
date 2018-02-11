@@ -61,7 +61,7 @@
                 }
         $.post("{:url('user/power/addpower')}",{id:id,role_id:role_id},function(data){
          console.log(id); 
-        layer.msg(data.result);
+        layer.msg(data.message);
         });
         setTimeout("location.reload()",1000);
       }

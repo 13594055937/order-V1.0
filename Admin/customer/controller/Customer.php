@@ -1,6 +1,6 @@
 <?php
 namespace app\customer\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\customer\model\Customer as CustomerModel;
 use app\company\model\Company;
@@ -8,7 +8,7 @@ use app\city\model\City;
 use app\district\model\District;
 use app\com\model\Province;
 use think\Db;
-class Customer extends Controller{
+class Customer extends Accesscontrol{
 	public function index(){
         $count=CustomerModel::count();
         $list=CustomerModel::paginate(15);
@@ -47,23 +47,23 @@ class Customer extends Controller{
         $id = $request->param('id');
         $del=CustomerModel::destroy($id);
         if($del>0){
-            $retuls="客户删除成功。";
+            $message="客户删除成功。";
         }else{
-            $retuls="系统错误,用户删除失败。";
+            $message="系统错误,用户删除失败。";
         }
-        return ['retuls'=>$retuls];
+        return ['message'=>$message];
     }
     public function deletecustomer(){
         $request = Request::instance();
         $data=$request->param();
-        $rule='';
+        $message='';
         for($i=0;$i<count($data,1)-1;$i++){
         $id=$data['delete'][$i];
         if(CustomerModel::destroy($id)){
-            $rule="批量删除成功。";
+            $message="批量删除成功。";
          }
     }
-    return ["message"=>$rule];
+    return ["message"=>$message];
     }
     //添加
 	public function addcustomer(){
@@ -94,13 +94,13 @@ class Customer extends Controller{
          ];
          if($request->ispost()){
             $update=CustomerModel::where('id',$data['id'])->update($test);
-            $result=$update?"客户更新成功。":"系统错误，添加失败。";
+            $message=$update?"客户更新成功。":"系统错误，添加失败。";
             $status=$update?1:0;
-            return ['result'=>$result,'status'=>$status];
+            return ['result'=>$message,'status'=>$status];
          }
         $customer=CustomerModel::create($test);
-        $result=$customer?"客户添加成功。":"系统错误，添加失败。";
-        return ['result'=>$result];
+        $message=$customer?"客户添加成功。":"系统错误，添加失败。";
+        return ['result'=>$message];
     }
     public function customeredit(){
         $request = Request::instance();

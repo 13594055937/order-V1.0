@@ -1,12 +1,12 @@
 <?php 
 namespace app\order\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\company\model\Company as CompanyModel;
 use app\com\model\City;
 use app\order\model\Jobtype;
 use app\order\model\G_order;
-class Order extends Controller{
+class Order extends Accesscontrol{
 	public function index(){
 		 $count=G_order::count();
         $list=G_order::paginate(3);

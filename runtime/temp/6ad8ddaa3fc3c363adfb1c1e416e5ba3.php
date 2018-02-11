@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:85:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/engineer\view\engineertype\addtype.html";i:1518165384;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/engineer\view\..\..\com\view\public\meta.html";i:1518159452;s:93:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/engineer\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:85:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/engineer\view\engineertype\addtype.html";i:1518329910;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/engineer\view\..\..\com\view\public\meta.html";i:1518159452;s:93:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/engineer\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -29,14 +29,14 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>类别名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" id="" name="name">
+				<input type="text" class="input-text" name="name">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>工程师状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input name="status" type="radio" id="sex-1" value="1" checked>
+					<input name="status" type="radio" id="sex-1" value="1" >
 					<label for="sex-1">启用</label>
 				</div>
 				<div class="radio-box">
@@ -91,7 +91,7 @@ $(function(){
 	    url: "<?php echo url('engineertype/addtype'); ?>",
 	    type: 'post',
 	    success: function(data) {
-	    	layer.msg(data.result);
+	    	layer.msg(data.message);
 	    	if(data.status==1){
 	    		setTimeout("parent.location.reload()",500);
 	    	}
@@ -135,7 +135,7 @@ function submit_form(){
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-                    layer.alert(data.result);
+                    layer.alert(data.message);
             }
         })
     }

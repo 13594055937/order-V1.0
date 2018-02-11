@@ -1,9 +1,9 @@
 <?php 
 namespace app\engineer\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\engineer\model\Engineerrate as EngineerrateModel;
-class Engineerrate extends Controller{
+class Engineerrate extends Accesscontrol{
     // 查看
     public function index(){
         $count=EngineerrateModel::count();
@@ -52,9 +52,9 @@ class Engineerrate extends Controller{
             'status'=>$data['status']
             ];
             $type=EngineerrateModel::create($test);
-            $result=$type?"工程师类别添加成功。":"系统错误，添加失败。";
+            $message=$type?"工程师类别添加成功。":"系统错误，添加失败。";
             $status=$type?1:0;
-            return ['result'=>$result,'status'=>$status];
+            return ['message'=>$message,'status'=>$status];
         }
         return $this->fetch();
     }
@@ -68,9 +68,9 @@ class Engineerrate extends Controller{
             'status'=>$data['status']
             ];
             $update=EngineerrateModel::where('id',$data['id'])->update($test);
-            $result=$update?"工程师类别更新成功。":"系统错误，添加失败。";
+            $message=$update?"工程师类别更新成功。":"系统错误，添加失败。";
             $status=$update?1:0;
-            return ['result'=>$result,'status'=>$status];
+            return ['message'=>$message,'status'=>$status];
         }
         $id=$request->param('id');
         $list=EngineerrateModel::get($id);

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\node\index.html";i:1518061232;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\meta.html";i:1518159452;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\node\index.html";i:1518330062;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\meta.html";i:1518159452;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -98,8 +98,8 @@
             		}
 				layer.confirm('确认要删除这'+oCks.length+'个末级节点吗？',function(){
 				$.post("<?php echo url('system/node/deletenode'); ?>",{id:id},function(data){
-				 console.log(id);	
-				layer.msg(data.result);
+				 // console.log(id);	
+				layer.msg(data.message);
 				});
 				setTimeout("location.reload()",1000);
 				});

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\useredit.html";i:1518161654;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\useredit.html";i:1518330299;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -148,7 +148,7 @@ function submit_form(){
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-                    layer.alert(data.result);
+                    layer.alert(data.message);
             }
         })
     }

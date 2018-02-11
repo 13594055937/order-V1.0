@@ -1,11 +1,11 @@
 <?php 
 namespace app\company\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\company\model\Company as CompanyModel;
 use app\com\model\Province;
 use think\Db;
-class Company extends Controller{
+class Company extends Accesscontrol{
 	public function index(){
 		$list=CompanyModel::paginate(15);
 		$count=CompanyModel::count();
@@ -18,8 +18,8 @@ class Company extends Controller{
         $request = Request::instance();
         $id = $request->param('id');
         $del=CompanyModel::destroy($id);
-        $retuls=$del>0?"公司删除成功。":"系统错误,公司删除失败。";
-        return ['retuls'=>$retuls];
+        $message=$del>0?"公司删除成功。":"系统错误,公司删除失败。";
+        return ['message'=>$message];
     }
      public function deletecompany(){
         $request = Request::instance();
@@ -28,10 +28,10 @@ class Company extends Controller{
         for($i=0;$i<count($data,1)-1;$i++){
         $id=$data['delete'][$i];
         if(CompanyModel::destroy($id)){
-            $rule="公司批量删除成功。";
+            $message="公司批量删除成功。";
          }
     }
-     return ["message"=>$rule];
+     return ["message"=>$message];
     }
     // 停用/启用
     public function status(){
@@ -66,13 +66,13 @@ class Company extends Controller{
         ];
         if(@$data['id']){
              $update=CompanyModel::where('id',$data['id'])->update($test);
-             $retuls=$update?"数据更新成功。":"系统错误，更新失败。";
+             $message=$update?"数据更新成功。":"系统错误，更新失败。";
         }
         else{
         $retuls=CompanyModel::create($test);
-        $retuls=$retuls? '添加公司成功。':'添加公司失败。';
+        $message=$retuls? '添加公司成功。':'添加公司失败。';
     }
-        return ['retuls'=>$retuls];
+        return ['message'=>$message];
 }
     //公司信息修改
     public function companyedit(){

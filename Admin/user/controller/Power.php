@@ -1,13 +1,13 @@
 <?php 
 namespace app\user\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\user\model\Role;
 use app\system\model\Power as PowerModel;
 use app\system\model\Module;
 use app\system\model\Controller as ControllerModel;
 use think\Db;
-class Power extends Controller{
+class Power extends Accesscontrol{
 	public function index(){
 		$list=Role::all();
     $this->assign("list",$list);
@@ -67,8 +67,8 @@ class Power extends Controller{
 		}
 		$id=substr($id,0,strlen($id)-1);
 		$update=Role::where('role_id',$role_id)->update(['powerid'=>$id]);
-        $result=($update)?"授权成功成功。":"系统错误，更新失败。";
-	return ['result'=>$result];
+        $message=($update)?"授权成功成功。":"系统错误，更新失败。";
+	return ['message'=>$message];
 }
 
 

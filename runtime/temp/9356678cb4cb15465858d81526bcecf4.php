@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\company\index.html";i:1518080522;s:90:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\meta.html";i:1518159452;s:92:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\company\index.html";i:1518162941;s:90:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\meta.html";i:1518159452;s:92:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>

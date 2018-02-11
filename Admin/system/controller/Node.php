@@ -1,12 +1,12 @@
 <?php 
 namespace app\system\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\system\model\Power;
 use app\system\model\Module;
 use app\system\model\Controller as ControllerModel;
 use think\Db;
-class Node extends Controller{
+class Node extends Accesscontrol{
 	public function index(){
 		$html=[];
 		$module=Module::all();
@@ -69,9 +69,9 @@ class Node extends Controller{
 				];
 			$result=Power::create($test);
 			}
-          $rule=($result)?"节点添加成功。":"系统错误，添加失败。";
+          $message=($result)?"节点添加成功。":"系统错误，添加失败。";
           $status=($result)?1:0;
-          return ['result'=>$rule,'status'=>$status];
+          return ['message'=>$message,'status'=>$status];
 		}
 		return $this->fetch();
 	}
@@ -104,18 +104,18 @@ class Node extends Controller{
 			$arr = explode(",",$value);
 			if($arr['0']=='module'){
 				$del=Module::destroy($arr['1']);
-				$rule=$del>0?'节点删除成功。':'节点删除失败。';
+				$message=$del>0?'节点删除成功。':'节点删除失败。';
 			}
 			elseif($arr['0']=='controller'){
 				$del=ControllerModel::destroy($arr['1']);
-				$rule=$del>0?'节点删除成功。':'节点删除失败。';
+				$message=$del>0?'节点删除成功。':'节点删除失败。';
 			}
 			elseif($arr['0']=='power'){
 				$del=Power::destroy($arr['1']);
-				$rule=$del>0?'节点删除成功。':'节点删除失败。';
+				$message=$del>0?'节点删除成功。':'节点删除失败。';
 			}
 		}
-	return ['result'=>$rule];
+	return ['message'=>$message];
 }
 
 

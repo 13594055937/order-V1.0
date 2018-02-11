@@ -37,15 +37,16 @@ class Login extends Base
             $user=User::get($test);
             if($user){
                 Session::set('user_info', $user->getData());
-                $role_info=Role::get($user->id);
-                $result="登陆成功。";
+                $role_info=Role::get($user->roleid);
+                 Session::set('role_info',$role_info);
+                $message="登陆成功。";
                 $status=1;
             }else{
-                $result="登陆失败，账号或密码错误。";
+                $message="登陆失败，账号或密码错误。";
             }
         }
         // exit(json_encode(array('status'=>$status,'msg'=>$result)));
-        return ['result'=>$result,'status'=>$status];
+        return ['message'=>$message,'status'=>$status,'info'=>$role_info];
     }
     public function outlogin(){
     Session::delete('user_info');

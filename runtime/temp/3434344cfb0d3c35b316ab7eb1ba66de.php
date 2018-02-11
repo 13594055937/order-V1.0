@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:79:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/customer\view\customer\index.html";i:1518160474;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/customer\view\..\..\com\view\public\meta.html";i:1518159452;s:93:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/customer\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:79:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/customer\view\customer\index.html";i:1518329720;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/customer\view\..\..\com\view\public\meta.html";i:1518159452;s:93:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/customer\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -153,7 +153,7 @@ function member_edit(url){
 function member_del(id){
 	layer.confirm('确认要删除吗？',function(){
 		$.get("<?php echo url('customer/customerdel'); ?>",{id:id},function(data){
-			layer.msg(data.retuls,{icon:1,time:1000});
+			layer.msg(data.message,{icon:1,time:1000});
 		});
 	setTimeout("location.reload()",500);
 	});

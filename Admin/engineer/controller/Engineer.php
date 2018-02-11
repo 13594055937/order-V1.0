@@ -1,6 +1,6 @@
 <?php 
 namespace app\engineer\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Request;
 use app\engineer\model\Engineer as EngineerModel;
 use app\company\model\Company;
@@ -10,7 +10,7 @@ use app\com\model\Province;
 use app\engineer\model\Engineertype;
 use app\engineer\model\Engineerrate;
 use think\Db;
-class Engineer extends Controller{
+class Engineer extends Accesscontrol{
 	public function index(){
 		$count=EngineerModel::count();
         $list=EngineerModel::paginate(15);
@@ -33,19 +33,19 @@ class Engineer extends Controller{
         $request = Request::instance();
         $id = $request->param('id');
         $del=EngineerModel::destroy($id);
-        $retuls=($del>0)?"用户删除成功。":"系统错误,用户删除失败。";
-        return ['retuls'=>$retuls];
+        $message=($del>0)?"用户删除成功。":"系统错误,用户删除失败。";
+        return ['message'=>$message];
     }
     public function deleteengineer(){
         $request = Request::instance();
         $data=$request->param();
-        $rule='';
+        $message='';
         for($i=0;$i<count($data,1)-1;$i++){
         $id=$data['delete'][$i];
         if(EngineerModel::destroy($id)){
-            $rule="批量删除成功。";
+            $message="批量删除成功。";
          }
-           return ["message"=>$rule];
+           return ["message"=>$message];
     }
 }
 	public function addengineer(){
@@ -80,14 +80,14 @@ class Engineer extends Controller{
          ];
          if($request->ispost()){
              $update=EngineerModel::where('id',$data['id'])->update($test);
-             $result=$update?"工程师信息更新成功。":"系统错误，添加失败。";
+             $message=$update?"工程师信息更新成功。":"系统错误，添加失败。";
              $status=$update?1:0;
-             return ['result'=>$result,'status'=>$status];
+             return ['message'=>$message,'status'=>$status];
          }
         $engineer=EngineerModel::create($test);
-        $result=$engineer?"工程师添加成功。":"系统错误，添加失败。";
+        $message=$engineer?"工程师添加成功。":"系统错误，添加失败。";
         $status=$engineer?1:0;
-        return ['result'=>$result,'status'=>$status];
+        return ['message'=>$message,'status'=>$status];
     }
     public function engineeredit(){
         $request=Request::instance();

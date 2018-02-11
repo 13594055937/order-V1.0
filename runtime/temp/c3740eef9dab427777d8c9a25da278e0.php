@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/login\view\login\index.html";i:1518068279;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/login\view\login\index.html";i:1518318672;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -57,7 +57,8 @@
             success:function(data){
             	layer.alert(data.result);
                 if(data.status==1){
-                window.location.href="<?php echo url('com/index/index'); ?>";
+                	console.log(data.info);
+                // window.location.href="<?php echo url('com/index/index'); ?>";
 				}
                 
             }
