@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\exceladd.html";i:1518502697;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\excelexport.html";i:1518490522;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -29,7 +29,7 @@
       <div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
         <input class="input-text upload-url" type="text" name="uploadfile" id="uploadfile" readonly nullmsg="请添加附件！" style="width:200px">
         <a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont">&#xe642;</i> 浏览文件</a>
-        <input type="file" multiple name="file-2" class="input-file">
+      <!--   <input type="file" multiple name="file-2" class="input-file"> -->
         </span> </div>
     </div>
     </div>
@@ -83,7 +83,6 @@ $(function(){
       url: "<?php echo url('user/user/exceladd'); ?>",
       type: 'post',
       success: function(data) {
-        // console.log(data.message);
         layer.msg(data.message);
         if(data.status==1){
           setTimeout("parent.location.reload()",500);

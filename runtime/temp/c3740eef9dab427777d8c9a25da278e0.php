@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/login\view\login\index.html";i:1518318672;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/login\view\login\index.html";i:1518329965;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -55,10 +55,10 @@
             data:$("form").serialize(),//将表单序列化
             dataType:'json',
             success:function(data){
-            	layer.alert(data.result);
+            	layer.alert(data.message);
                 if(data.status==1){
-                	console.log(data.info);
-                // window.location.href="<?php echo url('com/index/index'); ?>";
+                	// console.log(data.info);
+                window.location.href="<?php echo url('com/index/index'); ?>";
 				}
                 
             }

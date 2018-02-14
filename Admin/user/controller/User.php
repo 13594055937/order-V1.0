@@ -7,10 +7,14 @@ use app\user\model\User as UserModel;
 use app\company\model\Company;
 use app\user\model\Role;
 use think\Db;
+use think\Loader;
 class User extends Accesscontrol{
 	// 用户管理
     public function index(){
-$list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->paginate(10);
+    $list=Db::table('user')->alias('a')
+    ->join('role w','a.roleid = w.role_id')
+    ->join('company b','a.company_id = b.id')
+    ->paginate(5);
 
 // $list=UserModel::paginate(5);
         $count=UserModel::count();
@@ -39,9 +43,9 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
     	return $this->fetch();
     }
     public function usersave(){
-        $status='';
         $request=Request::instance();
         $data=$request->param();
+        $status='';
         $rules=[
             'usercode'=>'require|length:3,15|regex:/^[a-zA-Z0-9]{3,15}$/',
             'username'=>'require|length:2,17',
@@ -68,7 +72,7 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
         'openid'=>$data['openid'],
         'email'=>$data['email'],
         'roleid'=>$data['usertype'],
-        'company'=>$data['company'],
+        'company_id'=>$data['company'],
         'status'=>$data['status'],
         'latestLogin'=>strtotime('now'),
         ];
@@ -126,8 +130,11 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
     public function searchuser(){
         $request = Request::instance();
         $value = $request->param('value');
-      $retuls=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')
-      ->where("usercode like '%$value%' or username like '%$value%'")->paginate(10);
+      $retuls=Db::table('user')->alias('a')
+      ->join('role w','a.roleid = w.role_id')
+      ->join('company b','a.company_id = b.id')
+      ->where("usercode like '%$value%' or username like '%$value%'")
+      ->paginate(10);
        // $retuls = Db::table('user')->where("usercode = '$value' || username = '$value'")->paginate(10); 
         $count = Db::table('user')->where("usercode like '%$value%' or username like '%$value%'")->count();
         $this->assign('list',$retuls);
@@ -155,6 +162,57 @@ $list=Db::table('user')->alias('a')->join('role w','a.roleid = w.role_id')->pagi
         return ['message'=>$message];
     }
     public function exceladd(){
+        $request=Request::instance();
+        if($request->ispost()){
+            //获取表单上传文件
+            $file = request()->file('file-2');
+            //上传验证后缀名,以及上传之后移动的地址
+            $info = $file->validate(['ext' => 'xlsx'])->move(ROOT_PATH . 'public' . DS . 'uploads');
+            if ($info) {
+                $exclePath = $info->getSaveName();  //获取文件名
+                $file_name = ROOT_PATH . 'public' . DS . 'uploads' . DS . $exclePath;   //上传文件的地址
+                $data=$this->importExecl($file_name);
+                if(!empty($data)){
+                    $status=0;
+                    $message="成功";
+                    foreach ($data as $key => $value){
+                         $test=[
+                         'usercode'=>$value['A'],
+                         'username'=>$value['B'],
+                         'userpwd'=>md5($value['B'].$value['C']."~!@"),
+                         'mobile'=>$value['D'],
+                         'openid'=>$value['E'],
+                         'email'=>$value['F'],
+                         'status'=>1,
+                         'latestLogin'=>strtotime('now'),
+                         ];
+                         $role=Role::get(['name'=>$value['G']]);
+                         $test['roleid']=$role->getData('role_id');
+                         $company=Company::get(['company_name'=>$value['H']]);
+                         $test['company_id']=$company->getData('id');
+                         $user=UserModel::create($test);
+                         if(!$user){
+                            $message="格式有误,请按照标准格式输入。";
+                            return ['message'=>$message,'status'=>$status];
+                         }
+                    }
+                    $status=1;
+                    return ['message'=>$message,'status'=>$status];
+                }
+            }
+        }
+            return $this->fetch();
+    }
+    public function excelexport(){
+        // $data=Db::table('user')->field('usercode,username,mobile,openid,email,name,company')
+        // ->alias('a')->join('role w','a.roleid = w.role_id')->paginate(10);
+        // $title=array('用户编号','用户名','手机号','微信号','邮箱','角色名','所属公司');
+        // $fileName='用户信息表';
+        // $rule=$this->exportExcel($title,$data,$fileName,$savePath='./');
+        // if(empty($rule)){
+        //     $rule="导出失败。";
+        // }
+        // return ['message'=>$rule];
         return $this->fetch();
     }
 }
