@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\index.html";i:1518506903;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\index.html";i:1519609071;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -22,23 +22,23 @@
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户管理 <span class="c-gray en">&gt;</span> 用户列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="text-c">
-				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
+				<input type="text" class="input-text" style="width:250px" placeholder="输入用户名、姓名" id="search" name="value">
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="adduser()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a> <a href="javascript:;" onclick="excel_add()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Excel导入</a> <a href="javascript:;" onclick="excelexport()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Excel导出</a></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="adduser()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a> <!-- <a href="javascript:;" onclick="excel_add()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Excel导入</a> <a href="javascript:;" onclick="excelexport()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Excel导出</a> --></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
 			<form action="">
 			<div class="mt-20">
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
 							<th><input type="checkbox" name="" id="checkbox"></th>
-							<th>用户ID</th>
-							<th>用户编号</th>
+							<!-- <th>用户ID</th> -->
 							<th>用户名</th>
+							<th>姓名</th>
 							<th>手机</th>
 							<th>微信号</th>
 							<th>邮箱</th>
@@ -54,9 +54,9 @@
 					<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 						<tr class="text-c">
 							<td width="25">
-							<input type="checkbox" value="<?php echo $vo['id']; ?>" name="delete[]" >
+							<input type="checkbox" value="<?php echo $vo['user_id']; ?>" name="delete[]" >
 							</td>
-							<td><?php echo $vo['id']; ?></td>
+							<!-- <td><?php echo $vo['user_id']; ?></td> -->
 							<td><?php echo $vo['usercode']; ?></td>
 							<td><?php echo $vo['username']; ?></td>
 							<td><?php echo $vo['mobile']; ?></td>
@@ -77,12 +77,12 @@
 							</td>
 							<td class="td-manage">
 							<?php if($vo['status']==1): ?>
-								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['user_id']; ?>)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
 								<?php else: ?>
-								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
+								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['user_id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
 								<?php endif; ?>
-							<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('useredit',['id'=>$vo['id']]); ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-							<a style="text-decoration:none" class="ml-5" onclick="change_password('<?php echo url('changepassword',['id'=>$vo['id']]); ?>')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							<a title="编辑" href="javascript:;" onclick="member_edit('<?php echo url('useredit',['id'=>$vo['user_id']]); ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+							<a style="text-decoration:none" class="ml-5" onclick="change_password('<?php echo url('changepassword',['id'=>$vo['user_id']]); ?>')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(<?php echo $vo['user_id']; ?>)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 						</tr>
 						<?php endforeach; endif; else: echo "" ;endif; ?>
 					</tbody>
@@ -132,15 +132,19 @@ function change_password(url){
 /*用户-搜索*/
 function search(){
 	var search = $('#search').val();
-	window.location.href='searchuser?value='+search;
+	// if(search==''){
+	// 	layer.msg('请输入关键字。');
+	// }else{
+		window.location.href='searchuser?value='+search;
+	// }
 	// $.post("<?php echo url('user/searchuser'); ?>",{value:search});
 }
 /*用户-停用*/
 function member_stop(id){
 	layer.confirm('确认要停用/启用吗？',function(){
-		$.post("<?php echo url('user/status'); ?>",{id:id},function(data){
+		$.post("<?php echo url('user/status'); ?>",{user_id:id},function(data){
 		layer.msg(data.message);
-		setTimeout("location.reload()",1000);
+		setTimeout("location.reload()",500);
 		});
 	});
 }
@@ -148,7 +152,7 @@ function member_stop(id){
 function member_edit(url){
 	layer.open({
   type: 2 //Page层类型
-  ,area: ['770px', '580px']
+  ,area: ['770px', '540px']
   ,title: '用户添加'
   ,shade: 0.6 //遮罩透明度
   ,maxmin: true //允许全屏最小化

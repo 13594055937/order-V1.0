@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\node\index.html";i:1518330062;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\meta.html";i:1518159452;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\node\index.html";i:1519615806;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\meta.html";i:1518159452;s:91:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/system\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,7 +28,7 @@
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户中心 <span class="c-gray en">&gt;</span> 会员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 基础数据管理 <span class="c-gray en">&gt;</span> 节点管理<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="" id='btn_getCk' class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除支点</a> <a href="javascript:;" onclick="add()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加节点</a><!--  <a href="javascript:;" onclick="updata()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 修改节点</a> --></span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
@@ -63,8 +63,8 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
-<script type="text/javascript" src="__STATIC__/lib/layer/layui-xtree.js"></script>
-<script type="text/javascript" src="__STATIC__/layui//layui.js"></script>
+<script type="text/javascript" src="__STATIC__/layui/layui-xtree.js"></script>
+<script type="text/javascript" src="__STATIC__/layui/layui.js"></script>
 <script type="text/javascript">
  //tree数据结构
    var json =<?php echo $json; ?>;

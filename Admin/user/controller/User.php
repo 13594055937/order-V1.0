@@ -9,33 +9,38 @@ use app\user\model\Role;
 use think\Db;
 use think\Loader;
 class User extends Accesscontrol{
-	// 用户管理
+	// 用户列表
     public function index(){
-    $list=Db::table('user')->alias('a')
-    ->join('role w','a.roleid = w.role_id')
-    ->join('company b','a.company_id = b.id')
-    ->paginate(5);
-
-// $list=UserModel::paginate(5);
+        $this->control(3);
+        // $this->addlog('查看用户列表');
+        $list=Db::table('user')->alias('a')
+        ->join('role w','a.roleid = w.role_id')
+        ->join('company b','a.company_id = b.id')
+        ->paginate(5);
         $count=UserModel::count();
-        // $list=UserModel::paginate(3);
         $this->assign("list",$list);
         $this->assign("count",$count);
-       return $this->fetch();
+        return $this->fetch();
     }
     // 启用/停用
     public function status(){
-
+        $message=$this->control(2);
+        if(empty($message)){
     	$request = Request::instance();
-    	$id = $request->param('id');
-    	$user = UserModel::get($id);
-    	$status=($user->getData('status')===1)?0:1;
-    	$rule=UserModel::where(['id'=>$id])->update(['status'=>$status]);
+    	$id = $request->param('user_id');
+        $status=UserModel::where('user_id',$id)->value('status');
+    	$status=($status==1)?0:1;
+    	$rule=UserModel::where(['user_id'=>$id])->update(['status'=>$status]);
+        $user=UserModel::where('user_id',$id)->value('usercode');
+        $info=($status==0)?'禁用':'启用';
+        $this->addlog($info.$user);
     	$message=($rule===null)?"操作失败":"操作成功";
+        }
     	return ['message'=>$message];
     }
     //添加
     public function adduser(){
+        $this->control(4);
         $role=Role::all();
         $company=Company::all();
         $this->assign('company',$company);
@@ -47,23 +52,33 @@ class User extends Accesscontrol{
         $data=$request->param();
         $status='';
         $rules=[
-            'usercode'=>'require|length:3,15|regex:/^[a-zA-Z0-9]{3,15}$/',
-            'username'=>'require|length:2,17',
-            // 'password'=>'require|length:6,17|regex:/^[a-zA-Z0-9_.@~!?]{6,17}$/',
+            // 'usercode'=>'require|length:3,15|regex:/^[a-zA-Z0-9]{3,15}$/',
+            'usercode'=>'require|length:2,17',
+            'username'=>'require|length:2,12',
+            'password'=>'require|length:6,17|regex:/^[a-zA-Z0-9_.@~!?]{6,17}$/',
             'mobile'=>'require|length:11|regex:/^[0-9]{11}$/',
-            'openid'=>'require|length:6,20|regex:/^[a-zA-Z0-9_-]{6,20}$/',
-            'email'=>'require|email'
+            'openid'=>'length:6,20|regex:/^[a-zA-Z0-9_-]{6,20}$/',
+            'email'=>'email',
+            'usertype'=>'require',
+            'company'=>'require'
         ];
         $msg=[
-          'usercode'=>['require'=>'编号不能为空，请输入编号。','length'=>'请输入编号长度为3-15的字符','regex'=>'编号不符合规则。'],
-            'username'=>['require'=>'用户名不能为空，请输入用户名。'],
-            // 'password'=>['require'=>'密码不能为空，请输入用密码。','length'=>'请输入密码长度为6-17的字符','regex'=>'密码不符合规则。'],
+            'usercode'=>['require'=>'用户名不能为空，请输入用户名。','length'=>'请输入编号长度为2-17的字符'],
+            'username'=>['require'=>'姓名不能为空，请输入用户名。','length'=>'请输入编号长度为2-12的字符'],
+            'password'=>['require'=>'密码不能为空，请输入用密码。','length'=>'请输入密码长度为6-17的字符','regex'=>'密码不符合规则。'],
              'mobile'=>['require'=>'手机号不能为空，请输入手机号。','length'=>'手机号长度有误。','regex'=>'手机号不符合规则。'],
-            'openid'=>['require'=>'微信号不能为空，请输入用微信号。','length'=>'请输入微信号长度为6-20的字符','regex'=>'微信号不符合规则。'],
-            'email'=>['require'=>'邮箱不能为空,请输入邮箱。','email'=>'请输入正确的邮箱格式。']
+            'openid'=>['length'=>'请输入微信号长度为6-20的字符','regex'=>'微信号不符合规则。'],
+            'email'=>['email'=>'请输入正确的邮箱格式。'],
+            'usertype'=>['require'=>'请选择用户类型'],
+            'compay'=>['require'=>'请选择所属公司。']
         ];
         $message=$this->validate($data,$rules,$msg);
         if($message===true){
+            if(UserModel::get(['usercode'=>$data['usercode']])){
+                $message="用户名已存在。";
+                $this->addlog('添加用户：'.$data['usercode'].','.'结果：'.$message);
+                return ['message'=>$message,'status'=>$status];
+            }
             $test=[
         'usercode'=>$data['usercode'],
         'username'=>$data['username'],
@@ -76,58 +91,111 @@ class User extends Accesscontrol{
         'status'=>$data['status'],
         'latestLogin'=>strtotime('now'),
         ];
-        if(@$data['id']){
-            $update=UserModel::where('id',$data['id'])->update($test);
-            $message=($update>0)?"用户更新成功。":"系统错误，更新失败。";
-            $status=($update>0)?1:0;
-    }
-        else{
-        $test['userpwd']=md5($data['username'].$data['password']."~!@");
+        $test['userpwd']=md5($data['usercode'].$data['password']."~!@");
         $user=UserModel::create($test);
         $message=$user?"用户添加成功。":"系统错误，添加失败。";
         $status=$user?1:0;
-        }
+        $this->addlog('添加用户：'.$data['usercode'].','.'结果：'.$message);
 }
         return ['message'=>$message,'status'=>$status];
     }
     //编辑用户
     public function useredit(){
+        $this->control(1);
         $request = Request::instance();
+        if($request->ispost()){
+            $data=$request->param();
+            $status='';
+        $rules=[
+            'usercode'=>'require|length:2,17',
+            'username'=>'require|length:2,12',
+            'mobile'=>'require|length:11|regex:/^[0-9]{11}$/',
+            'openid'=>'length:6,20|regex:/^[a-zA-Z0-9_-]{6,20}$/',
+            'email'=>'email',
+            'usertype'=>'require',
+            'company'=>'require'
+        ];
+        $msg=[
+            'usercode'=>['require'=>'用户名不能为空，请输入用户名。','length'=>'请输入编号长度为2-17的字符'],
+            'username'=>['require'=>'姓名不能为空，请输入用户名。','length'=>'请输入编号长度为2-12的字符'],
+             'mobile'=>['require'=>'手机号不能为空，请输入手机号。','length'=>'手机号长度有误。','regex'=>'手机号不符合规则。'],
+            'openid'=>['length'=>'请输入微信号长度为6-20的字符','regex'=>'微信号不符合规则。'],
+            'email'=>['email'=>'请输入正确的邮箱格式。'],
+            'usertype'=>['require'=>'请选择用户类型'],
+            'compay'=>['require'=>'请选择所属公司。']
+        ];
+        $message=$this->validate($data,$rules,$msg);
+        if($message===true){
+            $code=UserModel::where(['usercode'=>$data['usercode']])->value('user_id');
+             if($code && $code!=$data['id']){
+                $message="用户名已存在。";
+                $this->addlog('修改用户：'.$data['usercode'].','.'结果：'.$message);
+                return ['message'=>$message,'status'=>$status];
+            }
+             $test=[
+        'usercode'=>$data['usercode'],
+        'username'=>$data['username'],
+        'mobile'=>$data['mobile'],
+        'openid'=>$data['openid'],
+        'email'=>$data['email'],
+        'roleid'=>$data['usertype'],
+        'company_id'=>$data['company']
+        ];
+        $updata=UserModel::where('user_id',$data['id'])->update($test);
+        $message=$updata?"用户更新成功。":"系统错误，添加失败。"; 
+        $this->addlog('修改用户：'.$data['usercode'].','.'结果：'.$message);
+        $status=$updata?1:0;
+    }
+        return ['message'=>$message,'status'=>$status];
+        }
         $id = $request->param('id');
         $list=UserModel::get($id);
         $company=Company::all();
         $role=Role::all();
         $this->assign('company',$company);
-         $this->assign('role',$role);
+        $this->assign('role',$role);
         $this->assign('list',$list);
         return $this->fetch();
     }
     //删除用户
     public function userdel(){
+        $message=$this->control(5);
+        if(empty($message)){
         $request = Request::instance();
         $id = $request->param('id');
+        $user=UserModel::where('user_id',$id)->value('usercode');
         $del=UserModel::destroy($id);
         if($del>0){
             $message="用户删除成功。";
         }else{
             $message="系统错误,用户删除失败。";
         }
+        $this->addlog('删除用户：'.$user.'，'.'结果：'.$message);
+    }
         return ['message'=>$message];
     }
     public function deleteuser(){
+        $message=$this->control(6);
+        if(empty($message)){
         $request = Request::instance();
         $data=$request->param();
         $message='';
+        $user='';
         for($i=0;$i<count($data,1)-1;$i++){
         $id=$data['delete'][$i];
+        $rule=UserModel::where('user_id',$id)->value('usercode');
+        $user.=$rule.',';
         if(UserModel::destroy($id)){
             $message="批量删除成功。";
          }
     }
+     $this->addlog('批量删除用户：'.$user.'结果：'.$message);
+}
     return ["message"=>$message];
     }
     //搜索用户
     public function searchuser(){
+        $this->control(7);
         $request = Request::instance();
         $value = $request->param('value');
       $retuls=Db::table('user')->alias('a')
@@ -137,29 +205,35 @@ class User extends Accesscontrol{
       ->paginate(10);
        // $retuls = Db::table('user')->where("usercode = '$value' || username = '$value'")->paginate(10); 
         $count = Db::table('user')->where("usercode like '%$value%' or username like '%$value%'")->count();
+        $this->addlog('搜索用户关键信息：'.$value.','.'结果：'.$message);
         $this->assign('list',$retuls);
-         $this->assign('count',$count);
+        $this->assign('count',$count);
         return $this->fetch('index');
     }
     //密码修改
     public function changepassword(){
+        $this->control(15);
         $request = Request::instance();
+        if($request->ispost()){
+            $status=0;
+            $data = $request->param();
+            $user=UserModel::where('user_id',$data['id'])->value('usercode');
+            if($data['pwd']!==md5($data['username'].$data['password']."~!@")){
+                $message="旧密码错误。";
+                 $this->addlog('修改用户：'.$user.'密码，'.'结果：'.$message);
+            }else{
+                $newpassword=md5($data['username'].$data['newpassword1']."~!@");
+                $update=UserModel::where('user_id',$data['id'])->update(['userpwd'=>$newpassword]);
+                $message=$update?'更改密码成功':'更改密码失败';
+                $status=$update?1:0;
+                $this->addlog('修改用户：'.$user.'密码，'.'结果：'.$message);
+            }
+            return ['message'=>$message,'status'=>$status];
+        }
         $id = $request->param('id');
         $list = UserModel::get($id);
         $this->assign('list',$list);
         return $this->fetch();
-    }
-    public function pwdsave(){
-         $request = Request::instance();
-        $data = $request->param();
-        if($data['pwd']!==md5($data['username'].$data['password']."~!@")){
-            $message="旧密码错误。";
-        }else{
-        $newpassword=md5($data['username'].$data['newpassword1']."~!@");
-         $update=UserModel::where('id',$data['id'])->update(['userpwd'=>$newpassword]);
-        $message=$update?'更改密码成功':'更改密码失败';
-        }
-        return ['message'=>$message];
     }
     public function exceladd(){
         $request=Request::instance();
@@ -174,7 +248,7 @@ class User extends Accesscontrol{
                 $data=$this->importExecl($file_name);
                 if(!empty($data)){
                     $status=0;
-                    $message="成功";
+                    $message="excel导入用户成功";
                     foreach ($data as $key => $value){
                          $test=[
                          'usercode'=>$value['A'],

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\role\index.html";i:1518161608;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\role\index.html";i:1519290609;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,10 +22,11 @@
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
 			<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="role_add()"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong><?php echo $count; ?></strong> 条</span> </div>
+			<form action="">
 			<div class="mt-10">
 			<table class="table table-border table-bordered table-hover table-bg">
 				<thead>
@@ -33,7 +34,7 @@
 						<th scope="col" colspan="8">角色管理</th>
 					</tr>
 					<tr class="text-c">
-						<th width="25"><input type="checkbox" value="" name=""></th>
+						<th width="25"><input type="checkbox" value="" name="" id="checkbox"></th>
 						<th width="">ID</th>
 				<!-- 		<th width="">父ID</th> -->
 						<th width="">角色名</th>
@@ -47,7 +48,7 @@
 				<tbody>
 				<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 					<tr class="text-c">
-						<td><input type="checkbox" value="" name=""></td>
+						<td><input type="checkbox" value="<?php echo $vo['role_id']; ?>" name="delete[]"></td>
 						<td><?php echo $vo['role_id']; ?></td>
 			<!-- 			<td><?php echo $vo['father_id']; ?></td> -->
 						<td><?php echo $vo['name']; ?></td>
@@ -75,6 +76,7 @@
 				</tbody>
 			</table>
 			</div>
+			</form>
 		</article>
 	</div>
 
@@ -115,18 +117,39 @@ function member_stop(id){
 /*角色-删除*/
 function member_del(id){
 	layer.confirm('确认要删除吗？删除前请确保该角色中没有用户。',function(){
-		// $.get("<?php echo url('role/roledel'); ?>",{role_id:id},function(data){
-			// layer.msg(data.retuls,{icon:1,time:1000});
-			layer.msg('删除失败',{icon:1,time:1000});
-		// });
-	setTimeout("location.reload()",1000);
+		$.post("<?php echo url('role/roledel'); ?>",{role_id:id},function(data){
+			layer.msg(data.message);
+			if(data.status==1){
+				setTimeout("location.reload()",500);
+			}
+		});
 	});
+}
+function datadel(){
+	var len=$("input:checkbox:checked").length;
+	if($('#checkbox').prop('checked') ){
+		len = len-1
+	}
+	 if(len==0){
+	 layer.msg("没有选中角色。");
+	}
+	 else{
+	 	layer.confirm('确定要删除这'+len+'个角色吗？',function(){
+	 	$.post("<?php echo url('deleterole'); ?>",$('form').serializeArray(),
+	 	 function(data){
+	 		layer.msg(data.message);
+	 		if(data.status){
+	 		setTimeout("location.reload()",1000);
+	 		}
+	 	});
+	 })
+	}
 }
 /*角色-编辑*/
 function member_edit(url){
 	layer.open({
   type: 2 //Page层类型
-  ,area: ['500px', '400px']
+  ,area: ['500px', '300px']
   ,title: '用户添加'
   ,shade: 0.6 //遮罩透明度
   ,maxmin: true //允许全屏最小化

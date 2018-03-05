@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\power\poweredit.html";i:1518330335;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\power\poweredit.html";i:1519368947;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -57,6 +57,7 @@
 <script type="text/javascript">
         //json数据
         var json = <?php echo $json; ?>;
+        // console.log(json);
 
         layui.use(['form'], function () {
         var form = layui.form;
@@ -89,7 +90,7 @@
                   id[i]=oCks[i].value;
                 }
         $.post("<?php echo url('user/power/addpower'); ?>",{id:id,role_id:role_id},function(data){
-         console.log(id); 
+         // console.log(id); 
         layer.msg(data.message);
         });
         setTimeout("location.reload()",1000);

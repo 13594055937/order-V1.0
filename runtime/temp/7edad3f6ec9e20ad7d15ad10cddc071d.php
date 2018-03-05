@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\role\roleadd.html";i:1518160654;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\role\roleadd.html";i:1518330335;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -20,12 +20,6 @@
 <title>H-ui.admin v3.1</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-</head>
-<body>
-<title>新建网站角色 - 管理员管理 - H-ui.admin v3.0</title>
-<meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
-<link rel="stylesheet" type="text/css" href="__STATIC__/css/tree.css" />
 </head>
 <body>
 <article class="cl pd-20">
@@ -121,26 +115,26 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-$(function(){
-	$(".permission-list dt input:checkbox").click(function(){
-		$(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
-	});
-	$(".permission-list2 dd input:checkbox").click(function(){
-		var l =$(this).parent().parent().find("input:checked").length;
-		var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
-		if($(this).prop("checked")){
-			$(this).closest("dl").find("dt input:checkbox").prop("checked",true);
-			$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
-		}
-		else{
-			if(l==0){
-				$(this).closest("dl").find("dt input:checkbox").prop("checked",false);
-			}
-			if(l2==0){
-				$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
-			}
-		}
-	});
+// $(function(){
+// 	$(".permission-list dt input:checkbox").click(function(){
+// 		$(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+// 	});
+// 	$(".permission-list2 dd input:checkbox").click(function(){
+// 		var l =$(this).parent().parent().find("input:checked").length;
+// 		var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+// 		if($(this).prop("checked")){
+// 			$(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+// 			$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+// 		}
+// 		else{
+// 			if(l==0){
+// 				$(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+// 			}
+// 			if(l2==0){
+// 				$(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+// 			}
+// 		}
+// 	});
 	
 	$("#form-admin-role-add").validate({
 		rules:{
@@ -160,18 +154,15 @@ $(function(){
 	    url: "<?php echo url('role/rolesave'); ?>",
 	    type: 'post',
 	    success: function(data) {
+	    	layer.msg(data.message);
 	    	if(data.status==1){
-	    		layer.msg(data.result);
 	    		// setTimeout("parent.layer.closeAll();",1000);
 	    		setTimeout("parent.location.reload()",1000);
-	    	}
-	    	else{
-	    		 layer.msg(data.result);
 	    	}
 	   
 	    }
 	 }
-});	
+
 $(function () {
     $(".item-name > i").click(function(){
         $(this).parent().parent().toggleClass("unfold")

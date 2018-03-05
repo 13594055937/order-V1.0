@@ -7,7 +7,6 @@
  */
 namespace app\user\model;
 use think\Model;
-use app\user\model\Role;
 class User extends Model
 {
     // 关闭自动写入update_time字段

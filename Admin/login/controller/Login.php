@@ -26,11 +26,11 @@ class Login extends Base
             'name'=>['require'=>'账号不能为空，请输入账号。'],
             'password'=>['require'=>'密码不能为空，请输入密码'],
         ];
-        $result=$this->validate($data,$rules,$msg);
-        if($result===true){
+        $message=$this->validate($data,$rules,$msg);
+        if($message===true){
             $password=md5($data['name'].$data['password']."~!@");
             $test=[
-                'username'=>$data['name'],
+                'usercode'=>$data['name'],
                 'userpwd'=>$password,
                  'status'=>1,
             ];
@@ -38,7 +38,8 @@ class Login extends Base
             if($user){
                 Session::set('user_info', $user->getData());
                 $role_info=Role::get($user->roleid);
-                 Session::set('role_info',$role_info);
+                Session::set('role_info',$role_info);
+                $this->addlog('登陆成功');
                 $message="登陆成功。";
                 $status=1;
             }else{
@@ -46,10 +47,12 @@ class Login extends Base
             }
         }
         // exit(json_encode(array('status'=>$status,'msg'=>$result)));
-        return ['message'=>$message,'status'=>$status,'info'=>$role_info];
+        return ['message'=>$message,'status'=>$status];
     }
     public function outlogin(){
-    Session::delete('user_info');
-    $this->success('正在注销用户，请稍后。',url('login/login/index'));
+        $this->addlog('注销用户');
+        Session::delete('user_info');
+        Session::delete('role_info');
+        $this->success('正在注销用户，请稍后。',url('login/login/index'));
     }
 }

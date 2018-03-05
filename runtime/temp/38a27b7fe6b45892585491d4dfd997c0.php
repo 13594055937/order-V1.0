@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\useredit.html";i:1518397507;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:74:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\useredit.html";i:1519627159;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,8 +24,7 @@
 <body>
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
-	<input type="hidden" name="id" value="<?php echo $list['id']; ?>">
-	<input type="hidden" name="password" value="<?php echo $list['userpwd']; ?>">
+	<input type="hidden" name="id" value="<?php echo $list['user_id']; ?>">
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -70,14 +69,13 @@
 			<label class="form-label col-xs-4 col-sm-3">所在公司：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="company">
-					<option value="<?php echo $list['company']; ?>" selected><?php echo $list['company']; ?></option>
-					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $list['name']; ?>"><?php echo $list['name']; ?></option>
+					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list1): $mod = ($i % 2 );++$i;?>
+					<option value="<?php echo $list1['id']; ?>" <?php if(($list1['id'] == $list['company_id'])): ?>selected<?php endif; ?>><?php echo $list1['company_name']; ?></option>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
 		</div>
-		<div class="row cl">
+		<!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
@@ -89,9 +87,10 @@
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
-		</div>
+		</div> -->
+		<br>
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -110,21 +109,54 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-function submit_form(){
-        $.ajax({
-            type:"POST",
-            // url:"<?php echo url('loginvalidate'); ?>",
-            url:"<?php echo url('usersave'); ?>",
-            data:$("form").serialize(),//将表单序列化
-            dataType:'json',
-            success:function(data){
-                    layer.alert(data.message);
-                    if(data.status===1){
-                    setTimeout("parent.location.reload()",500);
-                    }
+$(function(){
+	$("#form-member-add").validate({
+		// rules:{
+		// 	usercode:{
+		// 		required:true,
+		// 		minlength:3,
+		// 		maxlength:15,
+		// 	},
+		// 	username:{
+		// 		required:true,
+		// 		minlength:2,
+		// 		maxlength:17,
+		// 	},
+		// 	mobile:{
+		// 		required:true,
+		// 		rangelength:[11,11],
+		// 	},
+		// 	openid:{
+		// 		required:true,
+		// 		minlength:6,
+		// 		maxlength:20,
+		// 	},
+		// 	email:{
+		// 		required:true,
+		// 		email: true
+		// 	},
+		// },
+		// messages: {
+  //     // companycode: {
+  //     //   required: "请输入公司名",
+  //     // },
+  // },
+		submitHandler: function(form) {
+            $(form).ajaxSubmit(options);
+            return false;
+        }
+    })
+	var options = {
+	    url:"<?php echo url('useredit'); ?>",
+	    type: 'post',
+	    success:function(data){
+	    	layer.msg(data.message);
+            if(data.status===1){
+            setTimeout("parent.location.reload()",500);
+                 }
             }
-        })
-    }
+	    } 
+})
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

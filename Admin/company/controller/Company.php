@@ -38,8 +38,8 @@ class Company extends Accesscontrol{
     	$request = Request::instance();
         $id=$request->param('id');
         $company = CompanyModel::get($id);
-    	$status=($company->getData('status')===1)?0:1;
-    	$rule=CompanyModel::where(['id'=>$id])->update(['status'=>$status]);
+    	$status=($company->getData('company_status')===1)?0:1;
+    	$rule=CompanyModel::where(['id'=>$id])->update(['company_status'=>$status]);
     	$message=($rule===null)?"操作失败":"操作成功";
     	return ['message'=>$message];
     }
@@ -54,7 +54,7 @@ class Company extends Accesscontrol{
         $data=$request->param();
         $test=[
         'code'=>$data["companycode"],
-        'name'=>$data["companyname"],
+        'company_name'=>$data["companyname"],
         'province'=>$data['province'],
         'city'=>$data['city'],
         'area'=>$data['area'],

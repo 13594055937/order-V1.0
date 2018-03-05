@@ -1,8 +1,7 @@
 {include file="/../../com/view/public/meta" /}
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
-	<input type="hidden" name="id" value="{$list.id}">
-	<input type="hidden" name="password" value="{$list.userpwd}">
+	<input type="hidden" name="id" value="{$list.user_id}">
 	<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -48,12 +47,12 @@
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="company">
 					{volist name="company" id="list1"}
-					<option value="{$list1.id}" {if condition="($list['id'] == $list1['company_id'])"}selected{/if}>{$list.name}</option>
+					<option value="{$list1.id}" {if condition="($list1['id'] == $list['company_id'])"}selected{/if}>{$list1.company_name}</option>
 					{/volist}
 				</select>
 				</span> </div>
 		</div>
-		<div class="row cl">
+		<!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户状态：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
@@ -65,9 +64,10 @@
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
-		</div>
+		</div> -->
+		<br>
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="button" onclick="submit_form()" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 		</div>
 	</form>
@@ -80,21 +80,54 @@
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script> 
 <script type="text/javascript">
-function submit_form(){
-        $.ajax({
-            type:"POST",
-            // url:"{:url('loginvalidate')}",
-            url:"{:url('usersave')}",
-            data:$("form").serialize(),//将表单序列化
-            dataType:'json',
-            success:function(data){
-                    layer.alert(data.message);
-                    if(data.status===1){
-                    setTimeout("parent.location.reload()",500);
-                    }
+$(function(){
+	$("#form-member-add").validate({
+		// rules:{
+		// 	usercode:{
+		// 		required:true,
+		// 		minlength:3,
+		// 		maxlength:15,
+		// 	},
+		// 	username:{
+		// 		required:true,
+		// 		minlength:2,
+		// 		maxlength:17,
+		// 	},
+		// 	mobile:{
+		// 		required:true,
+		// 		rangelength:[11,11],
+		// 	},
+		// 	openid:{
+		// 		required:true,
+		// 		minlength:6,
+		// 		maxlength:20,
+		// 	},
+		// 	email:{
+		// 		required:true,
+		// 		email: true
+		// 	},
+		// },
+		// messages: {
+  //     // companycode: {
+  //     //   required: "请输入公司名",
+  //     // },
+  // },
+		submitHandler: function(form) {
+            $(form).ajaxSubmit(options);
+            return false;
+        }
+    })
+	var options = {
+	    url:"{:url('useredit')}",
+	    type: 'post',
+	    success:function(data){
+	    	layer.msg(data.message);
+            if(data.status===1){
+            setTimeout("parent.location.reload()",500);
+                 }
             }
-        })
-    }
+	    } 
+})
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

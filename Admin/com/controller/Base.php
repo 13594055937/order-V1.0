@@ -1,12 +1,12 @@
 <?php 
 namespace app\com\controller;
-use think\Controller;
+use app\com\controller\Accesscontrol;
 use think\Session;
-class Base extends Controller
+class Base extends Accesscontrol
 {
 	protected function _initialize(){
 		// parent::initialize();
-		define('USER_ID', session::get('user_info.id'));
+		define('USER_ID', session::get('user_info.user_id'));
 	}
 	protected function unlogin(){
 		if(empty(USER_ID))

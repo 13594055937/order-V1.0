@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\adduser.html";i:1518505302;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\user\adduser.html";i:1519607823;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -25,13 +25,13 @@
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
 	<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="3到15位字符由字母开头、数字组合" id="" name="usercode">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="2到17位字符组合" id="username" name="username">
 			</div>
@@ -64,6 +64,7 @@
 			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="usertype">
+					<option value="" selected>请选择用户类型</option>
 				<?php if(is_array($role) || $role instanceof \think\Collection || $role instanceof \think\Paginator): $i = 0; $__LIST__ = $role;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo1): $mod = ($i % 2 );++$i;?>
 					<option value="<?php echo $vo1['role_id']; ?>"><?php echo $vo1['name']; ?></option>
 				<?php endforeach; endif; else: echo "" ;endif; ?>
@@ -76,7 +77,7 @@
 				<select class="select" size="1" name="company">
 					<option value="" selected>请选择公司</option>
 					<?php if(is_array($company) || $company instanceof \think\Collection || $company instanceof \think\Paginator): $i = 0; $__LIST__ = $company;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?>
-					<option value="<?php echo $list['id']; ?>"><?php echo $list['name']; ?></option>
+					<option value="<?php echo $list['id']; ?>"><?php echo $list['company_name']; ?></option>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
 				</select>
 				</span> </div>
@@ -93,37 +94,7 @@
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理分组：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">用户管理</label>
-				</div>
-				<div class="radio-box">
-					<input type="checkbox" id="" name="">
-					<label for="sex-2">公司管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">客户管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工程师管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工单查询</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">基础数据管理</label>
-				</div>
-			</div>
-		</div>
-<br> -->
+		</div>	<br> 
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="button" onclick="submit_form('usersave')" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>

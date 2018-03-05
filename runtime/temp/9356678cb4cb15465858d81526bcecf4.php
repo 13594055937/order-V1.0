@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\company\index.html";i:1518162941;s:90:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\meta.html";i:1518159452;s:92:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\company\index.html";i:1519270391;s:90:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\meta.html";i:1518159452;s:92:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/company\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -55,14 +55,14 @@
 							</td>
 							<td><?php echo $vo['id']; ?></td>
 							<td><?php echo $vo['code']; ?></td>
-							<td><?php echo $vo['name']; ?></td>
+							<td><?php echo $vo['company_name']; ?></td>
 							<td><?php echo $vo['province']; ?><?php echo $vo['city']; ?><?php echo $vo['area']; ?><?php echo $vo['position']; ?></td>
 							<td><?php echo $vo['contactname']; ?></td>
 							<td><?php echo $vo['contacttel']; ?></td>
 							<td class="td-status">
-								<?php if($vo['status']==1): ?>
+								<?php if($vo['company_status']==1): ?>
 								<span class="label label-success radius">已启用</span>
-								<?php elseif($vo['status']==0): ?>
+								<?php elseif($vo['company_status']==0): ?>
 								<span class="label label-defaunt radius">已停用</span>
 								<?php else: ?>
 								<span class="label label-defaunt radius">异常</span>'
@@ -70,7 +70,7 @@
 							</td>
 							<td><?php echo $vo['memo']; ?></td>
 							<td class="td-manage">
-							<?php if($vo['status']==1): ?>
+							<?php if($vo['company_status']==1): ?>
 								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> 
 								<?php else: ?>
 								<a style="text-decoration:none" onClick="member_stop(<?php echo $vo['id']; ?>)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>
@@ -143,7 +143,7 @@ function member_edit(url){
 function member_del(id){
 	layer.confirm('确认要删除吗？',function(){
 		$.post("<?php echo url('company/companydel'); ?>",{id:id},function(data){
-			layer.msg(data.retuls,{icon:1,time:1000});
+			layer.msg(data.message,{icon:1,time:1000});
 			    setTimeout("location.reload()",1000);
 			// window.location.replace(location.href);
 		});

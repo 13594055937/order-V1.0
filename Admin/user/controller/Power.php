@@ -17,6 +17,7 @@ class Power extends Accesscontrol{
 		$request = Request::instance();
 		$id=$request->param('id');
 		$list=Role::get($id);
+		$arr_power = explode(",",$list['powerid']);
 		$html=[];
 		$module=Module::all();
 		$controller=ControllerModel::all();
@@ -33,15 +34,11 @@ class Power extends Accesscontrol{
 						foreach ($power as $key => $value2) {
 							if($value1['c_id']==$value2['c_id']){
 						$var2=['title'=> $value2['action_name'], 'value'=>'power,'.$value2['id'],'data'=> []];
-						// $arr = explode(",",$list['powerid']);
-						// if(in_array($value2['c_id'],$arr))
-						// {
-						// 	echo  $value2['c_id'].'<br>';
-						// 		// var_dump($value2['c_id']);
-						// 	// $var2['checked']='true';
-						// }
+						if(in_array($value2['id'],$arr_power))
+						{
+							$var2['checked']=true;
+						}
 						array_push($var1['data'],$var2);
-						// unset($var2['checked']);
 					}
 				}
 						array_push($var['data'],$var1);
@@ -68,7 +65,10 @@ class Power extends Accesscontrol{
 		$id=substr($id,0,strlen($id)-1);
 		$update=Role::where('role_id',$role_id)->update(['powerid'=>$id]);
         $message=($update)?"授权成功成功。":"系统错误，更新失败。";
-	return ['message'=>$message];
+        $status=($update)?1:0;
+        $role=Role::where('role_id',$role_id)->value('name');
+        $this->addlog('修改角色：'.$role.'的权限');
+	return ['message'=>$message,'status'=>$status];
 }
 
 

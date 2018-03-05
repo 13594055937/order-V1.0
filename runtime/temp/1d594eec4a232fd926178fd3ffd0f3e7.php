@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\index\index.html";i:1517992852;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\meta.html";i:1518159452;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\header.html";i:1518330669;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\menu.html";i:1518163528;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\index\index.html";i:1519969181;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\meta.html";i:1518159452;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\header.html";i:1519377880;s:71:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\menu.html";i:1519892191;s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/com\view\public\footer.html";i:1518053708;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -24,8 +24,8 @@
 <body>
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
-        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> 
-            <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> 
+        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">工單管理系統</a> <!-- <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>  -->
+            <span class="logo navbar-slogan f-l mr-10 hidden-xs">v1.0</span> 
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
             <!-- <nav class="nav navbar-nav">
                 <ul class="cl">
@@ -142,9 +142,9 @@
                 <ul>
                     <!-- <li><a data-href="system-base.html" data-title="系统设置" href="javascript:void(0)">系统设置</a></li> -->
                     <li><a data-href="<?php echo url('system/node/index'); ?>" data-title="节点管理" href="javascript:void(0)">节点管理</a></li>
-                   <!--  <li><a data-href="system-data.html" data-title="数据字典" href="javascript:void(0)">数据字典</a></li>
-                    <li><a data-href="system-shielding.html" data-title="屏蔽词" href="javascript:void(0)">屏蔽词</a></li>
-                    <li><a data-href="system-log.html" data-title="系统日志" href="javascript:void(0)">系统日志</a></li> -->
+                  <!--   <li><a data-href="system-data.html" data-title="数据字典" href="javascript:void(0)">数据字典</a></li>
+                    <li><a data-href="system-shielding.html" data-title="屏蔽词" href="javascript:void(0)">屏蔽词</a></li> -->
+                    <li><a data-href="<?php echo url('system/Log/index'); ?>" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
             </ul>
         </dd>
     </dl>
@@ -231,7 +231,7 @@ function myselfinfo(){
 		maxmin: true,
 		shade:0.4,
 		title: '查看信息',
-		content: '<div>管理员信息</div>'
+		content: '<div>管理员信息:<?php echo session('role_info.name'); ?></div>'
 	});
 }
 

@@ -4,7 +4,7 @@ use think\Controller;
 use think\Session;
 use think\Request;
 use think\Loader;
-use PHPExcel\Classes\PHPExcel\IOFactory\PHPExcel_IOFactory;
+use app\system\model\Log;
 class Accesscontrol extends Controller
 {
 	public $powerid;
@@ -22,11 +22,26 @@ class Accesscontrol extends Controller
 				return $message;
 			}
 			else{
-				echo "无权访问";
+				echo "无权访问";exit;
 			}
 		}
 	}
-
+		/**
+* 记录日志
+*/
+	public function addlog($operation){
+		if(Session::get('user_info.usercode')){
+			if(!$operation){
+				exit;
+			}
+			$data['log_user_name'] = Session::get('user_info.usercode');
+			$data['log_name'] = Session::get('user_info.username');
+			$data['log_operation']=$operation;
+			Log::create($data);
+		}else{
+			$this->redirect("login/index/index");
+		}
+	}
 /**
  * excel数据导出
  * @param array $title   标题行名称

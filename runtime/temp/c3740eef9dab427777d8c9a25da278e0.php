@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/login\view\login\index.html";i:1518329965;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/login\view\login\index.html";i:1519607333;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -38,7 +38,7 @@
 		</form>
 	</div>
 </div>
-<div class="footer">Copyright 你的公司名称 by H-ui.admin.page.v3.0</div>
+<div class="footer">Copyright 南京创神星信息科技有限公司 by H-ui.admin.page.v3.0</div>
 
 <script type="text/javascript" src="../../../public/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="../../../public/static/h-ui/js/H-ui.js"></script>

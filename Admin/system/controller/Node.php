@@ -71,6 +71,7 @@ class Node extends Accesscontrol{
 			}
           $message=($result)?"节点添加成功。":"系统错误，添加失败。";
           $status=($result)?1:0;
+          $this->addlog('添加节点:'.$data['nodename'].'，结果：'.$message);
           return ['message'=>$message,'status'=>$status];
 		}
 		return $this->fetch();
@@ -115,6 +116,7 @@ class Node extends Accesscontrol{
 				$message=$del>0?'节点删除成功。':'节点删除失败。';
 			}
 		}
+	$this->addlog('删除节点，结果：'.$message);
 	return ['message'=>$message];
 }
 

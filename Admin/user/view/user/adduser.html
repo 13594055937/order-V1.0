@@ -2,13 +2,13 @@
 <article class="cl pd-20">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
 	<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户编号：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="3到15位字符由字母开头、数字组合" id="" name="usercode">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="2到17位字符组合" id="username" name="username">
 			</div>
@@ -41,6 +41,7 @@
 			<label class="form-label col-xs-4 col-sm-3">用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="usertype">
+					<option value="" selected>请选择用户类型</option>
 				{volist name="role" id="vo1"}
 					<option value="{$vo1.role_id}">{$vo1.name}</option>
 				{/volist}
@@ -53,7 +54,7 @@
 				<select class="select" size="1" name="company">
 					<option value="" selected>请选择公司</option>
 					{volist name="company" id="list"}
-					<option value="{$list.id}">{$list.name}</option>
+					<option value="{$list.id}">{$list.company_name}</option>
 					{/volist}
 				</select>
 				</span> </div>
@@ -70,37 +71,7 @@
 					<label for="sex-2">停用</label>
 				</div>
 			</div>
-		</div>
-		<!-- <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理分组：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">用户管理</label>
-				</div>
-				<div class="radio-box">
-					<input type="checkbox" id="" name="">
-					<label for="sex-2">公司管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">客户管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工程师管理</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">工单查询</label>
-				</div>
-				<div class="radio-box">
-					<input name="" type="checkbox" id="">
-					<label for="sex-1">基础数据管理</label>
-				</div>
-			</div>
-		</div>
-<br> -->
+		</div>	<br> 
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<input class="btn btn-primary radius" type="button" onclick="submit_form('usersave')" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>

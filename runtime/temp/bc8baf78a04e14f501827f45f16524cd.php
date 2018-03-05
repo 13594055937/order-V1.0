@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\power\index.html";i:1517995841;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\power\index.html";i:1519376263;s:87:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\meta.html";i:1518159452;s:89:"C:\PHP\php11\WWW\order\order-v1.0\order/Admin/user\view\..\..\com\view\public\footer.html";i:1518053708;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -25,10 +25,10 @@
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 		<article class="cl pd-20">
-		<div class="text-c">
+		<!-- <div class="text-c">
 				<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、编号" id="search" name="value">
 				<button type="button" class="btn btn-success radius" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-			</div><br>
+			</div> --><br>
 			<!-- <div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="power_add('poweradd')"><i class="Hui-iconfont">&#xe600;</i> 添加权限</a> </span> <span class="r">共有数据：<strong></strong> 条</span> </div>
 			<div class="mt-10"> -->
 			<table class="table table-border table-bordered table-hover table-bg">
@@ -50,7 +50,7 @@
 						<td><?php echo $vo['name']; ?></td>
 						<td><?php echo $vo['bewrite']; ?></td>
 						<td width="8%">
-						<a title="权限管理" href="javascript:;" onclick="member_edit('<?php echo url('poweredit',['id'=>$vo['role_id']]); ?>')" style="text-decoration:none">权限管理</a>
+						<a title="权限管理" href="javascript:;" onclick="member_edit('<?php echo url('poweredit',['id'=>$vo['role_id']]); ?>')" style="text-decoration:none;color:red;">权限管理</a>
 						</td>
 					</tr>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
