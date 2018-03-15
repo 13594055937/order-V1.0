@@ -9,7 +9,7 @@ use app\system\model\Controller as ControllerModel;
 use think\Db;
 class Power extends Accesscontrol{
 	public function index(){
-		$list=Role::all();
+	$list=Role::all();
     $this->assign("list",$list);
     return $this->fetch();
 	}

@@ -174,6 +174,7 @@ class User extends Accesscontrol{
     }
         return ['message'=>$message];
     }
+    
     public function deleteuser(){
         $message=$this->control(6);
         if(empty($message)){
